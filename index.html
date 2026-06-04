@@ -236,11 +236,12 @@ body{background:var(--bg);background-color:#000;color:var(--w);font-family:var(-
 .cta-note{font-size:12px;color:var(--mid);margin-top:14px}
 
 /* ── FOOTER ── */
-.footer{background:var(--bg);padding:24px 48px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px;border-top:1px solid var(--b)}
-.footer-logo{display:flex;align-items:center;cursor:pointer}
-.footer-links{display:flex;gap:20px;flex-wrap:wrap}
-.footer-link{font-size:12px;color:var(--body);letter-spacing:0.05em;text-transform:uppercase;cursor:pointer}
-.footer-copy{font-size:12px;color:var(--mid)}
+.footer{border-top:0.5px solid var(--b);padding:32px 48px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:16px;}
+.footer-copy{font-size:12px;color:var(--body);}
+.footer-links{display:flex;gap:24px;}
+.footer-link{font-size:12px;color:var(--body);text-decoration:none;transition:color 0.15s;cursor:pointer;}
+.footer-link:hover{color:var(--w);}
+@media(max-width:768px){.footer{padding:24px 20px;flex-direction:column;align-items:flex-start;gap:12px;}.footer-links{flex-wrap:wrap;gap:16px;}}
 
 /* RESPONSIVE */
 @media(max-width:1279px){
@@ -567,7 +568,7 @@ body{background:var(--bg);background-color:#000;color:var(--w);font-family:var(-
   pointer-events:none;
   flex-shrink:0;
   position:relative;
-  overflow:hidden;
+  display:flex;align-items:center;justify-content:center;
 }
 
 #floatLogo{
@@ -1029,7 +1030,7 @@ body{background:var(--bg);background-color:#000;color:var(--w);font-family:var(-
 </div>
 </div>
 <div class="pill-dot-wrap" id="pillDot" onclick="openDemo()" style="position:fixed;top:20px;left:0;z-index:999;opacity:0;pointer-events:none;transition:opacity 0.4s ease,left 0s">
-  <div class="pill-dot" id="pill-dot-logo" style="background:#ff0000;border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0;transition:transform 0.1s linear;"><span style="font-size:10px;font-weight:700;color:#000;letter-spacing:-0.02em;line-height:1;">Try!</span></div>
+  <div class="pill-dot" id="pill-dot-logo" style="background:#ff0000;border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0;"><span style="font-size:10px;font-weight:700;color:#000;letter-spacing:-0.02em;line-height:1;">Try!</span></div>
 </div>
 <!-- Dot Menu Popup -->
 
@@ -1391,11 +1392,12 @@ body{background:var(--bg);background-color:#000;color:var(--w);font-family:var(-
 
 <!-- FOOTER -->
 <footer class="footer">
+  <div class="footer-copy">© 2026 RealSnap Inc. All rights reserved.</div>
   <div class="footer-links">
-    <span class="footer-link">Terms</span>
-    <span class="footer-link">Privacy</span>
+    <a class="footer-link" href="https://realsnap.ai/terms">Terms of Service</a>
+    <a class="footer-link" href="https://realsnap.ai/privacy">Privacy Policy</a>
+    <a class="footer-link" href="https://realsnap.ai/cookie-policy">Cookie Policy</a>
   </div>
-  <span class="footer-copy">© 2026 RealSnap Inc.</span>
 </footer>
 <script>
 var sets = [
@@ -2027,14 +2029,15 @@ function selectUC(key, btn) {
 <script>
 // pill-dot 스크롤 회전
 (function(){
-  var lastScroll = 0;
-  var rotation = 0;
+  var deg = 0;
+  var lastScroll = window.scrollY;
   window.addEventListener('scroll', function(){
-    var delta = window.scrollY - lastScroll;
-    rotation += delta * 0.3;
-    lastScroll = window.scrollY;
-    var svg = document.querySelector('.pill-dot-svg');
-    if(svg) svg.style.transform = 'rotate(' + rotation + 'deg)';
+    var currentScroll = window.scrollY;
+    var delta = currentScroll - lastScroll;
+    deg += delta * 0.5;
+    lastScroll = currentScroll;
+    var dot = document.getElementById('pill-dot-logo');
+    if(dot) dot.style.transform = 'rotate(' + deg + 'deg)';
   }, {passive:true});
 })();
 </script>
@@ -2067,20 +2070,6 @@ function selectUC(key, btn) {
 </script>
 
 
-<script>
-(function(){
-  var deg = 0;
-  var lastScroll = window.scrollY;
-  window.addEventListener('scroll', function(){
-    var currentScroll = window.scrollY;
-    var delta = currentScroll - lastScroll;
-    deg += delta * 0.2;
-    lastScroll = currentScroll;
-    var dot = document.getElementById('pill-dot-logo');
-    if(dot) dot.style.transform = 'rotate(' + deg + 'deg)';
-  });
-})();
-</script>
 
 <script>if(document.readyState==="loading"){document.addEventListener("DOMContentLoaded",startApp);}else{startApp();}</script>
 </body>

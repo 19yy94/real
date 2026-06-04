@@ -499,12 +499,11 @@ html,body{background:#000;color:var(--w);font-family:var(--T);-webkit-font-smoot
           </div>
         </a>
         <div class="dropdown-divider"></div>
-        <div class="dropdown-item">
+        <a class="dropdown-item" href="https://realsnap.ai/en/tutorials" target="_blank" style="text-decoration:none">
           <div class="dropdown-item-text">
             <div class="dropdown-item-label">Tutorials</div>
-            
           </div>
-        </div>
+        </a>
 
       </div>
     </li>
@@ -513,7 +512,7 @@ html,body{background:#000;color:var(--w);font-family:var(--T);-webkit-font-smoot
     <li class="nl" onclick="window.open('https://realsnap.ai/en/gallery','_blank')" style="cursor:pointer">Magazine</li>
 
     <!-- PRICING (no dropdown) -->
-    <li class="nl" onclick="window.open('https://realsnap.ai/en/cost','_blank')" style="cursor:pointer;color:#fff;">Pricing</li>
+    <li class="nl" style="cursor:default;color:#fff;">Pricing</li>
 
   </ul>
   <div class="nav-r">
@@ -530,8 +529,8 @@ html,body{background:#000;color:var(--w);font-family:var(--T);-webkit-font-smoot
   <div class="hero-sub">Snap, Drop, and Edit — all included in every plan. No add-ons, no surprises.</div>
 
   <div class="toggle-wrap">
-    <div class="toggle-opt on" id="tog-m" onclick="setToggle('monthly')">Monthly</div>
-    <div class="toggle-opt" id="tog-a" onclick="setToggle('annual')">Annually <span class="save-badge" id="save-badge">Save 10%</span></div>
+    <div class="toggle-opt" id="tog-m" onclick="setToggle('monthly')">Monthly</div>
+    <div class="toggle-opt on" id="tog-a" onclick="setToggle('annual')">Annually <span class="save-badge" id="save-badge">Save 10%</span></div>
   </div>
 </div>
 
@@ -705,6 +704,7 @@ function setToggle(mode){
 (function(){
   var badge = document.getElementById('save-badge');
   if(badge){ badge.style.background='rgba(224,26,10,0.15)'; badge.style.color='#ff6b5b'; badge.style.border='0.5px solid rgba(224,26,10,0.3)'; }
+  setToggle('annual');
 })();
 
 function openDrawer(){document.getElementById('drawer').classList.add('open');document.body.style.overflow='hidden'}
@@ -728,15 +728,13 @@ function toggleFaq(el){
       </div>
     </li>
     <li class="pill-nl" onclick="window.open('https://realsnap.ai/en/gallery','_blank')">Magazine</li>
-    <li class="pill-nl" onclick="window.open('https://realsnap.ai/en/cost','_blank')" style="color:#fff;font-weight:600;">Pricing</li>
+    <li class="pill-nl" style="color:#fff;font-weight:600;cursor:default;">Pricing</li>
   </ul>
   <button class="pill-btn" onclick="window.open('https://realsnap.ai/auth/signIn','_blank')">Get started</button>
 </div>
 </div>
-<div class="pill-dot-wrap" id="pillDot" onclick="openDemo()" style="position:fixed;top:20px;left:0;z-index:999;opacity:0;pointer-events:none;transition:opacity 0.4s ease,left 0s">
-  <div class="pill-dot-wrap">
-    <div class="pill-dot" id="pill-dot-logo"><span style="font-size:10px;font-weight:700;color:#000;letter-spacing:-0.02em;line-height:1;">Try!</span></div>
-  </div>
+<div class="pill-dot-wrap" id="pillDot" onclick="openDemo()" style="position:fixed;top:20px;left:0;z-index:999;opacity:0;pointer-events:none;transition:opacity 0.4s ease,left 0s;width:48px;height:48px;min-width:48px;min-height:48px;background:rgba(50,50,50,0.45);backdrop-filter:blur(24px);-webkit-backdrop-filter:blur(24px);border:1px solid rgba(255,255,255,0.1);border-radius:50%;display:flex;align-items:center;justify-content:center;box-shadow:0 8px 32px rgba(0,0,0,0.4);cursor:pointer;flex-shrink:0;">
+  <div class="pill-dot" id="pill-dot-logo" style="width:36px;height:36px;min-width:36px;min-height:36px;background:#ff0000;border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0;"><span style="font-size:10px;font-weight:700;color:#000;letter-spacing:-0.02em;line-height:1;">Try!</span></div>
 </div>
 <script>
 
@@ -845,6 +843,20 @@ function toggleFaq(el){
   window.addEventListener('scroll', function(){
     if(window.scrollY > 200){ toCenter(); }
     else { toScatter(); }
+  }, {passive:true});
+})();
+</script>
+<script>
+(function(){
+  var deg = 0;
+  var lastScroll = window.scrollY;
+  window.addEventListener('scroll', function(){
+    var currentScroll = window.scrollY;
+    var delta = currentScroll - lastScroll;
+    deg += delta * 0.5;
+    lastScroll = currentScroll;
+    var dot = document.getElementById('pill-dot-logo');
+    if(dot) dot.style.transform = 'rotate(' + deg + 'deg)';
   }, {passive:true});
 })();
 </script>
