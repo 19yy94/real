@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Realsnap</title>
-<style>:root{--bg:#000;--card:#111;--w:#F0F0EC;--body:#B0B0AC;--mid:#555552;--red:#E01A0A;--b:rgba(240,240,236,0.09);--b2:rgba(240,240,236,0.18);--T:'Manrope',sans-serif;}html,body{background:#000!important;background-color:#000!important;}</style>
+<style>:root{--bg:#000;--card:#111;--w:#F0F0EC;--body:#B0B0AC;--mid:#555552;--red:#E01A0A;--b:rgba(240,240,236,0.09);--b2:rgba(240,240,236,0.18);--T:'Pretendard JP','Inter',sans-serif;}html,body{background:#000!important;background-color:#000!important;}</style>
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><circle cx='50' cy='50' r='50' fill='%23FF0000'/></svg>">
 <style>
 @font-face {
@@ -13,25 +13,25 @@
   font-weight: 500;
   font-style: normal;
 }
-@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700&display=swap');
+@import url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/packages/pretendard-jp/dist/web/static/pretendard-jp.css');
 *{box-sizing:border-box;margin:0;padding:0}
 :root{
   --bg:#000;--card:#111;--w:#F0F0EC;--body:#B0B0AC;--mid:#555552;
   --red:#E01A0A;--b:rgba(240,240,236,0.09);--b2:rgba(240,240,236,0.18);
-  --T:'Manrope',sans-serif;
+  --T:'Pretendard JP','Inter',sans-serif;
 }
-body{background:var(--bg);background-color:#000;color:var(--w);font-family:var(--T);overflow-x:hidden}
+body{background:var(--bg);background-color:#000;color:var(--w);font-family:var(--T);overflow-x:hidden;font-weight:400;}
 
 /* NAV */
 .nav{height:60px;display:flex;align-items:center;justify-content:space-between;padding:0 48px;background:rgba(0,0,0,0.6);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border-bottom:1px solid rgba(240,240,236,0.07);position:sticky;top:0;z-index:100}
 .nav-logo{display:flex;align-items:center;cursor:pointer;flex:1;font-family:'Druk',var(--T);font-size:18px;font-weight:400;color:#fff;letter-spacing:0.01em}
 .nav-links{display:flex;list-style:none;position:absolute;left:50%;transform:translateX(-50%)}
-.nl{font-size:11px;font-weight:500;color:rgba(240,240,236,0.7);letter-spacing:0.03em;cursor:pointer;padding:0 24px;height:60px;display:flex;align-items:center;transition:color .15s;text-transform:uppercase}
+.nl{font-size:11px;font-weight:400;color:rgba(240,240,236,0.7);letter-spacing:0.03em;cursor:pointer;padding:0 24px;height:60px;display:flex;align-items:center;transition:color .15s;text-transform:uppercase}
 .nl:hover{color:var(--w)}
 .nav-r{display:flex;gap:8px;align-items:center;flex:1;justify-content:flex-end}
 .btn-login{padding:8px 18px;border:none;background:none;color:rgba(240,240,236,0.5);font-size:13px;cursor:pointer;font-family:var(--T);border-radius:40px}
 .btn-demo{padding:8px 18px;border:1px solid rgba(240,240,236,0.25);background:none;color:var(--w);font-size:13px;cursor:pointer;font-family:var(--T);border-radius:40px}
-.btn-start{padding:8px 20px;background:var(--w);color:#000;font-size:13px;cursor:pointer;font-family:var(--T);border:none;font-weight:500;border-radius:40px}
+.btn-start{padding:8px 20px;background:var(--w);color:#000;font-size:13px;cursor:pointer;font-family:var(--T);border:none;font-weight:400;border-radius:40px}
 .nav-hamburger{display:none;flex-direction:column;gap:4px;cursor:pointer;padding:8px;background:none;border:none}
 .nav-hamburger span{width:20px;height:1.5px;background:var(--w);display:block}
 .nav-drawer{display:none;position:fixed;inset:0;background:var(--bg);z-index:200;flex-direction:column;padding:20px 24px}
@@ -44,16 +44,16 @@ body{background:var(--bg);background-color:#000;color:var(--w);font-family:var(-
 
 .dropdown{position:absolute;top:calc(100% + 0px);left:0;background:#0a0a0a;backdrop-filter:none;-webkit-backdrop-filter:none;border:1px solid rgba(240,240,236,0.1);min-width:220px;width:max-content;opacity:0;visibility:hidden;transition:opacity .2s ease,transform .2s ease,visibility .2s;transform:translateY(-4px);z-index:300;overflow:hidden}
 .nl.has-dropdown:hover .dropdown,.dropdown:hover{opacity:1;visibility:visible;transform:translateY(0)}
-.dropdown-header{padding:14px 20px 8px;font-size:9px;font-weight:600;letter-spacing:0.15em;text-transform:uppercase;color:rgba(240,240,236,0.25);border-bottom:1px solid rgba(240,240,236,0.06)}
+.dropdown-header{padding:14px 20px 8px;font-size:9px;font-weight:400;letter-spacing:0.15em;text-transform:uppercase;color:rgba(240,240,236,0.25);border-bottom:1px solid rgba(240,240,236,0.06)}
 .dropdown-item{display:flex;align-items:flex-start;gap:12px;padding:12px 20px;cursor:pointer;transition:background .15s}
 .dropdown-item:last-child{border-bottom:none}
 .dropdown-item:hover{background:rgba(240,240,236,0.05)}
 .dropdown-item-icon{width:28px;height:28px;flex-shrink:0;display:flex;align-items:center;justify-content:center;background:rgba(240,240,236,0.06);border-radius:6px;margin-top:1px}
 .dropdown-item-icon svg{width:13px;height:13px;fill:none;stroke:rgba(240,240,236,0.5);stroke-width:1.5}
 .dropdown-item-text{}
-.dropdown-item-label{font-size:11px;font-weight:500;color:var(--w);letter-spacing:0.01em;margin-bottom:2px}
-.dropdown-item-desc{font-size:10px;color:rgba(240,240,236,0.35);line-height:1.4;font-weight:300}
-.dropdown-badge{display:inline-block;font-size:8px;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;padding:2px 5px;background:rgba(224,26,10,0.15);color:var(--red);border-radius:3px;margin-left:6px;vertical-align:middle;line-height:1.3}
+.dropdown-item-label{font-size:11px;font-weight:400;color:var(--w);letter-spacing:0.01em;margin-bottom:2px}
+.dropdown-item-desc{font-size:10px;color:rgba(240,240,236,0.35);line-height:1.4;font-weight:400}
+.dropdown-badge{display:inline-block;font-size:8px;font-weight:400;letter-spacing:0.08em;text-transform:uppercase;padding:2px 5px;background:rgba(224,26,10,0.15);color:var(--red);border-radius:3px;margin-left:6px;vertical-align:middle;line-height:1.3}
 .dropdown-divider{height:1px;background:rgba(240,240,236,0.06);margin:4px 20px}
 .dropdown-footer{padding:10px 20px;border-top:1px solid rgba(240,240,236,0.06)}
 .dropdown-footer-link{font-size:10px;color:rgba(240,240,236,0.4);display:flex;align-items:center;gap:4px;cursor:pointer;transition:color .15s}
@@ -63,17 +63,17 @@ body{background:var(--bg);background-color:#000;color:var(--w);font-family:var(-
 .drawer-head{display:flex;align-items:center;justify-content:space-between;margin-bottom:32px}
 .drawer-close{font-size:22px;color:var(--w);cursor:pointer;background:none;border:none}
 .drawer-links{display:flex;flex-direction:column;gap:0;flex:1}
-.dl{font-size:22px;font-weight:300;color:var(--body);padding:14px 0;border-bottom:1px solid var(--b);cursor:pointer}
+.dl{font-size:22px;font-weight:400;color:var(--body);padding:14px 0;border-bottom:1px solid var(--b);cursor:pointer}
 .drawer-btns{display:flex;flex-direction:column;gap:8px;margin-top:24px}
 .drawer-btn-g{padding:14px;border:1px solid var(--b2);background:none;color:var(--w);font-size:13px;cursor:pointer;font-family:var(--T);text-align:center;border-radius:40px}
-.drawer-btn-r{padding:14px;background:var(--w);color:#000;font-size:13px;cursor:pointer;font-family:var(--T);border:none;font-weight:500;text-align:center;border-radius:40px}
+.drawer-btn-r{padding:14px;background:var(--w);color:#000;font-size:13px;cursor:pointer;font-family:var(--T);border:none;font-weight:400;text-align:center;border-radius:40px}
 
 /* HERO */
 .hero{padding:120px 48px 0;margin-bottom:80px;isolation:isolate;position:relative;z-index:2;max-width:1400px;margin-left:auto;margin-right:auto;text-align:center;overflow:visible}
 .hero-text{display:flex;flex-direction:column;align-items:center;gap:0;margin-bottom:72px;position:relative;z-index:1}
 .hero-h-top{font-family:'Druk',var(--T);font-weight:400;font-size:56px;line-height:1.05;letter-spacing:0.01em;color:var(--w);max-width:1000px;text-wrap:balance}
 .hero-sub{font-size:18px;font-weight:400;color:var(--body);line-height:1.45;max-width:630px;margin-top:20px;margin-bottom:40px}
-.hero-cta{padding:14px 36px;background:var(--w);color:#000;border:none;font-size:14px;font-family:var(--T);font-weight:500;border-radius:40px;cursor:pointer;transition:opacity .15s;letter-spacing:0.01em}
+.hero-cta{padding:14px 36px;background:var(--w);color:#000;border:none;font-size:14px;font-family:var(--T);font-weight:400;border-radius:40px;cursor:pointer;transition:opacity .15s;letter-spacing:0.01em}
 .hero-cta:hover{opacity:0.85}
 
 /* ── HERO MOCK (App UI) ── */
@@ -82,17 +82,17 @@ body{background:var(--bg);background-color:#000;color:var(--w);font-family:var(-
 .hm-tb-logo{display:none}
 .hm-tb-tabs{display:flex;gap:2px;align-items:center}
 .hm-tb-tab{font-size:12px;color:rgba(255,255,255,0.35);padding:6px 14px;border-radius:20px;cursor:pointer;font-weight:400;white-space:nowrap}
-.hm-tb-tab--on{background:rgba(255,255,255,0.12);color:#fff;font-weight:500}
+.hm-tb-tab--on{background:rgba(255,255,255,0.12);color:#fff;font-weight:400}
 .hm-tb-right{display:flex;align-items:center;gap:8px}
-.hm-tb-pill{font-size:11px;font-weight:500;color:rgba(255,255,255,0.5);background:rgba(255,255,255,0.07);border:1px solid rgba(255,255,255,0.1);padding:4px 10px;border-radius:20px;display:flex;align-items:center;gap:4px}
-.hm-tb-pill::before{content:'+';color:rgba(255,255,255,0.4);font-weight:600}
-.hm-tb-av{width:30px;height:30px;border-radius:50%;background:rgba(255,255,255,0.12);color:rgba(255,255,255,0.6);font-size:10px;font-weight:600;display:flex;align-items:center;justify-content:center}
+.hm-tb-pill{font-size:11px;font-weight:400;color:rgba(255,255,255,0.5);background:rgba(255,255,255,0.07);border:1px solid rgba(255,255,255,0.1);padding:4px 10px;border-radius:20px;display:flex;align-items:center;gap:4px}
+.hm-tb-pill::before{content:'+';color:rgba(255,255,255,0.4);font-weight:400}
+.hm-tb-av{width:30px;height:30px;border-radius:50%;background:rgba(255,255,255,0.12);color:rgba(255,255,255,0.6);font-size:10px;font-weight:400;display:flex;align-items:center;justify-content:center}
 .hm-body{display:flex;flex-direction:row;flex:1;overflow:hidden;min-height:0;gap:0}
 .hm-sidebar{width:220px;flex-shrink:0;background:var(--bg);padding:12px;display:flex;flex-direction:column;gap:6px;overflow-y:auto;overflow-x:hidden;border-right:none}
 .hm-panel{background:#111;border-radius:12px;padding:12px;border:1px solid rgba(240,240,236,0.1)}
 .hm-panel-row{display:flex;gap:8px}
 .hm-panel-block{flex:1;display:flex;flex-direction:column;gap:6px}
-.hm-panel-label{font-size:10px;font-weight:500;color:rgba(255,255,255,0.28);margin-bottom:2px}
+.hm-panel-label{font-size:10px;font-weight:400;color:rgba(255,255,255,0.28);margin-bottom:2px}
 .hm-panel-label-row{display:flex;align-items:center;justify-content:space-between;margin-bottom:6px}
 .hm-panel-label-row .hm-panel-label{margin-bottom:0}
 .hm-panel-reset{font-size:9px;color:rgba(255,255,255,0.2)}
@@ -105,7 +105,7 @@ body{background:var(--bg);background-color:#000;color:var(--w);font-family:var(-
 .hm-item--add{border:1.5px dashed rgba(255,255,255,0.15);background:none;display:flex;align-items:center;justify-content:center;font-size:16px;color:rgba(255,255,255,0.18)}
 .hm-item--filled{background:#222}
 .hm-tags-row{display:flex;gap:5px;flex-wrap:wrap;margin-bottom:8px;align-items:center}
-.hm-tag{font-size:10px;padding:5px 10px;border-radius:20px;font-weight:500;white-space:nowrap}
+.hm-tag{font-size:10px;padding:5px 10px;border-radius:20px;font-weight:400;white-space:nowrap}
 .hm-tag--dark{background:rgba(255,255,255,0.1);color:rgba(255,255,255,0.65)}
 .hm-tag--img{background:rgba(255,255,255,0.1);color:rgba(255,255,255,0.65);display:flex;align-items:center;gap:5px;padding-left:4px}
 .hm-tag--img-thumb{width:18px;height:18px;border-radius:50%;background:#444;flex-shrink:0}
@@ -127,8 +127,8 @@ body{background:var(--bg);background-color:#000;color:var(--w);font-family:var(-
 .hm-prompt-cursor{display:inline-block;width:1.5px;height:1em;background:rgba(255,255,255,0.5);margin-left:1px;vertical-align:text-bottom;animation:blink .7s step-end infinite}
 .hm-prompt-meta{display:flex;gap:5px;align-items:center;flex-shrink:0}
 .hm-meta-pill{font-size:10px;color:rgba(255,255,255,0.3);background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.09);padding:4px 10px;border-radius:20px;white-space:nowrap}
-.hm-meta-badge{font-size:10px;font-weight:600;color:#fff;background:rgba(255,255,255,0.12);border:1px solid rgba(255,255,255,0.15);padding:5px 12px;border-radius:20px;white-space:nowrap}
-.hm-generate{padding:10px 16px;background:#f0f0ec;color:#111;border:none;border-radius:8px;font-size:13px;font-weight:500;font-family:var(--T);cursor:pointer;white-space:nowrap;flex-shrink:0;}
+.hm-meta-badge{font-size:10px;font-weight:400;color:#fff;background:rgba(255,255,255,0.12);border:1px solid rgba(255,255,255,0.15);padding:5px 12px;border-radius:20px;white-space:nowrap}
+.hm-generate{padding:10px 16px;background:#f0f0ec;color:#111;border:none;border-radius:8px;font-size:13px;font-weight:400;font-family:var(--T);cursor:pointer;white-space:nowrap;flex-shrink:0;}
 
 /* ── USE CASES ── */
 
@@ -138,15 +138,15 @@ body{background:var(--bg);background-color:#000;color:var(--w);font-family:var(-
 .usecases-tabs{display:flex;justify-content:center;gap:6px;flex-wrap:wrap;padding:40px 0 0;overflow:visible}
 .uc-tab{padding:8px 20px;font-size:14px;font-weight:400;color:rgba(240,240,236,0.45);letter-spacing:0.03em;cursor:pointer;border:1px solid rgba(240,240,236,0.15);background:none;font-family:var(--T);transition:all .2s;border-radius:40px;white-space:nowrap}
 .uc-tab:hover{color:var(--w);border-color:rgba(240,240,236,0.2)}
-.uc-tab.on{color:var(--w);font-weight:500;background:rgba(240,240,236,0.1);border-color:rgba(240,240,236,0.2)}
+.uc-tab.on{color:var(--w);font-weight:400;background:rgba(240,240,236,0.1);border-color:rgba(240,240,236,0.2)}
 .usecases-body{display:grid;grid-template-columns:1fr 1fr;border:1px solid rgba(240,240,236,0.18);border-radius:20px;overflow:hidden;margin-top:40px;aspect-ratio:2/1}
 .uc-info{padding:56px 56px 48px;display:flex;flex-direction:column;justify-content:flex-start;background:var(--bg);overflow:hidden;min-height:0}
-.uc-label{font-size:11px;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;color:var(--mid);margin-bottom:10px}
+.uc-label{font-size:11px;font-weight:400;letter-spacing:0.12em;text-transform:uppercase;color:var(--mid);margin-bottom:10px}
 .uc-name{font-size:32px;font-weight:400;font-family:'Druk',var(--T);color:var(--w);line-height:1.1;margin-bottom:16px;text-wrap:balance}
 .uc-desc{font-size:14px;color:var(--body);font-weight:400;line-height:1.45;margin-bottom:24px;margin-top:0;max-width:420px}
 .uc-chips{display:none}
 .uc-chip{font-size:12px;padding:6px 14px;border:1px solid var(--b2);color:var(--body);letter-spacing:0.04em;text-transform:uppercase;border-radius:100px;white-space:nowrap;flex-shrink:0}
-.uc-link{font-size:14px;font-weight:400;color:var(--w);letter-spacing:0.01em;text-transform:none;display:inline-flex;align-items:center;gap:6px;padding:13px 24px;border:1px solid var(--b2);background:none;cursor:pointer;font-family:var(--T);transition:border-color .15s;width:fit-content;border-radius:40px;margin-top:auto}
+.uc-link{font-size:14px;font-weight:400;color:var(--w);letter-spacing:-0.02em;text-transform:none;display:inline-flex;align-items:center;gap:6px;padding:13px 24px;border:1px solid var(--b2);background:none;cursor:pointer;font-family:var(--T);transition:border-color .15s;width:fit-content;border-radius:40px;margin-top:auto}
 .uc-link:hover{border-color:var(--w)}
 .uc-visual{background:#0d0d0d;display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden;min-height:0;height:100%}
 .uc-visual-ph{font-size:11px;color:rgba(240,240,236,0.15);letter-spacing:0.08em;text-transform:uppercase}
@@ -163,11 +163,11 @@ body{background:var(--bg);background-color:#000;color:var(--w);font-family:var(-
 .rm-item{border-radius:10px;overflow:hidden;background:#0d0d0d;position:relative;cursor:pointer;margin-bottom:6px}
 .rm-item:hover .rc-overlay{opacity:1}
 .rc-overlay{position:absolute;inset:0;background:rgba(0,0,0,0.45);display:flex;align-items:center;justify-content:center;opacity:0;transition:opacity 0.2s}
-.rc-overlay-btn{padding:10px 22px;background:var(--w);color:#000;border:none;border-radius:40px;font-size:14px;font-weight:500;font-family:var(--T);cursor:pointer;white-space:nowrap;position:relative;z-index:5}
+.rc-overlay-btn{padding:10px 22px;background:var(--w);color:#000;border:none;border-radius:40px;font-size:14px;font-weight:400;font-family:var(--T);cursor:pointer;white-space:nowrap;position:relative;z-index:5}
 .rm-ph{width:100%;display:block;background:#0d0d0d}
 .rm-label{position:absolute;bottom:0;left:0;right:0;padding:20px 12px 10px;background:linear-gradient(to top,rgba(0,0,0,0.5),transparent)}
 .rm-label-text{font-size:8px;color:rgba(240,240,236,0.3);letter-spacing:0.08em;text-transform:uppercase}
-.rm-badge{position:absolute;bottom:10px;right:10px;font-size:8px;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;padding:3px 8px;color:var(--body);background:rgba(8,8,8,0.8);border:1px solid var(--b2)}
+.rm-badge{position:absolute;bottom:10px;right:10px;font-size:8px;font-weight:400;letter-spacing:0.1em;text-transform:uppercase;padding:3px 8px;color:var(--body);background:rgba(8,8,8,0.8);border:1px solid var(--b2)}
 /* bottom fade out */
 .results-masonry::after{content:'';position:absolute;bottom:0;left:0;right:0;height:500px;background:linear-gradient(to bottom,transparent 0%,var(--bg) 75%);pointer-events:none;z-index:2}
 
@@ -186,18 +186,18 @@ body{background:var(--bg);background-color:#000;color:var(--w);font-family:var(-
 .tool-card-img::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 30% 40%,rgba(240,240,236,0.05) 0%,transparent 70%)}
 .tool-card-img-ph{font-size:10px;color:rgba(240,240,236,0.15);letter-spacing:0.08em;text-transform:uppercase;text-align:center;padding:20px;line-height:1.8;position:relative;z-index:1}
 .tool-card-body{padding:22px 24px 28px;display:flex;flex-direction:column;flex:1;overflow:hidden}
-.tool-card-label{font-size:11px;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;color:var(--mid);margin-bottom:10px}
+.tool-card-label{font-size:11px;font-weight:400;letter-spacing:0.12em;text-transform:uppercase;color:var(--mid);margin-bottom:10px}
 .tool-card-name{font-size:32px;font-weight:400;font-family:'Druk',var(--T);color:var(--w);line-height:1.0;margin-bottom:12px;max-width:7em}
 .tool-card-desc{font-size:14px;color:var(--body);font-weight:400;line-height:1.45;margin-bottom:24px;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}
 .tool-card-btns{display:flex;gap:8px;flex-wrap:wrap;margin-top:auto}
-.tool-card-btn-p{padding:13px 24px;background:var(--w);color:#000;border:none;font-size:14px;font-family:var(--T);cursor:pointer;font-weight:500;letter-spacing:0.01em;border-radius:40px;transition:opacity .15s;text-align:center;min-width:120px}
+.tool-card-btn-p{padding:13px 24px;background:var(--w);color:#000;border:none;font-size:14px;font-family:var(--T);cursor:pointer;font-weight:400;letter-spacing:-0.02em;border-radius:40px;transition:opacity .15s;text-align:center;min-width:120px}
 .tool-card-btn-p:hover{opacity:0.85}
 .tool-card-btn-g{padding:13px 24px;background:none;color:var(--w);border:1px solid var(--b2);font-size:14px;font-family:var(--T);cursor:pointer;font-weight:400;letter-spacing:0.01em;border-radius:40px;transition:border-color .15s;text-align:center;min-width:120px}
 .tool-card-btn-g:hover{border-color:rgba(240,240,236,0.5)}
 .tools-pane-ui{display:none}
 .ws-topbar{height:36px;background:rgba(240,240,236,0.04);border-bottom:1px solid var(--b);display:flex;align-items:center;padding:0 14px;gap:0;flex-shrink:0}
 .ws-tab{font-size:9px;color:rgba(240,240,236,0.25);letter-spacing:0.06em;text-transform:uppercase;padding:0 12px;height:36px;display:flex;align-items:center;border-bottom:2px solid transparent}
-.ws-tab.on{color:var(--w);border-bottom-color:rgba(240,240,236,0.3);font-weight:600}
+.ws-tab.on{color:var(--w);border-bottom-color:rgba(240,240,236,0.3);font-weight:400}
 .ws-layout{display:grid;grid-template-columns:160px 1fr;flex:1;min-height:0}
 .ws-sidebar{background:rgba(240,240,236,0.025);border-right:1px solid var(--b);padding:12px 0}
 .ws-sb-label{font-size:7px;color:rgba(240,240,236,0.2);letter-spacing:0.1em;text-transform:uppercase;padding:4px 12px 2px}
@@ -231,7 +231,7 @@ body{background:var(--bg);background-color:#000;color:var(--w);font-family:var(-
 .cta-h{font-family:'Druk',var(--T);font-weight:400;font-size:48px;line-height:1.05;letter-spacing:0.01em;color:var(--w);margin-bottom:24px;max-width:900px;margin-left:auto;margin-right:auto;text-wrap:balance}
 .cta-sub{font-size:18px;color:var(--body);font-weight:400;line-height:1.45;margin-bottom:32px}
 .cta-btns{display:flex;gap:10px;justify-content:center}
-.btn-r-lg{padding:14px 36px;background:var(--w);color:#000;border:none;font-size:14px;font-family:var(--T);cursor:pointer;font-weight:500;letter-spacing:0.01em;border-radius:40px}
+.btn-r-lg{padding:14px 36px;background:var(--w);color:#000;border:none;font-size:14px;font-family:var(--T);cursor:pointer;font-weight:400;letter-spacing:0.01em;border-radius:40px}
 .btn-g-lg{padding:14px 30px;border:1px solid var(--b2);background:none;color:var(--w);font-size:14px;font-family:var(--T);cursor:pointer;font-weight:400;letter-spacing:0.01em;border-radius:40px}
 .cta-note{font-size:12px;color:var(--mid);margin-top:14px}
 
@@ -271,7 +271,7 @@ body{background:var(--bg);background-color:#000;color:var(--w);font-family:var(-
   .tool-card-btn-g{display:flex;justify-content:center;}
   .hero-h-top{font-size:26px}
   .hero{padding-left:20px;padding-right:20px;}
-  .hero-sub{font-size:16px;width:90%;max-width:420px;margin-left:auto;margin-right:auto}
+  .hero-sub{font-size:16px;font-weight:400;width:90%;max-width:420px;margin-left:auto;margin-right:auto}
   .section-sub{font-size:16px;width:100%;max-width:none;margin-left:auto;margin-right:auto}
   .uc-desc{font-size:14px;width:100%;max-width:none}
   .cta-sub{font-size:16px;width:100%;max-width:none;margin-left:auto;margin-right:auto}
@@ -312,7 +312,7 @@ body{background:var(--bg);background-color:#000;color:var(--w);font-family:var(-
   list-style:none;margin:0;padding:0;
 }
 .pill-nl{
-  font-size:11px;font-weight:500;
+  font-size:11px;font-weight:400;
   color:rgba(255,255,255,0.65);
   padding:8px 16px;
   cursor:pointer;
@@ -331,7 +331,7 @@ body{background:var(--bg);background-color:#000;color:var(--w);font-family:var(-
 .pill-btn{
   padding:0 20px;background:#f0f0ec;color:#111;
   border:none;border-radius:30px;font-size:13px;
-  font-family:var(--T);font-weight:500;cursor:pointer;
+  font-family:var(--T);font-weight:400;cursor:pointer;
   margin-left:8px;transition:opacity 0.15s;
   height:36px;line-height:36px;
 }
@@ -340,13 +340,13 @@ body{background:var(--bg);background-color:#000;color:var(--w);font-family:var(-
 
 .pill-dot{
   width:40px;height:40px;min-width:40px;
-  background:#333333;
+  background:#ff0000;
   border-radius:50%;
   cursor:pointer;
   flex-shrink:0;
   transition:transform 0.15s ease;
 }
-.pill-dot:hover{transform:scale(1.1)}
+.pill-dot:hover{transform:scale(1.05)}
 #pillWrapper.visible{opacity:1!important;pointer-events:auto!important}
 
 /* ── Dot Menu Popup ── */
@@ -390,23 +390,69 @@ body{background:var(--bg);background-color:#000;color:var(--w);font-family:var(-
   font-size:14px;flex-shrink:0;
 }
 .dot-menu-item-text{}
-.dot-menu-item-label{font-size:13px;font-weight:500;color:#fff;letter-spacing:0.01em}
+.dot-menu-item-label{font-size:13px;font-weight:400;color:#fff;letter-spacing:0.01em}
 .dot-menu-item-desc{font-size:11px;color:rgba(255,255,255,0.4);margin-top:1px}
 .dot-menu-divider{height:1px;background:rgba(255,255,255,0.07);margin:4px 8px}
 
 /* ── Demo Overlay ── */
 #demoOverlay{
   position:fixed;inset:0;z-index:2000;
-  background:rgba(0,0,0,0.88);backdrop-filter:blur(40px);-webkit-backdrop-filter:blur(40px);
+  background:#000;
   display:flex;flex-direction:column;align-items:center;justify-content:center;
+  padding:0;
   opacity:0;pointer-events:none;
   transition:opacity 0.4s ease;
+  overflow:hidden;
+}
+/* Fullscreen slider background */
+#demoBgSlider{
+  position:absolute;inset:0;z-index:0;
+  display:flex;align-items:center;gap:12px;
+  padding:24px 6px;
+  animation:demoBgScroll 40s linear infinite;
+  width:max-content;
+  will-change:transform;
+}
+#demoBgSlider .bg-card{
+  height:calc(100vh - 48px);
+  width:calc((100vh - 48px) * 9 / 16);
+  flex-shrink:0;
+  border-radius:16px;
+  overflow:hidden;
+}
+#demoBgSlider .bg-card img{
+  width:100%;height:100%;object-fit:cover;
+  filter:brightness(0.32);
+  display:block;
+}
+@keyframes demoBgScroll{
+  0%{transform:translateX(0)}
+  100%{transform:translateX(-50%)}
+}
+/* Dark overlay on top of slider */
+#demoOverlay::before{
+  content:'';
+  position:absolute;inset:0;z-index:1;
+  background:linear-gradient(to bottom, rgba(0,0,0,0.55) 0%, rgba(0,0,0,0.4) 50%, rgba(0,0,0,0.65) 100%);
+}
+/* Content sits above slider */
+#demoContent{
+  position:relative;z-index:3;
+  display:flex;flex-direction:column;align-items:center;
+  width:100%;max-width:360px;
+  padding:0 24px;
 }
 #demoOverlay.open{opacity:1;pointer-events:auto;}
+@keyframes demoScroll{
+  0%{transform:translateX(0)}
+  100%{transform:translateX(-50%)}
+}
 .demo-close{
-  position:absolute;top:28px;right:32px;
-  background:none;border:none;color:rgba(255,255,255,0.4);
-  font-size:28px;cursor:pointer;line-height:1;
+  position:fixed;top:20px;right:28px;z-index:10;
+  background:rgba(255,255,255,0.06);border:0.5px solid rgba(255,255,255,0.1);
+  width:36px;height:36px;border-radius:50%;display:flex;align-items:center;justify-content:center;
+  color:rgba(255,255,255,0.5);
+  font-size:18px;cursor:pointer;line-height:1;
   transition:color 0.15s;
 }
 .demo-close:hover{color:#fff}
@@ -438,26 +484,39 @@ body{background:var(--bg);background-color:#000;color:var(--w);font-family:var(-
 }
 .demo-upload-icon{font-size:40px;margin-bottom:16px}
 .demo-upload-label{font-size:15px;color:rgba(255,255,255,0.6);line-height:1.6}
-.demo-upload-label span{color:#fff;font-weight:500}
-.demo-file-input{position:absolute;inset:0;opacity:0;cursor:pointer}
-.demo-preview-wrap{display:none;width:480px;max-width:90vw;position:relative;}
+.demo-upload-label span{color:#fff;font-weight:400}
+.demo-file-input{position:absolute;inset:0;opacity:0;cursor:pointer;font-size:0;color:transparent;}
+.demo-preview-wrap{display:none;width:100%;max-width:860px;position:relative;z-index:3;}
+.demo-layout{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:24px;align-items:start;}
+.demo-orig-col{display:flex;flex-direction:column;gap:8px;}
+.demo-gen-col{display:flex;flex-direction:column;gap:8px;}
+.demo-col-label{font-size:9px;font-weight:400;letter-spacing:0.1em;text-transform:uppercase;color:rgba(255,255,255,0.3);}
 .demo-images{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:24px;}
-.demo-img-box{border-radius:16px;overflow:hidden;aspect-ratio:3/4;position:relative;background:#111;}
+.demo-img-box{border-radius:14px;overflow:hidden;aspect-ratio:3/4;position:relative;background:#1a1a1a;border:0.5px solid rgba(255,255,255,0.08);}
 .demo-img-box img{width:100%;height:100%;object-fit:cover;}
 .demo-img-label{
   position:absolute;bottom:10px;left:10px;
-  font-size:10px;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;
+  font-size:10px;font-weight:400;letter-spacing:0.1em;text-transform:uppercase;
   color:rgba(255,255,255,0.7);background:rgba(0,0,0,0.5);
   padding:4px 10px;border-radius:20px;backdrop-filter:blur(8px);
 }
 .demo-processing{
-  display:none;flex-direction:column;align-items:center;gap:16px;
+  position:relative;z-index:3;
+  display:none;flex-direction:column;align-items:center;justify-content:center;gap:24px;
   color:rgba(255,255,255,0.6);font-size:14px;
+  position:fixed;inset:0;z-index:2100;background:rgba(0,0,0,0.92);
 }
 .demo-spinner{
-  width:48px;height:48px;border:2px solid rgba(255,255,255,0.1);
-  border-top-color:#fff;border-radius:50%;
-  animation:spin 0.8s linear infinite;
+  width:56px;height:56px;border:1.5px solid rgba(255,255,255,0.08);
+  border-top-color:rgba(255,255,255,0.7);border-radius:50%;
+  animation:spin 0.9s linear infinite;
+}
+.demo-progress-bar{
+  width:200px;height:2px;background:rgba(255,255,255,0.08);border-radius:2px;overflow:hidden;
+}
+.demo-progress-fill{
+  height:100%;background:#fff;border-radius:2px;width:0%;
+  transition:width 0.4s ease;
 }
 .demo-processing-text{font-size:14px;color:rgba(255,255,255,0.5);text-align:center;}
 @keyframes spin{to{transform:rotate(360deg)}}
@@ -465,13 +524,13 @@ body{background:var(--bg);background-color:#000;color:var(--w);font-family:var(-
 .demo-btn-download{
   padding:12px 28px;background:#fff;color:#000;
   border:none;border-radius:40px;font-size:14px;font-family:var(--T);
-  font-weight:500;cursor:pointer;transition:opacity 0.15s;
+  font-weight:400;cursor:pointer;transition:opacity 0.15s;
 }
 .demo-btn-download:hover{opacity:0.85}
 .demo-btn-studio{
   padding:12px 28px;background:rgba(255,255,255,0.08);color:#fff;
   border:1px solid rgba(255,255,255,0.15);border-radius:40px;font-size:14px;
-  font-family:var(--T);font-weight:500;cursor:pointer;transition:background 0.15s;
+  font-family:var(--T);font-weight:400;cursor:pointer;transition:background 0.15s;
 }
 .demo-btn-studio:hover{background:rgba(255,255,255,0.14)}
 .demo-result-note{
@@ -480,7 +539,7 @@ body{background:var(--bg);background-color:#000;color:var(--w);font-family:var(-
 }
 .demo-style-chips{display:flex;gap:8px;justify-content:center;flex-wrap:wrap;margin-bottom:32px;}
 .demo-chip{
-  padding:7px 16px;border-radius:20px;font-size:12px;font-weight:500;
+  padding:7px 16px;border-radius:20px;font-size:12px;font-weight:400;
   border:1px solid rgba(255,255,255,0.15);color:rgba(255,255,255,0.5);
   cursor:pointer;transition:all 0.15s;letter-spacing:0.03em;text-transform:uppercase;
 }
@@ -525,37 +584,40 @@ body{background:var(--bg);background-color:#000;color:var(--w);font-family:var(-
 #floatLogo.visible{opacity:1;pointer-events:auto;}
 @media(max-width:1024px){#floatLogo{display:none!important}}
 
-@media(max-width:1024px){
+@media(max-width:768px){
   .nav-links,.btn-login,.btn-demo,.btn-start{display:none!important}
   .nav-hamburger{display:flex!important}
 }
 
 .pill-studio-wrap{position:relative;display:flex;align-items:center;}
 .pill-studio-dd{
-  position:absolute;top:calc(100% + 12px);left:50%;
-  transform:translateX(-50%) translateY(-6px);
-  background:rgba(28,28,28,0.95);
-  backdrop-filter:blur(24px);-webkit-backdrop-filter:blur(24px);
-  border:1px solid rgba(255,255,255,0.1);
-  border-radius:14px;padding:6px;
-  min-width:160px;
+  position:absolute;top:calc(100% + 8px);left:0;
+  transform:translateY(-4px);
+  background:#0a0a0a;
+  border:1px solid rgba(240,240,236,0.1);
+  min-width:220px;width:max-content;
   opacity:0;pointer-events:none;
-  transition:opacity 0.2s ease, transform 0.2s ease;
+  transition:opacity 0.2s ease, transform 0.2s ease, visibility 0.2s;
+  visibility:hidden;
   z-index:1000;
-  box-shadow:0 8px 32px rgba(0,0,0,0.5);
+  overflow:hidden;
 }
 .pill-studio-wrap:hover .pill-studio-dd{
-  opacity:1;pointer-events:auto;
-  transform:translateX(-50%) translateY(0);
+  opacity:1;pointer-events:auto;visibility:visible;
+  transform:translateY(0);
 }
 .pill-dd-item{
-  display:block;padding:9px 14px;
-  font-size:12px;font-weight:500;color:rgba(255,255,255,0.7);
-  border-radius:8px;cursor:pointer;
-  transition:background 0.15s, color 0.15s;
-  text-decoration:none;letter-spacing:0.01em;
+  display:flex;align-items:flex-start;gap:12px;
+  padding:12px 20px;
+  font-size:11px;font-weight:400;color:rgba(255,255,255,0.7);
+  cursor:pointer;
+  transition:background 0.15s;
+  text-decoration:none;
 }
-.pill-dd-item:hover{background:rgba(255,255,255,0.07);color:#fff}
+.pill-dd-item:hover{background:rgba(240,240,236,0.05);color:#fff}
+.pill-dd-item-text{}
+.pill-dd-item-label{font-size:11px;font-weight:500;color:var(--w);letter-spacing:0.01em;margin-bottom:2px;}
+.pill-dd-item-desc{font-size:10px;color:rgba(240,240,236,0.35);line-height:1.4;font-weight:300;}
 .pill-nl-arrow{font-size:9px;opacity:0.5;margin-left:3px;vertical-align:middle;line-height:1;position:relative;top:-1px;}
 
 
@@ -793,7 +855,7 @@ body{background:var(--bg);background-color:#000;color:var(--w);font-family:var(-
   display:inline-block;
 }
 .hm-mobile-orig-text{
-  font-size:10px;font-weight:600;
+  font-size:10px;font-weight:400;
   color:rgba(255,255,255,0.85);
   letter-spacing:0.02em;
 }
@@ -866,7 +928,7 @@ body{background:var(--bg);background-color:#000;color:var(--w);font-family:var(-
   </div>
   <div class="drawer-links">
     <div class="dl">Studio</div><div class="dl">Magazine</div>
-    <div class="dl">Pricing</div>
+    <div class="dl" onclick="window.location.href='pricing.html'">Pricing</div>
   </div>
   <div class="drawer-btns">
     <button class="drawer-btn-g">Book a demo</button>
@@ -914,13 +976,13 @@ body{background:var(--bg);background-color:#000;color:var(--w);font-family:var(-
     <li class="nl" onclick="window.open('https://realsnap.ai/en/gallery','_blank')" style="cursor:pointer">Magazine</li>
 
     <!-- PRICING (no dropdown) -->
-    <li class="nl" onclick="window.open('https://realsnap.ai/en/cost','_blank')" style="cursor:pointer">Pricing</li>
+    <li class="nl" onclick="window.location.href='pricing.html'" style="cursor:pointer">Pricing</li>
 
   </ul>
   <div class="nav-r">
-    <button class="btn-login" onclick="window.open('https://realsnap.ai/en#:~:text=Book%20a%20demo-,Join%20Us,-EN','_blank')">Log in</button>
-    <button class="btn-demo" onclick="window.open('https://realsnap.ai/en#:~:text=Cost-,Book%20a%20demo,-Join%20Us','_blank')">Book a demo</button>
-    <button class="btn-start" onclick="window.open('https://realsnap.ai/en#:~:text=Book%20a%20demo-,Join%20Us,-EN','_blank')">Get started</button>
+    <button class="btn-login" onclick="window.open('https://realsnap.ai/auth/signIn','_blank')">Log in</button>
+    
+    <button class="btn-start" onclick="window.open('https://realsnap.ai/auth/signIn','_blank')">Get started</button>
     <button class="nav-hamburger" onclick="openDrawer()"><span></span><span></span><span></span></button>
   </div>
 </nav>
@@ -934,41 +996,40 @@ body{background:var(--bg);background-color:#000;color:var(--w);font-family:var(-
     <li class="pill-studio-wrap">
       <span class="pill-nl">STUDIO<span class="pill-nl-arrow">▾</span></span>
       <div class="pill-studio-dd">
-        <a class="pill-dd-item" href="https://realsnap.ai/en/snap" target="_blank">Snap</a>
-        <a class="pill-dd-item" href="https://realsnap.ai/en/drop" target="_blank">Drop</a>
-        <a class="pill-dd-item" href="https://realsnap.ai/en/edit" target="_blank">Edit</a>
-        <a class="pill-dd-item" href="https://realsnap.ai/en/tutorials" target="_blank">Tutorials</a>
+        <a class="pill-dd-item" href="https://realsnap.ai/en/snap" target="_blank" style="text-decoration:none">
+          <div class="pill-dd-item-text">
+            <div class="pill-dd-item-label">Snap</div>
+            <div class="pill-dd-item-desc">Model shots / Lookbook</div>
+          </div>
+        </a>
+        <a class="pill-dd-item" href="https://realsnap.ai/en/drop" target="_blank" style="text-decoration:none">
+          <div class="pill-dd-item-text">
+            <div class="pill-dd-item-label">Drop</div>
+            <div class="pill-dd-item-desc">Campaign videos / Reels</div>
+          </div>
+        </a>
+        <a class="pill-dd-item" href="https://realsnap.ai/en/edit" target="_blank" style="text-decoration:none">
+          <div class="pill-dd-item-text">
+            <div class="pill-dd-item-label">Edit</div>
+            <div class="pill-dd-item-desc">Bulk crop / Centering</div>
+          </div>
+        </a>
+        <div style="height:0.5px;background:rgba(240,240,236,0.06);margin:4px 20px;"></div>
+        <a class="pill-dd-item" href="https://realsnap.ai/en/tutorials" target="_blank" style="text-decoration:none">
+          <div class="pill-dd-item-text">
+            <div class="pill-dd-item-label">Tutorials</div>
+          </div>
+        </a>
       </div>
     </li>
     <li class="pill-nl" onclick="window.open('https://realsnap.ai/en/gallery','_blank')">Magazine</li>
-    <li class="pill-nl" onclick="window.open('https://realsnap.ai/en/cost','_blank')">Pricing</li>
+    <li class="pill-nl" onclick="window.location.href='pricing.html'">Pricing</li>
   </ul>
-  <button class="pill-btn" onclick="window.open('https://realsnap.ai/en#:~:text=Book%20a%20demo-,Join%20Us,-EN','_blank')">Get started</button>
+  <button class="pill-btn" onclick="window.open('https://realsnap.ai/auth/signIn','_blank')">Get started</button>
 </div>
 </div>
 <div class="pill-dot-wrap" id="pillDot" onclick="openDemo()" style="position:fixed;top:20px;left:0;z-index:999;opacity:0;pointer-events:none;transition:opacity 0.4s ease,left 0s">
-  <div class="pill-dot" id="pill-dot-logo" style="background:#ff0000;overflow:visible;border-radius:50%;position:relative;display:flex;align-items:center;justify-content:center;">
-  <svg id="snap-text-svg" style="position:absolute;inset:0;width:100%;height:100%;" viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg">
-    
-    <line x1="20" y1="16.5" x2="20" y2="23.5" stroke="#111" stroke-width="1.4" stroke-linecap="round"/>
-    <line x1="16.5" y1="20" x2="23.5" y2="20" stroke="#111" stroke-width="1.4" stroke-linecap="round"/>
-    <!-- 좌상단 ㄱ -->
-    <polyline points="13,16 13,13.5 16,13.5" fill="none" stroke="#111" stroke-width="0.9" stroke-linecap="round" stroke-linejoin="round"/>
-    <!-- 우상단 ㄱ -->
-    <polyline points="27,16 27,13.5 24,13.5" fill="none" stroke="#111" stroke-width="0.9" stroke-linecap="round" stroke-linejoin="round"/>
-    <!-- 좌하단 ㄱ -->
-    <polyline points="13,24 13,26.5 16,26.5" fill="none" stroke="#111" stroke-width="0.9" stroke-linecap="round" stroke-linejoin="round"/>
-    <!-- 우하단 ㄱ -->
-    <polyline points="27,24 27,26.5 24,26.5" fill="none" stroke="#111" stroke-width="0.9" stroke-linecap="round" stroke-linejoin="round"/>
-    <defs>
-      <path id="circ-top" d="M20,20 m-12,0 a12,12 0 0,1 24,0"/>
-      <path id="circ-bot" d="M20,20 m12,0 a12,12 0 0,1 -24,0"/>
-    </defs>
-    
-    
-  </svg>
-  
-</div>
+  <div class="pill-dot" id="pill-dot-logo" style="background:#ff0000;border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0;transition:transform 0.1s linear;"><span style="font-size:10px;font-weight:700;color:#000;letter-spacing:-0.02em;line-height:1;">Try!</span></div>
 </div>
 <!-- Dot Menu Popup -->
 
@@ -976,38 +1037,75 @@ body{background:var(--bg);background-color:#000;color:var(--w);font-family:var(-
 <div id="demoOverlay">
   <button class="demo-close" onclick="closeDemo()">×</button>
   
-  <div id="demoStep1">
-    <div class="demo-title">Realsnap</div>
-    <div class="demo-sub">Upload your product photo. AI does the rest.</div>
-    
-    <div class="demo-style-chips">
-      <div class="demo-chip on" onclick="selectChip(this)">EDITORIAL</div>
-      <div class="demo-chip" onclick="selectChip(this)">LOOKBOOK</div>
-      <div class="demo-chip" onclick="selectChip(this)">CAMPAIGN</div>
-      <div class="demo-chip" onclick="selectChip(this)">STUDIO</div>
+  <!-- Fullscreen BG Slider -->
+  <div id="demoBgSlider"></div>
+
+  <!-- Upload content centered -->
+  <div id="demoContent">
+    <div id="demoStep1" style="display:flex;flex-direction:column;align-items:center;width:100%;">
+
+      <!-- Logo -->
+      <div style="text-align:center;margin-bottom:28px;width:100%;">
+        <div style="font-family:'Druk',var(--T);font-size:28px;font-weight:400;color:#fff;letter-spacing:0.01em;">Realsnap</div>
+      </div>
+
+      <!-- CTA -->
+      <div style="text-align:center;margin-bottom:16px;width:100%;">
+        <div style="font-size:15px;font-weight:500;color:rgba(255,255,255,0.75);">Drop your product photo</div>
+      </div>
+
+      <!-- Upload box — glass effect -->
+      <div class="demo-upload-zone" id="demoZone" style="width:100%;aspect-ratio:1/1;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:0;position:relative;background:rgba(255,255,255,0.06);backdrop-filter:blur(32px);-webkit-backdrop-filter:blur(32px);border:1px solid rgba(255,255,255,0.15);box-shadow:0 8px 48px rgba(0,0,0,0.4),inset 0 1px 0 rgba(255,255,255,0.1);">
+        <input type="file" class="demo-file-input" id="demoFileInput" accept="image/*" onchange="handleDemoUpload(this)">
+        <div class="demo-upload-label">
+          <svg width="26" height="26" viewBox="0 0 24 24" fill="none" style="margin-bottom:10px;opacity:0.35;" aria-hidden="true">
+            <path d="M21.44 11.05l-9.19 9.19a6 6 0 01-8.49-8.49l9.19-9.19a4 4 0 015.66 5.66l-9.2 9.19a2 2 0 01-2.83-2.83l8.49-8.48" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+          <div style="font-size:10px;color:rgba(255,255,255,0.3);letter-spacing:0.05em;">PNG · JPG · WEBP</div>
+        </div>
+      </div>
+
+      <!-- What you get -->
+      <div style="margin-top:14px;text-align:center;font-size:11px;color:rgba(255,255,255,0.25);line-height:1.6;letter-spacing:0.04em;">Editorial · Lookbook · Campaign · Studio</div>
+
     </div>
 
-    <div class="demo-upload-zone" id="demoZone">
-      <input type="file" class="demo-file-input" id="demoFileInput" accept="image/*" onchange="handleDemoUpload(this)">
-      <div class="demo-upload-label">
-        <span>Click to upload</span> or drag & drop<br>
-        <span style="font-size:13px;color:rgba(255,255,255,0.3);font-weight:400">PNG, JPG up to 10MB</span>
-      </div>
-    </div>
   </div>
 
   <div class="demo-processing" id="demoProcessing">
     <div class="demo-spinner"></div>
-    <div class="demo-processing-text" id="demoProcessingText">Analyzing your product...</div>
+    <div style="display:flex;flex-direction:column;align-items:center;gap:8px;">
+      <div class="demo-processing-text" id="demoProcessingText" style="font-size:15px;font-weight:400;color:#fff;">Analyzing your product...</div>
+      <div id="demoProcessingSub" style="font-size:13px;color:rgba(255,255,255,0.35);">This takes a few seconds</div>
+    </div>
+    <div class="demo-progress-bar"><div class="demo-progress-fill" id="demoProgressFill"></div></div>
   </div>
 
   <div class="demo-preview-wrap" id="demoStep2">
-    <div class="demo-images" id="demoImages"></div>
-    <div class="demo-result-actions">
-      <button class="demo-btn-download" onclick="window.open('https://realsnap.ai/en#:~:text=Book%20a%20demo-,Join%20Us,-EN','_blank')">Download Full Quality ↓</button>
-      <button class="demo-btn-studio" onclick="window.open('https://realsnap.ai/en/snap','_blank')">Open in Studio →</button>
+    <!-- title -->
+    <div style="text-align:center;margin-bottom:32px;">
+      <div style="font-family:'Druk',var(--T);font-size:28px;color:#fff;">Your Look</div>
     </div>
-    <div class="demo-result-note">Full resolution & unlimited generations available in studio.<br>Free trial — no credit card required.</div>
+
+    <!-- Original — centered, small, top -->
+    <div style="display:flex;flex-direction:column;align-items:center;gap:8px;margin-bottom:32px;">
+      <div style="font-size:8px;font-weight:400;letter-spacing:0.1em;text-transform:uppercase;color:rgba(255,255,255,0.22);">Original</div>
+      <div id="demoOrigBox" style="width:100px;border-radius:10px;overflow:hidden;background:#1a1a1a;border:0.5px solid rgba(255,255,255,0.08);">
+        <img id="demoOrigImg" style="width:100%;height:auto;display:block;" src="" alt="original">
+      </div>
+    </div>
+
+    <!-- Generated — 3 cols below -->
+    <div style="display:flex;flex-direction:column;gap:8px;width:100%;">
+      <div style="font-size:8px;font-weight:400;letter-spacing:0.1em;text-transform:uppercase;color:rgba(255,255,255,0.22);text-align:center;">Generated</div>
+      <div id="demoImages" style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px;"></div>
+    </div>
+
+    <div class="demo-result-actions" style="margin-top:52px;">
+      <button class="demo-btn-download" onclick="window.open('https://realsnap.ai/auth/signIn','_blank')">Download Full Quality ↓</button>
+      <button class="demo-btn-studio" onclick="window.open('https://realsnap.ai/home','_blank')">Open in Studio →</button>
+    </div>
+    <div class="demo-result-note" style="margin-top:10px;">Full resolution & unlimited generations available in studio.<br>Free trial — no credit card required.</div>
   </div>
 </div>
 
@@ -1041,7 +1139,7 @@ body{background:var(--bg);background-color:#000;color:var(--w);font-family:var(-
       <div class="dot-menu-item-desc">Browse the gallery</div>
     </div>
   </a>
-  <a class="dot-menu-item" href="https://realsnap.ai/en/cost" target="_blank">
+  <a class="dot-menu-item" href="pricing.html">
     <div class="dot-menu-item-icon">💳</div>
     <div class="dot-menu-item-text">
       <div class="dot-menu-item-label">Pricing</div>
@@ -1055,7 +1153,7 @@ body{background:var(--bg);background-color:#000;color:var(--w);font-family:var(-
   <div class="hero-text">
     <div class="hero-h-top">One Product Shot.<br>Every Look.</div>
     <p class="hero-sub">Upload one product photo — studio shots, lookbooks, editorials, campaign films and more. All in minutes.</p>
-    <button class="hero-cta" onclick="window.open('https://realsnap.ai/en#:~:text=Book%20a%20demo-,Join%20Us,-EN','_blank')">Get started</button>
+    <button class="hero-cta" onclick="window.open('https://realsnap.ai/auth/signIn','_blank')">Get started</button>
   </div>
   <!-- 모바일 전용 히어로 이미지 -->
   <div class="hero-mock-mobile">
@@ -1080,7 +1178,7 @@ body{background:var(--bg);background-color:#000;color:var(--w);font-family:var(-
         <!-- Product Image (맨 위) -->
         <div class="hm-panel">
           <div class="hm-panel-label-row">
-            <span style="display:flex;align-items:center;gap:6px;"><span style="width:5px;height:5px;border-radius:50%;background:rgba(255,255,255,0.85);flex-shrink:0;display:inline-block;"></span><span style="font-size:10px;font-weight:600;color:rgba(255,255,255,0.85);letter-spacing:0.02em;">Original</span></span>
+            <span style="display:flex;align-items:center;gap:6px;"><span style="width:5px;height:5px;border-radius:50%;background:rgba(255,255,255,0.85);flex-shrink:0;display:inline-block;"></span><span style="font-size:10px;font-weight:400;color:rgba(255,255,255,0.85);letter-spacing:0.02em;">Original</span></span>
             <span class="hm-panel-reset">↺ Reset</span>
           </div>
           <div class="hm-panel-img hm-panel-img--product" style="display:block;width:100%;aspect-ratio:1/1;min-height:180px;background:#1a1a1a;border-radius:6px;border:1px solid rgba(255,255,255,0.1);margin:0;"></div>
@@ -1285,8 +1383,8 @@ body{background:var(--bg);background-color:#000;color:var(--w);font-family:var(-
     <div class="cta-h">Redefine How<br>Brands Create Visuals</div>
     <p class="cta-sub">From one product photo to a full campaign. Starting at $49/mo.</p>
     <div class="cta-btns">
-      <button class="btn-g-lg" onclick="window.open('https://realsnap.ai/en/cost','_blank')">View pricing</button>
-      <button class="btn-r-lg" onclick="window.open('https://realsnap.ai/en#:~:text=Cost-,Book%20a%20demo,-Join%20Us','_blank')">Book a demo</button>
+      <button class="btn-g-lg" onclick="window.location.href='pricing.html'">View pricing</button>
+      <button class="btn-r-lg" onclick="window.open('https://realsnap.ai/book-demo','_blank')">Book a demo</button>
     </div>
   </section>
 </div>
@@ -1682,6 +1780,7 @@ var demoStyle = 'EDITORIAL';
 function openDemo(){ 
   document.getElementById('demoOverlay').classList.add('open');
   document.body.style.overflow='hidden';
+  initDemoStrip();
 }
 function closeDemo(){ 
   document.getElementById('demoOverlay').classList.remove('open');
@@ -1695,6 +1794,41 @@ function closeDemo(){
     document.getElementById('demoImages').innerHTML='';
   }, 400);
 }
+function initDemoStrip(){
+  var bgSlider = document.getElementById('demoBgSlider');
+  if(bgSlider && bgSlider.childElementCount > 0) return;
+  var imgs = [];
+  if(typeof sets !== 'undefined'){
+    sets.forEach(function(s){
+      s.cards.forEach(function(c){ if(c.img) imgs.push(c.img); });
+    });
+  }
+  if(imgs.length === 0) return;
+
+  // fullscreen bg slider — triple for seamless loop
+  if(bgSlider){
+    var bgImgs = imgs.concat(imgs).concat(imgs);
+    bgImgs.forEach(function(src){
+      var card = document.createElement('div');
+      card.className = 'bg-card';
+      var img = document.createElement('img');
+      img.src = src;
+      card.appendChild(img);
+      bgSlider.appendChild(card);
+    });
+  }
+}
+
+function selectStyleCard(el, style){
+  document.querySelectorAll('.demo-style-card').forEach(function(c){
+    c.style.border='1px solid rgba(255,255,255,0.08)';
+    c.style.background='transparent';
+  });
+  el.style.border='1px solid rgba(255,255,255,0.2)';
+  el.style.background='rgba(255,255,255,0.07)';
+  window._demoStyle = style;
+}
+
 function selectChip(el){
   document.querySelectorAll('.demo-chip').forEach(function(c){ c.classList.remove('on'); });
   el.classList.add('on');
@@ -1724,17 +1858,24 @@ function startDemoProcess(dataUrl, file){
   document.getElementById('demoProcessing').style.display='flex';
   
   var msgEl = document.getElementById('demoProcessingText');
+  var subEl = document.getElementById('demoProcessingSub');
+  var fillEl = document.getElementById('demoProgressFill');
   var msgs = [
-    'Analyzing your product...',
-    'Generating scene composition...',
-    'Applying ' + demoStyle.toLowerCase() + ' style...',
-    'Adding lighting & depth...',
-    'Finalizing your result...'
+    ['Analyzing your product...', 'Reading colors, shapes & details'],
+    ['Generating scene composition...', 'Building the visual layout'],
+    ['Applying editorial style...', 'Matching fashion aesthetics'],
+    ['Adding lighting & depth...', 'Crafting the final look'],
+    ['Finalizing your result...', 'Almost there']
   ];
   var mi = 0;
+  if(fillEl) fillEl.style.width = '10%';
   var msgInt = setInterval(function(){
     mi++;
-    if(mi < msgs.length) msgEl.textContent = msgs[mi];
+    if(mi < msgs.length){
+      msgEl.textContent = msgs[mi][0];
+      if(subEl) subEl.textContent = msgs[mi][1];
+      if(fillEl) fillEl.style.width = ((mi+1)/msgs.length*90) + '%';
+    }
   }, 900);
 
   // Claude API로 이미지 분석 + 설명 생성
@@ -1793,28 +1934,22 @@ function showDemoResult(dataUrl, result){
   var imgBox = document.getElementById('demoImages');
   
   // 실제 업로드 이미지 + AI 생성 컨셉 카드 2장 표시
-  imgBox.innerHTML = 
-    '<div class="demo-img-box">' +
-      '<img src="' + dataUrl + '" alt="original">' +
-      '<div class="demo-img-label">Original</div>' +
-    '</div>' +
-    '<div class="demo-img-box" style="background:linear-gradient(135deg,#1a1a1a,#2a2a2a);display:flex;flex-direction:column;align-items:center;justify-content:center;padding:20px;text-align:center;">' +
-      
-      '<div style="font-size:13px;font-weight:600;color:#fff;margin-bottom:6px">' + (result.scene1 ? result.scene1.title : demoStyle+' Shot 01') + '</div>' +
-      '<div style="font-size:11px;color:rgba(255,255,255,0.4);line-height:1.5;margin-bottom:12px">' + (result.scene1 ? result.scene1.setting : '') + '</div>' +
-      '<div style="font-size:10px;color:rgba(255,255,255,0.4);letter-spacing:0.08em;text-transform:uppercase;font-weight:600">AI Generated</div>' +
-    '</div>' +
-    '<div class="demo-img-box" style="background:linear-gradient(135deg,#1a1a1a,#222);display:flex;flex-direction:column;align-items:center;justify-content:center;padding:20px;text-align:center;">' +
-      
-      '<div style="font-size:13px;font-weight:600;color:#fff;margin-bottom:6px">' + (result.scene2 ? result.scene2.title : demoStyle+' Shot 02') + '</div>' +
-      '<div style="font-size:11px;color:rgba(255,255,255,0.4);line-height:1.5;margin-bottom:12px">' + (result.scene2 ? result.scene2.setting : '') + '</div>' +
-      '<div style="font-size:10px;color:rgba(255,255,255,0.4);letter-spacing:0.08em;text-transform:uppercase;font-weight:600">AI Generated</div>' +
-    '</div>' +
-    '<div class="demo-img-box" style="background:linear-gradient(135deg,#111,#1e1e1e);display:flex;flex-direction:column;align-items:center;justify-content:center;padding:20px;text-align:center;border:1.5px dashed rgba(255,255,255,0.15);">' +
-      
-      '<div style="font-size:13px;font-weight:600;color:#fff;margin-bottom:6px">+8 more variations</div>' +
-      '<div style="font-size:11px;color:rgba(255,255,255,0.35);line-height:1.5">Unlock full generations<br>in RealSnap Studio</div>' +
+  // Set original image
+  var origImg = document.getElementById('demoOrigImg');
+  if(origImg) origImg.src = dataUrl;
+
+  // Set generated cards (3 cards stacked vertically)
+  var styles = [
+    { title: result.scene1 ? result.scene1.title : 'Editorial', sub: result.scene1 ? result.scene1.setting : 'High-fashion magazine style' },
+    { title: result.scene2 ? result.scene2.title : 'Lookbook', sub: result.scene2 ? result.scene2.setting : 'Seasonal campaign shot' },
+    { title: 'Studio', sub: 'White background · Commerce-ready' }
+  ];
+  imgBox.innerHTML = styles.map(function(s){
+    return '<div class="demo-img-box" style="display:flex;flex-direction:column;align-items:center;justify-content:flex-end;padding:14px;text-align:center;">' +
+      '<div style="font-size:11px;font-weight:400;color:#fff;margin-bottom:3px">' + s.title + '</div>' +
+      '<div style="font-size:10px;color:rgba(255,255,255,0.35);line-height:1.4;">' + s.sub + '</div>' +
     '</div>';
+  }).join('');
 
   var step2 = document.getElementById('demoStep2');
   step2.style.display = 'block';
@@ -1939,12 +2074,10 @@ function selectUC(key, btn) {
   window.addEventListener('scroll', function(){
     var currentScroll = window.scrollY;
     var delta = currentScroll - lastScroll;
-    deg += delta * 0.3;
+    deg += delta * 0.2;
     lastScroll = currentScroll;
-    var lens = document.getElementById('snap-logo-svg');
-    if(lens) lens.style.transform = 'rotate(' + deg + 'deg)';
-    var txt = document.getElementById('snap-text-svg');
-    if(txt) txt.style.transform = 'rotate(' + deg + 'deg)';
+    var dot = document.getElementById('pill-dot-logo');
+    if(dot) dot.style.transform = 'rotate(' + deg + 'deg)';
   });
 })();
 </script>
