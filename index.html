@@ -413,15 +413,15 @@ body{background:var(--bg);background-color:#000;color:var(--w);font-family:var(-
 /* Fullscreen slider background */
 #demoBgSlider{
   position:absolute;inset:0;z-index:0;
-  display:flex;align-items:center;gap:12px;
-  padding:24px 6px;
-  animation:demoBgScroll 40s linear infinite;
+  display:flex;align-items:center;gap:16px;
+  padding:0 6px;
+  animation:demoBgScroll 65s linear infinite;
   width:max-content;
   will-change:transform;
 }
 #demoBgSlider .bg-card{
-  height:calc(100vh - 48px);
-  width:calc((100vh - 48px) * 9 / 16);
+  height:70vh;
+  width:calc(70vh * 9 / 16);
   flex-shrink:0;
   border-radius:16px;
   overflow:hidden;
@@ -445,8 +445,9 @@ body{background:var(--bg);background-color:#000;color:var(--w);font-family:var(-
 #demoContent{
   position:relative;z-index:3;
   display:flex;flex-direction:column;align-items:center;
-  width:100%;max-width:360px;
+  width:100%;max-width:300px;
   padding:0 24px;
+  margin-top:-60px;
 }
 #demoOverlay.open{opacity:1;pointer-events:auto;}
 @keyframes demoScroll{
@@ -1055,16 +1056,16 @@ body{background:var(--bg);background-color:#000;color:var(--w);font-family:var(-
 
   <!-- Upload content centered -->
   <div id="demoContent">
-    <div id="demoStep1" style="display:flex;flex-direction:column;align-items:center;width:100%;">
+    <div id="demoStep1" style="display:flex;flex-direction:column;align-items:center;width:100%;gap:12px;">
 
       <!-- Logo -->
-      <div style="text-align:center;margin-bottom:28px;width:100%;">
+      <div style="text-align:center;width:100%;">
         <div style="font-family:'Druk',var(--T);font-size:28px;font-weight:400;color:#fff;letter-spacing:0.01em;">Realsnap</div>
       </div>
 
       <!-- CTA -->
-      <div style="text-align:center;margin-bottom:16px;width:100%;">
-        <div style="font-size:15px;font-weight:500;color:rgba(255,255,255,0.75);">Drop your product photo</div>
+      <div style="text-align:center;width:100%;">
+        <div style="font-size:15px;font-weight:400;color:rgba(255,255,255,0.75);">Drop your product photo</div>
       </div>
 
       <!-- Upload box — glass effect -->
@@ -1079,7 +1080,9 @@ body{background:var(--bg);background-color:#000;color:var(--w);font-family:var(-
       </div>
 
       <!-- What you get -->
-      <div style="margin-top:14px;text-align:center;font-size:11px;color:rgba(255,255,255,0.25);line-height:1.6;letter-spacing:0.04em;">Editorial · Lookbook · Campaign · Studio</div>
+      <div style="text-align:center;width:100%;">
+        <div style="font-size:11px;color:rgba(255,255,255,0.25);letter-spacing:0.04em;">Editorial · Lookbook · Campaign · Studio</div>
+      </div>
 
     </div>
 
