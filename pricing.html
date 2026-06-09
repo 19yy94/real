@@ -29,9 +29,9 @@ html,body{background:#000;color:var(--w);font-family:var(--T);}
 
 /* NAV */
 #floatLogo{display:none!important}
-.nav{height:60px;display:flex;align-items:center;justify-content:space-between;padding:0 48px;background:rgba(0,0,0,0.6);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border-bottom:1px solid rgba(240,240,236,0.12);position:sticky;top:0;z-index:1000}
+.nav{height:60px;display:flex;align-items:center;justify-content:space-between;padding:0 48px;background:rgba(0,0,0,0.6);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border-bottom:1px solid rgba(240,240,236,0.12);position:sticky;top:0;z-index:1000;overflow:visible}
 .nav-logo{display:flex;align-items:center;cursor:pointer;flex:1;font-family:'Druk',var(--T);font-size:18px;font-weight:400;color:#fff;letter-spacing:0.01em}
-.nav-links{display:flex;list-style:none;position:absolute;left:50%;transform:translateX(-50%)}
+.nav-links{display:flex;list-style:none;position:absolute;left:50%;transform:translateX(-50%);overflow:visible}
 .nl{font-size:11px;font-weight:400;color:rgba(240,240,236,0.7);letter-spacing:0.03em;cursor:pointer;padding:0 24px;height:60px;display:flex;align-items:center;transition:color .15s;text-transform:uppercase}
 .nl:hover{color:var(--w)}
 .nl.active{color:var(--w)!important;opacity:1;}
@@ -49,7 +49,7 @@ html,body{background:#000;color:var(--w);font-family:var(--T);}
 .nl.has-dropdown:hover::after{border-top-color:var(--w);transform:rotate(180deg)}
 .nl.has-dropdown::after{content:'';display:inline-block;width:0;height:0;margin-left:5px;border-left:3px solid transparent;border-right:3px solid transparent;border-top:3px solid rgba(240,240,236,0.4);transition:transform .2s,border-color .2s;vertical-align:middle;position:relative;top:-1px}
 
-.dropdown{position:absolute;top:calc(100% + 0px);left:0;background:#0a0a0a;backdrop-filter:none;-webkit-backdrop-filter:none;border:1px solid rgba(240,240,236,0.1);min-width:220px;width:max-content;opacity:0;visibility:hidden;transition:opacity .2s ease,transform .2s ease,visibility .2s;transform:translateY(-4px);z-index:300;overflow:hidden}
+.dropdown{position:absolute;top:calc(100% + 0px);left:0;background:#0a0a0a;backdrop-filter:none;-webkit-backdrop-filter:none;border:1px solid rgba(240,240,236,0.1);min-width:220px;width:max-content;opacity:0;visibility:hidden;transition:opacity .2s ease,transform .2s ease,visibility .2s;transform:translateY(-4px);z-index:1001;overflow:hidden}
 .nl.has-dropdown:hover .dropdown,.dropdown:hover{opacity:1;visibility:visible;transform:translateY(0)}
 .dropdown-header{padding:14px 20px 8px;font-size:9px;font-weight:400;letter-spacing:0.15em;text-transform:uppercase;color:rgba(240,240,236,0.25);border-bottom:1px solid rgba(240,240,236,0.06)}
 .dropdown-item{display:flex;align-items:flex-start;gap:12px;padding:12px 20px;cursor:pointer;transition:background .15s}
