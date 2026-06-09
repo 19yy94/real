@@ -2062,6 +2062,14 @@ function showDemoResult(dataUrl, result){
   if(bgSlider) bgSlider.style.opacity = '0';
 }
 
+
+// 데모 파라미터 감지
+if(window.location.search.indexOf('demo=1') !== -1){
+  window.addEventListener('load', function(){
+    setTimeout(function(){ openDemo(); }, 500);
+  });
+}
+
 // ESC로 닫기
 document.addEventListener('keydown', function(e){
   if(e.key==='Escape') closeDemo();

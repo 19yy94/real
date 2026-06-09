@@ -412,6 +412,8 @@ html,body{background:#000;color:var(--w);font-family:var(--T);}
 
 .pricing-footer-wrap{position:relative;overflow:hidden;}
 .pricing-footer-wrap::before{content:'';position:absolute;bottom:0;left:0;right:0;height:30%;background:radial-gradient(ellipse 100% 80% at 50% 100%, rgba(232,37,26,0.22) 0%, rgba(232,37,26,0.08) 40%, transparent 70%);pointer-events:none;z-index:0;}
+
+
 </style>
 <script>
 (function(){
@@ -539,8 +541,10 @@ html,body{background:#000;color:var(--w);font-family:var(--T);}
   <button class="pill-btn" onclick="window.open('https://realsnap.ai/auth/signIn','_blank')">Get started</button>
 </div>
 </div>
-<div class="pill-dot-wrap" id="pillDot" onclick="openDemo()" style="position:fixed;top:20px;left:0;z-index:999;opacity:0;pointer-events:none;transition:opacity 0.4s ease,left 0s">
-  <div class="pill-dot" id="pill-dot-logo" style="background:#e8251a;border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0;"><span style="font-size:12px;font-weight:400;color:#000;letter-spacing:-0.02em;line-height:1;">Try!</span></div>
+<div class="pill-dot-wrap" id="pillDot" onclick="window.location.href='index.html?demo=1'" style="position:fixed;top:20px;left:0;z-index:999;opacity:0;pointer-events:none;transition:opacity 0.4s ease,left 0s;width:48px;height:48px;min-width:48px;min-height:48px;background:rgba(50,50,50,0.45);backdrop-filter:blur(24px);-webkit-backdrop-filter:blur(24px);border:1px solid rgba(255,255,255,0.1);border-radius:50%;display:flex;align-items:center;justify-content:center;cursor:pointer;">
+  <div class="pill-dot" id="pill-dot-logo" style="width:40px;height:40px;min-width:40px;min-height:40px;background:#e8251a;border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0;"><span style="font-size:12px;font-weight:400;color:#000;letter-spacing:-0.02em;line-height:1;">Try!</span></div>
+</div>
+
 </div>
 
 <div class="plans">
@@ -719,7 +723,7 @@ function setToggle(mode){
 function openDrawer(){var d=document.getElementById('drawer');if(d){d.style.display='flex';document.body.style.overflow='hidden';}}
 function closeDrawer(){var d=document.getElementById('drawer');if(d){d.style.display='none';document.body.style.overflow='';}}
 function toggleFaq(el){
-  el.classList.toggle('open');
+  if(el) el.classList.toggle('open');
 }
 </script>
 
@@ -742,8 +746,6 @@ function toggleFaq(el){
   <button class="pill-btn" onclick="window.open('https://realsnap.ai/auth/signIn','_blank')">Get started</button>
 </div>
 </div>
-<div class="pill-dot-wrap" id="pillDot" onclick="openDemo()" style="position:fixed;top:20px;left:0;z-index:999;opacity:0;pointer-events:none;transition:opacity 0.4s ease,left 0s;width:48px;height:48px;min-width:48px;min-height:48px;background:rgba(50,50,50,0.45);backdrop-filter:blur(24px);-webkit-backdrop-filter:blur(24px);border:1px solid rgba(255,255,255,0.1);border-radius:50%;display:flex;align-items:center;justify-content:center;box-shadow:0 8px 32px rgba(0,0,0,0.4);cursor:pointer;flex-shrink:0;">
-  <div class="pill-dot" id="pill-dot-logo" style="width:36px;height:36px;min-width:36px;min-height:36px;background:#e8251a;border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0;"><span style="font-size:12px;font-weight:400;color:#000;letter-spacing:-0.02em;line-height:1;">Try!</span></div>
 </div>
 <script>
 
@@ -762,6 +764,7 @@ function toggleFaq(el){
   function toCenter(){
     if(!scattered) return;
     if(window.innerWidth <= 767) return;
+    if(!nav) return;
     scattered = false;
     // nav 배경 페이드
     nav.style.transition = 'opacity 0.35s ease';
@@ -825,6 +828,7 @@ function toggleFaq(el){
     var dot2 = document.getElementById('pillDot');
     if(dot2){ dot2.style.opacity='0'; dot2.style.pointerEvents='none'; }
     (function(){
+      if(!nav) return;
       nav.style.transition = 'opacity 0.4s ease';
       nav.style.opacity = '1';
       nav.style.pointerEvents = '';
