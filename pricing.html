@@ -440,7 +440,7 @@ html,body{background:#000;color:var(--w);font-family:var(--T);}
       <div class="dl-sub-item" onclick="window.open('https://realsnap.ai/en/edit','_blank')">Edit</div>
       <div class="dl-sub-item" onclick="window.open('https://realsnap.ai/en/tutorials','_blank')">Tutorials</div>
     </div>
-    <div class="dl" onclick="window.open('magazine.html','_blank')">Magazine</div>
+    <div class="dl" onclick="window.location.href='magazine.html'">Magazine</div>
     <div class="dl" onclick="window.location.href='pricing.html'">Pricing</div>
   </div>
   <div class="drawer-btns">
@@ -486,7 +486,7 @@ html,body{background:#000;color:var(--w);font-family:var(--T);}
     </li>
 
     <!-- GALLERY dropdown -->
-    <li class="nl" onclick="window.open('magazine.html','_blank')" style="cursor:pointer">Magazine</li>
+    <li class="nl" onclick="window.location.href='magazine.html'" style="cursor:pointer">Magazine</li>
 
     <!-- PRICING (no dropdown) -->
     <li class="nl active" onclick="window.location.href='pricing.html'" style="cursor:pointer">Pricing</li>
@@ -535,7 +535,7 @@ html,body{background:#000;color:var(--w);font-family:var(--T);}
         </a>
       </div>
     </li>
-    <li class="pill-nl" onclick="window.open('magazine.html','_blank')">Magazine</li>
+    <li class="pill-nl" onclick="window.location.href='magazine.html'">Magazine</li>
     <li class="pill-nl" onclick="window.location.href='pricing.html'">Pricing</li>
   </ul>
   <button class="pill-btn" onclick="window.open('https://realsnap.ai/auth/signIn','_blank')">Get started</button>
@@ -700,8 +700,8 @@ html,body{background:#000;color:var(--w);font-family:var(--T);}
 <script>
 function setToggle(mode){
   var isAnnual = mode === 'annual';
-  document.getElementById('tog-m').classList.toggle('on', !isAnnual);
-  document.getElementById('tog-a').classList.toggle('on', isAnnual);
+  var togM=document.getElementById('tog-m'); if(togM) togM.classList.toggle('on', !isAnnual);
+  var togA=document.getElementById('tog-a'); if(togA) togA.classList.toggle('on', isAnnual);
   document.querySelectorAll('.price-num').forEach(function(el){
     if(el.dataset.m) el.textContent = isAnnual ? el.dataset.a : el.dataset.m;
   });
@@ -740,7 +740,7 @@ function toggleFaq(el){
         <a class="pill-dd-item" href="https://realsnap.ai/en/tutorials" target="_blank"><span class="pill-dd-dot" style="background:rgba(255,255,255,0.3);"></span>TUTORIALS</a>
       </div>
     </li>
-    <li class="pill-nl" onclick="window.open('magazine.html','_blank')">Magazine</li>
+    <li class="pill-nl" onclick="window.location.href='magazine.html'">Magazine</li>
     <li class="pill-nl" style="color:#fff;font-weight:600;cursor:default;">Pricing</li>
   </ul>
   <button class="pill-btn" onclick="window.open('https://realsnap.ai/auth/signIn','_blank')">Get started</button>
