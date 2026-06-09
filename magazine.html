@@ -23,6 +23,7 @@ html{height:100%}body{background:#000;color:var(--w);font-family:var(--T);min-he
 .nav-links{display:flex;list-style:none;position:absolute;left:50%;transform:translateX(-50%)}
 .nl{font-size:11px;font-weight:400;color:rgba(240,240,236,0.7);letter-spacing:0.03em;cursor:pointer;padding:0 24px;height:60px;display:flex;align-items:center;transition:color .15s;text-transform:uppercase}
 .nl:hover{color:var(--w)}
+.nl.active{color:var(--w)!important;opacity:1;}
 .nav-r{display:flex;gap:8px;align-items:center;flex:1;justify-content:flex-end}
 .btn-login{padding:8px 18px;border:none;background:none;color:rgba(240,240,236,0.5);font-size:13px;cursor:pointer;font-family:var(--T);border-radius:40px}
 .btn-demo{padding:8px 18px;border:1px solid rgba(240,240,236,0.25);background:none;color:var(--w);font-size:13px;cursor:pointer;font-family:var(--T);border-radius:40px}
@@ -324,7 +325,7 @@ html{height:100%}body{background:#000;color:var(--w);font-family:var(--T);min-he
     </li>
 
     <!-- GALLERY dropdown -->
-    <li class="nl" onclick="window.open('magazine.html','_blank')" style="cursor:pointer">Magazine</li>
+    <li class="nl active" onclick="window.open('magazine.html','_blank')" style="cursor:pointer">Magazine</li>
 
     <!-- PRICING (no dropdown) -->
     <li class="nl" onclick="window.location.href='pricing.html'" style="cursor:pointer">Pricing</li>
@@ -337,3 +338,48 @@ html{height:100%}body{background:#000;color:var(--w);font-family:var(--T);min-he
     <button class="nav-hamburger" onclick="openDrawer()"><span></span><span></span><span></span></button>
   </div>
 </nav>
+
+<!-- Scroll Pill Nav -->
+<div id="floatLogo" onclick="window.location.href='index.html'">Realsnap</div>
+<div style="position:fixed;top:20px;left:50%;transform:translateX(-50%);z-index:999;opacity:0;transition:opacity 0.4s ease;pointer-events:none" id="pillWrapper"><div class="pill-nav" id="pillNav" style="position:static;top:auto;left:auto;transform:none;opacity:1;pointer-events:auto;z-index:auto">
+  <span class="pill-logo" onclick="window.location.href='index.html'">Realsnap</span>
+  <div class="pill-divider"></div>
+  <ul class="pill-nav-links">
+    <li class="pill-studio-wrap">
+      <span class="pill-nl">STUDIO<span class="pill-nl-arrow">▾</span></span>
+      <div class="pill-studio-dd">
+        <a class="pill-dd-item" href="https://realsnap.ai/en/snap" target="_blank" style="text-decoration:none">
+          <div class="pill-dd-item-text">
+            <div class="pill-dd-item-label">Snap</div>
+            <div class="pill-dd-item-desc">Model shots / Lookbook</div>
+          </div>
+        </a>
+        <a class="pill-dd-item" href="https://realsnap.ai/en/drop" target="_blank" style="text-decoration:none">
+          <div class="pill-dd-item-text">
+            <div class="pill-dd-item-label">Drop</div>
+            <div class="pill-dd-item-desc">Campaign videos / Reels</div>
+          </div>
+        </a>
+        <a class="pill-dd-item" href="https://realsnap.ai/en/edit" target="_blank" style="text-decoration:none">
+          <div class="pill-dd-item-text">
+            <div class="pill-dd-item-label">Edit</div>
+            <div class="pill-dd-item-desc">Bulk crop / Centering</div>
+          </div>
+        </a>
+        <div style="height:0.5px;background:rgba(240,240,236,0.06);margin:4px 20px;"></div>
+        <a class="pill-dd-item" href="https://realsnap.ai/en/tutorials" target="_blank" style="text-decoration:none">
+          <div class="pill-dd-item-text">
+            <div class="pill-dd-item-label">Tutorials</div>
+          </div>
+        </a>
+      </div>
+    </li>
+    <li class="pill-nl" onclick="window.open('magazine.html','_blank')">Magazine</li>
+    <li class="pill-nl" onclick="window.location.href='pricing.html'">Pricing</li>
+  </ul>
+  <button class="pill-btn" onclick="window.open('https://realsnap.ai/auth/signIn','_blank')">Get started</button>
+</div>
+</div>
+<div class="pill-dot-wrap" id="pillDot" onclick="openDemo()" style="position:fixed;top:20px;left:0;z-index:999;opacity:0;pointer-events:none;transition:opacity 0.4s ease,left 0s">
+  <div class="pill-dot" id="pill-dot-logo" style="background:#e8251a;border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0;"><span style="font-size:12px;font-weight:400;color:#000;letter-spacing:-0.02em;line-height:1;">Try!</span></div>
+</div>
