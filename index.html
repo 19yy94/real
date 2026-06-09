@@ -1801,7 +1801,7 @@ function startApp(){
     });
     pill.style.opacity='1';
     pill.style.pointerEvents='auto';
-    var fl=document.getElementById('floatLogo'); if(fl) fl.classList.add('visible');
+    var fl=document.getElementById('floatLogo'); if(fl) fl.classList.remove('visible');
     requestAnimationFrame(function(){
       requestAnimationFrame(function(){
         var dot2 = document.getElementById('pillDot');
