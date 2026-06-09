@@ -2,9 +2,79 @@
 <html lang="en" style="background:#000;color-scheme:dark">
 <head>
 <meta charset="UTF-8">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><circle cx='16' cy='16' r='16' fill='%23e8251a'/></svg>">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Realsnap</title>
-<style>:root{--bg:#000;--card:#111;--w:#F0F0EC;--body:#B0B0AC;--mid:#555552;--red:#E01A0A;--b:rgba(240,240,236,0.09);--b2:rgba(240,240,236,0.18);--T:'Pretendard JP','Pretendard',sans-serif;}html,body{background:#000!important;background-color:#000!important;}</style>
+<style>:root{--bg:#000;--card:#111;--w:#F0F0EC;--body:#B0B0AC;--mid:#555552;--red:#E01A0A;--b:rgba(240,240,236,0.09);--b2:rgba(240,240,236,0.28);--T:'Pretendard JP','Pretendard',sans-serif;}html,body{background:#000!important;background-color:#000!important;}
+/* ── DEMO CTA SECTION ── */
+.demo-cta-section{
+  position:relative;
+  padding:140px 48px 180px;
+  overflow:hidden;
+  background:transparent;
+  text-align:center;
+}
+
+.demo-cta-inner{
+  position:relative;z-index:1;
+  display:flex;flex-direction:column;align-items:center;
+  gap:40px;
+}
+.demo-cta-text{
+  font-family:'Druk',var(--T);
+  font-size:48px;
+  font-weight:400;
+  color:#f0f0ec;
+  line-height:0.92;
+  letter-spacing:-0.02em;
+}
+.demo-cta-btn{
+  display:inline-flex;align-items:center;
+  padding:14px 32px;
+  background:#f0f0ec;
+  color:#000;
+  border:none;
+  border-radius:40px;
+  font-size:15px;
+  font-family:var(--T);
+  font-weight:400;
+  letter-spacing:-0.02em;
+  cursor:pointer;
+  transition:opacity 0.15s;
+}
+.demo-cta-btn:hover{opacity:0.85}
+
+/* ── CTA + FOOTER GRADIENT WRAP ── */
+.cta-footer-wrap{
+  position:relative;
+  background:transparent;
+  overflow:hidden;
+}
+.cta-footer-wrap::before{
+  content:'';
+  position:absolute;
+  bottom:0;left:0;right:0;
+  height:60%;
+  background:radial-gradient(ellipse 100% 80% at 50% 100%, rgba(232,37,26,0.22) 0%, rgba(232,37,26,0.08) 40%, transparent 70%);
+  pointer-events:none;
+  z-index:0;
+}
+.cta-footer-wrap::after{
+  content:'';
+  position:absolute;inset:0;
+  z-index:0;
+  background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  opacity:0.035;
+  pointer-events:none;
+}
+
+.btn-g-lg:hover{background:rgba(240,240,236,0.08);border-color:rgba(240,240,236,0.5);}
+.tool-card-btn-g:hover{background:rgba(240,240,236,0.08);border-color:rgba(240,240,236,0.5);}
+.tool-card-btn-p:hover{background:rgba(240,240,236,0.08);border-color:rgba(240,240,236,0.5);}
+.uc-link:hover{background:rgba(240,240,236,0.08);border-color:rgba(240,240,236,0.5);}
+.demo-cta-btn:hover{opacity:0.88;}
+.pill-btn:hover{opacity:0.85;}
+</style>
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><circle cx='50' cy='50' r='50' fill='%23FF0000'/></svg>">
 <style>
 @font-face {
@@ -17,13 +87,13 @@
 *{box-sizing:border-box;margin:0;padding:0}
 :root{
   --bg:#000;--card:#111;--w:#F0F0EC;--body:#B0B0AC;--mid:#555552;
-  --red:#E01A0A;--b:rgba(240,240,236,0.09);--b2:rgba(240,240,236,0.18);
+  --red:#E01A0A;--b:rgba(240,240,236,0.09);--b2:rgba(240,240,236,0.28);
   --T:'Pretendard JP','Pretendard',sans-serif;
 }
-body{background:var(--bg);background-color:#000;color:var(--w);font-family:var(--T);overflow-x:hidden;font-weight:400;}
+body{background:#1a1412;background-color:#1a1412;color:var(--w);font-family:var(--T);overflow-x:hidden;font-weight:400;}
 
 /* NAV */
-.nav{height:60px;display:flex;align-items:center;justify-content:space-between;padding:0 48px;background:rgba(0,0,0,0.6);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border-bottom:1px solid rgba(240,240,236,0.07);position:sticky;top:0;z-index:100}
+.nav{height:60px;display:flex;align-items:center;justify-content:space-between;padding:0 48px;background:rgba(0,0,0,0.6);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border-bottom:1px solid rgba(240,240,236,0.12);position:sticky;top:0;z-index:1000}
 .nav-logo{display:flex;align-items:center;cursor:pointer;flex:1;font-family:'Druk',var(--T);font-size:18px;font-weight:400;color:#fff;letter-spacing:0.01em}
 .nav-links{display:flex;list-style:none;position:absolute;left:50%;transform:translateX(-50%)}
 .nl{font-size:11px;font-weight:400;color:rgba(240,240,236,0.7);letter-spacing:0.03em;cursor:pointer;padding:0 24px;height:60px;display:flex;align-items:center;transition:color .15s;text-transform:uppercase}
@@ -52,7 +122,7 @@ body{background:var(--bg);background-color:#000;color:var(--w);font-family:var(-
 .dropdown-item-icon svg{width:13px;height:13px;fill:none;stroke:rgba(240,240,236,0.5);stroke-width:1.5}
 .dropdown-item-text{}
 .dropdown-item-label{font-size:11px;font-weight:400;color:var(--w);letter-spacing:0.01em;margin-bottom:2px}
-.dropdown-item-desc{font-size:10px;color:rgba(240,240,236,0.35);line-height:1.4;font-weight:400}
+.dropdown-item-desc{font-size:10px;color:rgba(240,240,236,0.5);line-height:1.4;font-weight:400}
 .dropdown-badge{display:inline-block;font-size:8px;font-weight:400;letter-spacing:0.08em;text-transform:uppercase;padding:2px 5px;background:rgba(224,26,10,0.15);color:var(--red);border-radius:3px;margin-left:6px;vertical-align:middle;line-height:1.3}
 .dropdown-divider{height:1px;background:rgba(240,240,236,0.06);margin:4px 20px}
 .dropdown-footer{padding:10px 20px;border-top:1px solid rgba(240,240,236,0.06)}
@@ -66,7 +136,7 @@ body{background:var(--bg);background-color:#000;color:var(--w);font-family:var(-
 .dl{font-size:22px;font-weight:400;color:var(--body);padding:14px 0;border-bottom:1px solid var(--b);cursor:pointer}
 .dl-sub{display:flex;flex-direction:column;gap:0;border-bottom:1px solid var(--b);}
 .dl-sub-item{font-size:14px;font-weight:400;color:var(--body);padding:12px 0 12px 16px;cursor:pointer;border-bottom:0.5px solid rgba(240,240,236,0.05);}
-.dl-sub-item:last-child{border-bottom:none;}
+.dl-sub-item:last-child{border-bottom:1px solid rgba(240,240,236,0.12);}
 .dl-sub-item:hover{color:var(--w);}
 .dl-parent{font-size:22px;font-weight:400;color:var(--body);padding:14px 0;cursor:default;}
 .drawer-btns{display:flex;flex-direction:column;gap:8px;margin-top:24px}
@@ -82,7 +152,7 @@ body{background:var(--bg);background-color:#000;color:var(--w);font-family:var(-
 .hero-cta:hover{opacity:0.85}
 
 /* ── HERO MOCK (App UI) ── */
-.hero-mock{width:100%;border-radius:16px;background:var(--bg);border:1px solid rgba(240,240,236,0.18);position:relative;z-index:10;display:flex;flex-direction:column;overflow:hidden}
+.hero-mock{width:100%;border-radius:16px;background:var(--bg);border:1px solid rgba(240,240,236,0.28);position:relative;z-index:10;display:flex;flex-direction:column;overflow:hidden}
 .hm-topbar{height:48px;background:var(--bg);border-bottom:1px solid rgba(240,240,236,0.1);display:flex;align-items:center;justify-content:space-between;padding:0 20px;gap:16px}
 .hm-tb-logo{display:none}
 .hm-tb-tabs{display:flex;gap:2px;align-items:center}
@@ -141,20 +211,20 @@ body{background:var(--bg);background-color:#000;color:var(--w);font-family:var(-
 .usecases-head{text-align:center;margin-bottom:0}
 .usecases-h{font-family:'Druk',var(--T);font-weight:400;font-size:48px;line-height:1.05;letter-spacing:0.01em;color:var(--w);text-wrap:balance}
 .usecases-tabs{display:flex;justify-content:center;gap:6px;flex-wrap:wrap;padding:40px 0 0;overflow:visible}
-.uc-tab{padding:8px 20px;font-size:14px;font-weight:400;color:rgba(240,240,236,0.45);letter-spacing:0.03em;cursor:pointer;border:1px solid rgba(240,240,236,0.15);background:none;font-family:var(--T);transition:all .2s;border-radius:40px;white-space:nowrap}
-.uc-tab:hover{color:var(--w);border-color:rgba(240,240,236,0.2)}
-.uc-tab.on{color:var(--w);font-weight:400;background:rgba(240,240,236,0.1);border-color:rgba(240,240,236,0.2)}
-.usecases-body{display:grid;grid-template-columns:1fr 1fr;border:1px solid rgba(240,240,236,0.18);border-radius:20px;overflow:hidden;margin-top:40px;aspect-ratio:2/1}
+.uc-tab{padding:8px 20px;font-size:14px;font-weight:400;color:rgba(240,240,236,0.45);letter-spacing:0.03em;cursor:pointer;border:1px solid rgba(240,240,236,0.25);background:none;font-family:var(--T);transition:all .2s;border-radius:40px;white-space:nowrap}
+.uc-tab:hover{color:var(--w);border-color:rgba(240,240,236,0.3)}
+.uc-tab.on{color:var(--w);font-weight:400;background:rgba(240,240,236,0.1);border-color:rgba(240,240,236,0.3)}
+.usecases-body{display:grid;grid-template-columns:1fr 1fr;border:1px solid rgba(240,240,236,0.28);border-radius:20px;overflow:hidden;margin-top:40px;aspect-ratio:2/1}
 .uc-info{padding:56px 56px 48px;display:flex;flex-direction:column;justify-content:flex-start;background:var(--bg);overflow:hidden;min-height:0}
 .uc-label{font-size:11px;font-weight:400;letter-spacing:0.12em;text-transform:uppercase;color:var(--mid);margin-bottom:10px}
 .uc-name{font-size:32px;font-weight:400;font-family:'Druk',var(--T);color:var(--w);line-height:1.1;margin-bottom:16px;text-wrap:balance}
 .uc-desc{font-size:14px;color:var(--body);font-weight:400;line-height:1.45;margin-bottom:24px;margin-top:0;max-width:420px}
 .uc-chips{display:none}
 .uc-chip{font-size:12px;padding:6px 14px;border:1px solid var(--b2);color:var(--body);letter-spacing:0.04em;text-transform:uppercase;border-radius:100px;white-space:nowrap;flex-shrink:0}
-.uc-link{font-size:14px;font-weight:400;color:var(--w);letter-spacing:-0.02em;text-transform:none;display:inline-flex;align-items:center;gap:6px;padding:13px 24px;border:1px solid var(--b2);background:none;cursor:pointer;font-family:var(--T);transition:border-color .15s;width:fit-content;border-radius:40px;margin-top:auto}
+.uc-link{font-size:14px;font-weight:400;color:var(--w);text-transform:none;transition:background 0.2s,border-color 0.2s;display:inline-flex;align-items:center;gap:6px;padding:13px 24px;border:1px solid rgba(240,240,236,0.28);background:none;cursor:pointer;font-family:var(--T);transition:border-color .15s;width:fit-content;border-radius:40px;margin-top:auto}
 .uc-link:hover{border-color:var(--w)}
 .uc-visual{background:#0d0d0d;display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden;min-height:0;height:100%}
-.uc-visual-ph{font-size:11px;color:rgba(240,240,236,0.15);letter-spacing:0.08em;text-transform:uppercase}
+.uc-visual-ph{font-size:11px;color:rgba(240,240,236,0.25);letter-spacing:0.08em;text-transform:uppercase}
 
 /* ── RESULTS ── */
 .results{margin-bottom:40px;padding-bottom:0}
@@ -185,19 +255,19 @@ body{background:var(--bg);background-color:#000;color:var(--w);font-family:var(-
 .tools-inner{display:contents}
 .tools-panes{display:none}
 .tool-cards{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
-.tool-card{border-radius:16px;overflow:hidden;background:var(--bg);border:1px solid rgba(240,240,236,0.18);cursor:pointer;transition:border-color .25s,transform .25s;display:flex;flex-direction:column;height:100%;min-height:0;}
+.tool-card{border-radius:16px;overflow:hidden;background:var(--card);border:1px solid rgba(240,240,236,0.28);cursor:pointer;transition:border-color .25s,transform .25s;display:flex;flex-direction:column;height:100%;min-height:0;}
 .tool-card:hover{border-color:rgba(240,240,236,0.22);transform:translateY(-4px)}
 .tool-card-img{width:100%;aspect-ratio:1/1;background:#0d0d0d;position:relative;overflow:hidden;display:flex;align-items:center;justify-content:center}
 .tool-card-img::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 30% 40%,rgba(240,240,236,0.05) 0%,transparent 70%)}
-.tool-card-img-ph{font-size:10px;color:rgba(240,240,236,0.15);letter-spacing:0.08em;text-transform:uppercase;text-align:center;padding:20px;line-height:1.8;position:relative;z-index:1}
+.tool-card-img-ph{font-size:10px;color:rgba(240,240,236,0.25);letter-spacing:0.08em;text-transform:uppercase;text-align:center;padding:20px;line-height:1.8;position:relative;z-index:1}
 .tool-card-body{padding:22px 24px 28px;display:flex;flex-direction:column;flex:1;overflow:hidden}
 .tool-card-label{font-size:11px;font-weight:400;letter-spacing:0.12em;text-transform:uppercase;color:var(--mid);margin-bottom:10px}
 .tool-card-name{font-size:32px;font-weight:400;font-family:'Druk',var(--T);color:var(--w);line-height:1.0;margin-bottom:12px;max-width:7em}
 .tool-card-desc{font-size:14px;color:var(--body);font-weight:400;line-height:1.45;margin-bottom:24px;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}
 .tool-card-btns{display:flex;gap:8px;flex-wrap:wrap;margin-top:auto}
-.tool-card-btn-p{padding:13px 24px;background:var(--w);color:#000;border:none;font-size:14px;font-family:var(--T);cursor:pointer;font-weight:400;letter-spacing:-0.02em;border-radius:40px;transition:opacity .15s;text-align:center;min-width:120px}
+.tool-card-btn-p{padding:13px 24px;background:none;color:var(--w);border:1px solid rgba(240,240,236,0.28);font-size:14px;transition:background 0.2s,border-color 0.2s;font-family:var(--T);cursor:pointer;font-weight:400;letter-spacing:-0.02em;border-radius:40px;transition:opacity .15s;text-align:center;min-width:120px}
 .tool-card-btn-p:hover{opacity:0.85}
-.tool-card-btn-g{padding:13px 24px;background:none;color:var(--w);border:1px solid var(--b2);font-size:14px;font-family:var(--T);cursor:pointer;font-weight:400;letter-spacing:0.01em;border-radius:40px;transition:border-color .15s;text-align:center;min-width:120px}
+.tool-card-btn-g{padding:13px 24px;background:none;color:var(--w);border:1px solid rgba(240,240,236,0.28);font-size:14px;transition:background 0.2s,border-color 0.2s,color 0.2s;font-family:var(--T);cursor:pointer;font-weight:400;letter-spacing:0.01em;border-radius:40px;transition:border-color .15s;text-align:center;min-width:120px}
 .tool-card-btn-g:hover{border-color:rgba(240,240,236,0.5)}
 .tools-pane-ui{display:none}
 .ws-topbar{height:36px;background:rgba(240,240,236,0.04);border-bottom:1px solid var(--b);display:flex;align-items:center;padding:0 14px;gap:0;flex-shrink:0}
@@ -205,17 +275,17 @@ body{background:var(--bg);background-color:#000;color:var(--w);font-family:var(-
 .ws-tab.on{color:var(--w);border-bottom-color:rgba(240,240,236,0.3);font-weight:400}
 .ws-layout{display:grid;grid-template-columns:160px 1fr;flex:1;min-height:0}
 .ws-sidebar{background:rgba(240,240,236,0.025);border-right:1px solid var(--b);padding:12px 0}
-.ws-sb-label{font-size:7px;color:rgba(240,240,236,0.2);letter-spacing:0.1em;text-transform:uppercase;padding:4px 12px 2px}
+.ws-sb-label{font-size:7px;color:rgba(240,240,236,0.3);letter-spacing:0.1em;text-transform:uppercase;padding:4px 12px 2px}
 .ws-sb-item{padding:6px 12px;font-size:9px;color:rgba(240,240,236,0.25);display:flex;align-items:center;gap:6px}
 .ws-sb-item.on{color:var(--w);background:rgba(240,240,236,0.05)}
 .ws-sb-dot{width:3px;height:3px;border-radius:50%;background:currentColor;opacity:0.5;flex-shrink:0}
 .ws-main{display:grid;grid-template-columns:1fr 120px;flex:1}
 .ws-canvas{background:rgba(240,240,236,0.015);display:flex;align-items:center;justify-content:center;border-right:1px solid var(--b)}
 .ws-upload{display:flex;flex-direction:column;align-items:center;gap:8px}
-.ws-upload-circle{width:36px;height:36px;border:1px solid rgba(240,240,236,0.1);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:14px;color:rgba(240,240,236,0.15)}
-.ws-upload-txt{font-size:8px;color:rgba(240,240,236,0.15);text-transform:uppercase;letter-spacing:0.06em;text-align:center}
+.ws-upload-circle{width:36px;height:36px;border:1px solid rgba(240,240,236,0.1);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:14px;color:rgba(240,240,236,0.25)}
+.ws-upload-txt{font-size:8px;color:rgba(240,240,236,0.25);text-transform:uppercase;letter-spacing:0.06em;text-align:center}
 .ws-panel{padding:10px;display:flex;flex-direction:column;gap:8px}
-.ws-panel-s{font-size:7px;color:rgba(240,240,236,0.2);letter-spacing:0.08em;text-transform:uppercase;margin-bottom:3px}
+.ws-panel-s{font-size:7px;color:rgba(240,240,236,0.3);letter-spacing:0.08em;text-transform:uppercase;margin-bottom:3px}
 .ws-swatch-r{display:flex;gap:3px}
 .ws-sw{width:14px;height:14px;background:rgba(240,240,236,0.06)}.ws-sw.on{background:rgba(240,240,236,0.3)}
 .ws-gen{margin:8px 10px 0;padding:7px;background:rgba(240,240,236,0.08);font-size:8px;color:rgba(240,240,236,0.5);text-align:center;letter-spacing:0.06em;text-transform:uppercase;cursor:pointer;border-radius:4px}
@@ -223,25 +293,25 @@ body{background:var(--bg);background-color:#000;color:var(--w);font-family:var(-
 .ws-result{aspect-ratio:9/16;background:rgba(240,240,236,0.05)}.ws-result.hi{background:rgba(240,240,236,0.09)}
 .ws-drop-canvas{background:rgba(240,240,236,0.015);display:flex;align-items:center;justify-content:center;border-right:1px solid var(--b);position:relative;flex:1}
 .ws-timeline{position:absolute;bottom:0;left:0;right:0;height:48px;background:rgba(240,240,236,0.03);border-top:1px solid var(--b);padding:8px 10px;display:flex;align-items:center;gap:4px}
-.ws-tl-block{height:20px;background:rgba(240,240,236,0.08);border-radius:1px}.ws-tl-block.hi{background:rgba(240,240,236,0.2)}
+.ws-tl-block{height:20px;background:rgba(240,240,236,0.08);border-radius:1px}.ws-tl-block.hi{background:rgba(240,240,236,0.3)}
 .ws-video-ph{display:flex;align-items:center;justify-content:center;margin-bottom:48px}
-.ws-play{width:40px;height:40px;border:1px solid rgba(240,240,236,0.12);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:14px;color:rgba(240,240,236,0.2)}
+.ws-play{width:40px;height:40px;border:1px solid rgba(240,240,236,0.12);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:14px;color:rgba(240,240,236,0.3)}
 .ws-edit-grid{display:grid;grid-template-columns:repeat(3,1fr);grid-template-rows:repeat(2,1fr);gap:3px;padding:12px;flex:1}
-.ws-edit-cell{aspect-ratio:1/1;background:rgba(240,240,236,0.06);border:1px dashed rgba(240,240,236,0.08);display:flex;align-items:center;justify-content:center;font-size:7px;color:rgba(240,240,236,0.15);text-align:center}
+.ws-edit-cell{aspect-ratio:1/1;background:rgba(240,240,236,0.06);border:1px dashed rgba(240,240,236,0.08);display:flex;align-items:center;justify-content:center;font-size:7px;color:rgba(240,240,236,0.25);text-align:center}
 .ws-edit-cell.has{background:rgba(240,240,236,0.1);border-style:solid;border-color:rgba(240,240,236,0.06)}
 
 /* ── CTA ── */
 .cta-outer{padding:0 48px;max-width:1400px;margin:40px auto 100px}
-.cta{padding:60px 48px;text-align:center;display:flex;flex-direction:column;align-items:center}
+.cta{padding:60px 48px 120px;position:relative;z-index:1;text-align:center;display:flex;flex-direction:column;align-items:center}
 .cta-h{font-family:'Druk',var(--T);font-weight:400;font-size:48px;line-height:1.05;letter-spacing:0.01em;color:var(--w);margin-bottom:24px;max-width:900px;margin-left:auto;margin-right:auto;text-wrap:balance}
 .cta-sub{font-size:15px;color:var(--body);font-weight:400;line-height:1.6;margin-bottom:32px}
 .cta-btns{display:flex;gap:10px;justify-content:center}
 .btn-r-lg{padding:14px 36px;background:var(--w);color:#000;border:none;font-size:14px;font-family:var(--T);cursor:pointer;font-weight:400;letter-spacing:0.01em;border-radius:40px}
-.btn-g-lg{padding:14px 30px;border:1px solid var(--b2);background:none;color:var(--w);font-size:14px;font-family:var(--T);cursor:pointer;font-weight:400;letter-spacing:0.01em;border-radius:40px}
+.btn-g-lg{padding:14px 30px;border:1px solid rgba(240,240,236,0.28);background:none;color:var(--w);font-size:14px;transition:background 0.2s,border-color 0.2s;font-family:var(--T);cursor:pointer;font-weight:400;letter-spacing:0.01em;border-radius:40px}
 .cta-note{font-size:12px;color:var(--mid);margin-top:14px}
 
 /* ── FOOTER ── */
-.footer{border-top:0.5px solid var(--b);padding:32px 48px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:16px;}
+.footer{border-top:1px solid rgba(240,240,236,0.12);position:relative;z-index:1;background:transparent;padding:48px 48px 32px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:16px;}
 .footer-copy{font-size:12px;color:var(--body);}
 .footer-links{display:flex;gap:24px;}
 .footer-link{font-size:12px;color:var(--body);text-decoration:none;transition:color 0.15s;cursor:pointer;}
@@ -255,8 +325,8 @@ body{background:var(--bg);background-color:#000;color:var(--w);font-family:var(-
 
   .uc-link{font-size:14px;padding:11px 20px}
 
-  .nav{padding:0 28px;position:fixed;top:0;left:0;right:0;z-index:100}
-  .hero-h-top{font-size:44px}
+  .nav{padding:0 20px;position:fixed;top:0;left:0;right:0;z-index:100}
+  .hero-h-top{font-size:44px}.demo-cta-text{font-size:34px}
   .usecases-h{font-size:34px}
   .tools-h{font-size:34px}
   .results-h{font-size:34px}
@@ -272,10 +342,18 @@ body{background:var(--bg);background-color:#000;color:var(--w);font-family:var(-
 }
 
 @media(max-width:479px){
+  .nav{padding:0 20px}
+  .footer{padding:20px}
+  .tools-section{padding:48px 20px 0}
+  .usecases{padding:0 20px}
+  .results-masonry{padding:0 20px}
+  .usecases-head{padding:48px 20px 0}
+  .cta-outer{padding:0 20px}
+  .demo-cta-section{padding:80px 20px}
   .tool-card-desc{max-width:none;width:100%}
   .tool-card-btn-p{display:none}
   .tool-card-btn-g{display:flex;justify-content:center;}
-  .hero-h-top{font-size:26px}
+  .hero-h-top{font-size:26px}.demo-cta-text{font-size:26px}
   .hero{padding-left:20px;padding-right:20px;}
   .hero-sub{font-size:14px;font-weight:400;width:85%;max-width:340px;margin-left:auto;margin-right:auto}
   .section-sub{font-size:14px;width:100%;max-width:none;margin-left:auto;margin-right:auto}
@@ -346,7 +424,7 @@ body{background:var(--bg);background-color:#000;color:var(--w);font-family:var(-
 
 .pill-dot{
   width:40px;height:40px;min-width:40px;
-  background:#ff0000;
+  background:#e8251a;
   border-radius:50%;
   cursor:pointer;
   flex-shrink:0;
@@ -428,7 +506,7 @@ body{background:var(--bg);background-color:#000;color:var(--w);font-family:var(-
 }
 #demoBgSlider .bg-card img{
   width:100%;height:100%;object-fit:cover;
-  filter:brightness(0.32);
+  filter:brightness(0.45);
   display:block;
 }
 @keyframes demoBgScroll{
@@ -456,7 +534,7 @@ body{background:var(--bg);background-color:#000;color:var(--w);font-family:var(-
 }
 .demo-close{
   position:fixed;top:20px;right:28px;z-index:10;
-  background:rgba(255,255,255,0.06);border:0.5px solid rgba(255,255,255,0.1);
+  background:none;border:none;
   width:36px;height:36px;border-radius:50%;display:flex;align-items:center;justify-content:center;
   color:rgba(255,255,255,0.5);
   font-size:18px;cursor:pointer;line-height:1;
@@ -569,7 +647,7 @@ body{background:var(--bg);background-color:#000;color:var(--w);font-family:var(-
 .pill-dot{
   width:36px;height:36px;
   min-width:36px;min-height:36px;
-  background:#ff0000;
+  background:#e8251a;
   border-radius:50%;
   pointer-events:none;
   flex-shrink:0;
@@ -624,7 +702,7 @@ body{background:var(--bg);background-color:#000;color:var(--w);font-family:var(-
 .pill-dd-item:hover{background:rgba(240,240,236,0.05);color:#fff}
 .pill-dd-item-text{}
 .pill-dd-item-label{font-size:11px;font-weight:500;color:var(--w);letter-spacing:0.01em;margin-bottom:2px;}
-.pill-dd-item-desc{font-size:10px;color:rgba(240,240,236,0.35);line-height:1.4;font-weight:300;}
+.pill-dd-item-desc{font-size:10px;color:rgba(240,240,236,0.5);line-height:1.4;font-weight:300;}
 .pill-nl-arrow{font-size:9px;opacity:0.5;margin-left:3px;vertical-align:middle;line-height:1;position:relative;top:-1px;}
 
 
@@ -682,7 +760,7 @@ body{background:var(--bg);background-color:#000;color:var(--w);font-family:var(-
   .hm-grid-wrap{flex:none!important;height:auto!important;}
   .hm-canvas{position:relative;height:auto!important;}
   .hm-sidebar{display:none!important;}
-  .hero-mock{border:1px solid rgba(240,240,236,0.2)!important;border-radius:16px!important;overflow:hidden!important;}
+  .hero-mock{border:1px solid rgba(240,240,236,0.3)!important;border-radius:16px!important;overflow:hidden!important;}
 }
 
 /* 481~767px: 2열 9:16 */
@@ -926,7 +1004,7 @@ body{background:var(--bg);background-color:#000;color:var(--w);font-family:var(-
 }
 </style>
 </head>
-<body style="background:#000;background-color:#000">
+<body style="background:#1a1412;background-color:#1a1412">
 
 <div class="nav-drawer" id="drawer">
   <div class="drawer-head">
@@ -941,7 +1019,7 @@ body{background:var(--bg);background-color:#000;color:var(--w);font-family:var(-
       <div class="dl-sub-item" onclick="window.open('https://realsnap.ai/en/edit','_blank')">Edit</div>
       <div class="dl-sub-item" onclick="window.open('https://realsnap.ai/en/tutorials','_blank')">Tutorials</div>
     </div>
-    <div class="dl" onclick="window.open('https://realsnap.ai/en/gallery','_blank')">Magazine</div>
+    <div class="dl" onclick="window.open('magazine.html','_blank')">Magazine</div>
     <div class="dl" onclick="window.location.href='pricing.html'">Pricing</div>
   </div>
   <div class="drawer-btns">
@@ -987,7 +1065,7 @@ body{background:var(--bg);background-color:#000;color:var(--w);font-family:var(-
     </li>
 
     <!-- GALLERY dropdown -->
-    <li class="nl" onclick="window.open('https://realsnap.ai/en/gallery','_blank')" style="cursor:pointer">Magazine</li>
+    <li class="nl" onclick="window.open('magazine.html','_blank')" style="cursor:pointer">Magazine</li>
 
     <!-- PRICING (no dropdown) -->
     <li class="nl" onclick="window.location.href='pricing.html'" style="cursor:pointer">Pricing</li>
@@ -1036,35 +1114,33 @@ body{background:var(--bg);background-color:#000;color:var(--w);font-family:var(-
         </a>
       </div>
     </li>
-    <li class="pill-nl" onclick="window.open('https://realsnap.ai/en/gallery','_blank')">Magazine</li>
+    <li class="pill-nl" onclick="window.open('magazine.html','_blank')">Magazine</li>
     <li class="pill-nl" onclick="window.location.href='pricing.html'">Pricing</li>
   </ul>
   <button class="pill-btn" onclick="window.open('https://realsnap.ai/auth/signIn','_blank')">Get started</button>
 </div>
 </div>
 <div class="pill-dot-wrap" id="pillDot" onclick="openDemo()" style="position:fixed;top:20px;left:0;z-index:999;opacity:0;pointer-events:none;transition:opacity 0.4s ease,left 0s">
-  <div class="pill-dot" id="pill-dot-logo" style="background:#ff0000;border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0;"><span style="font-size:10px;font-weight:700;color:#000;letter-spacing:-0.02em;line-height:1;">Try!</span></div>
+  <div class="pill-dot" id="pill-dot-logo" style="background:#e8251a;border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0;"><span style="font-size:12px;font-weight:400;color:#000;letter-spacing:-0.02em;line-height:1;">Try!</span></div>
 </div>
 <!-- Dot Menu Popup -->
 
 <!-- Demo Overlay -->
 <div id="demoOverlay">
-  <button class="demo-close" onclick="closeDemo()">×</button>
+  <button class="demo-close" onclick="closeDemo()"><svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg"><line x1="1" y1="1" x2="13" y2="13" stroke="rgba(255,255,255,0.6)" stroke-width="1.2" stroke-linecap="round"/><line x1="13" y1="1" x2="1" y2="13" stroke="rgba(255,255,255,0.6)" stroke-width="1.2" stroke-linecap="round"/></svg></button>
   
+  <!-- Logo 좌상단 -->
+  <div style="position:absolute;top:20px;left:24px;z-index:10;font-family:'Druk',var(--T);font-size:18px;font-weight:400;color:rgba(255,255,255,0.6);letter-spacing:0.01em;pointer-events:none;">Realsnap</div>
+
   <!-- Fullscreen BG Slider -->
   <div id="demoBgSlider"></div>
 
   <!-- Upload content centered -->
   <div id="demoContent">
-    <div id="demoStep1" style="display:flex;flex-direction:column;align-items:center;width:100%;gap:16px;">
-
-      <!-- Logo -->
-      <div style="text-align:center;width:100%;">
-        <div style="font-family:'Druk',var(--T);font-size:28px;font-weight:400;color:#fff;letter-spacing:0.01em;">Realsnap</div>
-      </div>
+    <div id="demoStep1" style="display:flex;flex-direction:column;align-items:center;width:100%;gap:0;justify-content:center;flex:1;">
 
       <!-- CTA -->
-      <div style="text-align:center;width:100%;">
+      <div style="text-align:center;width:100%;margin-bottom:20px;">
         <div style="font-size:15px;font-weight:400;color:rgba(255,255,255,0.75);">Drop your product photo</div>
       </div>
 
@@ -1080,8 +1156,8 @@ body{background:var(--bg);background-color:#000;color:var(--w);font-family:var(-
       </div>
 
       <!-- What you get -->
-      <div style="text-align:center;width:100%;margin-top:-10px;">
-        <div style="font-size:11px;color:rgba(255,255,255,0.25);letter-spacing:0.04em;margin-top:2px;">Editorial · Lookbook · Campaign · Studio</div>
+      <div style="text-align:center;width:100%;margin-top:14px;">
+        <div style="font-size:11px;color:rgba(255,255,255,0.25);letter-spacing:0.04em;">Editorial · Studio Cut · Lookbook</div>
       </div>
 
     </div>
@@ -1119,7 +1195,7 @@ body{background:var(--bg);background-color:#000;color:var(--w);font-family:var(-
 
     <div class="demo-result-actions" style="margin-top:52px;">
       <button class="demo-btn-download" onclick="window.open('https://realsnap.ai/auth/signIn','_blank')">Download Full Quality ↓</button>
-      <button class="demo-btn-studio" onclick="window.open('https://realsnap.ai/home','_blank')">Open in Studio →</button>
+      <button class="demo-btn-studio" onclick="window.open('https://realsnap.ai/home','_blank')">Open in Studio ↗</button>
     </div>
     <div class="demo-result-note" style="margin-top:10px;">Full resolution & unlimited generations available in studio.<br>Free trial — no credit card required.</div>
   </div>
@@ -1151,7 +1227,6 @@ body{background:var(--bg);background-color:#000;color:var(--w);font-family:var(-
   <a class="dot-menu-item" href="https://realsnap.ai/en/gallery" target="_blank">
     <div class="dot-menu-item-icon">🗂️</div>
     <div class="dot-menu-item-text">
-      <div class="dot-menu-item-label">Magazine</div>
       <div class="dot-menu-item-desc">Browse the gallery</div>
     </div>
   </a>
@@ -1270,8 +1345,7 @@ body{background:var(--bg);background-color:#000;color:var(--w);font-family:var(-
         <div class="tool-card-name">Campaign Films</div>
         <p class="tool-card-desc">Campaign films, social reels, ad creative. No crew, no set, no timeline. From still image to 30-second film in minutes.</p>
         <div class="tool-card-btns">
-          <button class="tool-card-btn-p" onclick="window.open('https://realsnap.ai/en/drop','_blank')">Try now</button>
-          <button class="tool-card-btn-g" onclick="window.open('https://realsnap.ai/en/drop','_blank')">Learn more</button>
+          <button class="tool-card-btn-p" onclick="window.open('https://realsnap.ai/en/drop','_blank')">Explore Drop ↗</button>
         </div>
       </div>
     </div>
@@ -1286,8 +1360,7 @@ body{background:var(--bg);background-color:#000;color:var(--w);font-family:var(-
         <div class="tool-card-name">Lookbook &amp; Images</div>
         <p class="tool-card-desc">Model shots, lookbooks, product photography, cutouts — every image type your brand needs, from one product photo upload.</p>
         <div class="tool-card-btns">
-          <button class="tool-card-btn-p" onclick="window.open('https://realsnap.ai/en/snap','_blank')">Try now</button>
-          <button class="tool-card-btn-g" onclick="window.open('https://realsnap.ai/en/snap','_blank')">Learn more</button>
+          <button class="tool-card-btn-p" onclick="window.open('https://realsnap.ai/en/snap','_blank')">Explore Snap ↗</button>
         </div>
       </div>
     </div>
@@ -1302,8 +1375,7 @@ body{background:var(--bg);background-color:#000;color:var(--w);font-family:var(-
         <div class="tool-card-name">Commerce Editing</div>
         <p class="tool-card-desc">Auto-crop, center-align, background removal — bulk process hundreds of product images to commerce-ready in one go.</p>
         <div class="tool-card-btns">
-          <button class="tool-card-btn-p" onclick="window.open('https://realsnap.ai/en/edit','_blank')">Try now</button>
-          <button class="tool-card-btn-g" onclick="window.open('https://realsnap.ai/en/edit','_blank')">Learn more</button>
+          <button class="tool-card-btn-p" onclick="window.open('https://realsnap.ai/en/edit','_blank')">Explore Edit ↗</button>
         </div>
       </div>
     </div>
@@ -1337,7 +1409,7 @@ body{background:var(--bg);background-color:#000;color:var(--w);font-family:var(-
       <div class="uc-name"  id="uc-name">Product Shot</div>
       <div class="uc-chips" id="uc-chips"><span class="uc-chip">White BG studio</span><span class="uc-chip">Flat-lay</span><span class="uc-chip">Detail crop</span><span class="uc-chip">Packshot</span></div>
       <p   class="uc-desc"  id="uc-desc">White background studio shots, flat-lays, detail crops — every format your PDP or marketplace listing needs. Consistent, clean, commerce-ready.</p>
-      <button class="uc-link" id="uc-link" onclick="window.open('https://realsnap.ai/en/snap','_blank')">Try Product Shot →</button>
+      <button class="uc-link" id="uc-link" onclick="window.open('https://realsnap.ai/en/snap','_blank')">Try Product Shot ↗</button>
     </div>
     <div class="uc-visual" id="uc-visual">
       <img id="uc-ph" style="position:absolute;top:0;left:0;width:100%;height:auto;object-fit:contain;display:block;" src="" style="width:100%;height:100%;object-fit:cover;display:block;" alt="Snap Editorial">
@@ -1356,57 +1428,59 @@ body{background:var(--bg);background-color:#000;color:var(--w);font-family:var(-
       <div>
         <div class="rm-item"><div class="rm-ph" style="padding-bottom:133%;position:relative;overflow:hidden"><img src="https://res.cloudinary.com/dnc5d6fvj/image/upload/v1780907521/gallery1_jrjyme.webp" style="position:absolute;top:0;left:0;width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
 
-<div class="rc-overlay"><button class="rc-overlay-btn">Try this</button></div>
+
 <div class="rm-label"><span class="rm-label-text">Campaign Film</span></div>
 <span class="rm-badge">Drop</span></div>
         <div class="rm-item"><div class="rm-ph" style="padding-bottom:177%;position:relative;overflow:hidden"><img src="https://res.cloudinary.com/dnc5d6fvj/image/upload/v1780907520/gallery2_ganraz.webp" style="position:absolute;top:0;left:0;width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
 
-<div class="rc-overlay"><button class="rc-overlay-btn">Try this</button></div>
+
 <div class="rm-label"><span class="rm-label-text">Social Reel</span></div>
 <span class="rm-badge">Drop</span></div>
-        <div class="rm-item"><div class="rm-ph" style="padding-bottom:133%;position:relative;overflow:hidden"><video src="https://res.cloudinary.com/dnc5d6fvj/video/upload/v1780907518/AQN-18SH2SeDbFkSqsH_0bEoE9ixnausrXDx4kWJ07iK_b6IDLQEhb9eQEt3FZZZx3T1jy5u0HYq5xtXUXaDZ-RNQccTOaQagC9kOnU_laeggf.mp4" style="position:absolute;top:0;left:0;width:100%;height:100%;object-fit:cover;" autoplay muted loop playsinline></video></div><div class="rc-overlay"><button class="rc-overlay-btn">Try this</button></div><div class="rm-label"><span class="rm-label-text">Studio · White BG</span></div><span class="rm-badge">Snap</span></div>
+        <div class="rm-item"><div class="rm-ph" style="padding-bottom:133%;position:relative;overflow:hidden"><video src="https://res.cloudinary.com/dnc5d6fvj/video/upload/v1780907518/AQN-18SH2SeDbFkSqsH_0bEoE9ixnausrXDx4kWJ07iK_b6IDLQEhb9eQEt3FZZZx3T1jy5u0HYq5xtXUXaDZ-RNQccTOaQagC9kOnU_laeggf.mp4" style="position:absolute;top:0;left:0;width:100%;height:100%;object-fit:cover;" autoplay muted loop playsinline></video></div><div class="rm-label"><span class="rm-label-text">Studio · White BG</span></div><span class="rm-badge">Snap</span></div>
       </div>
       <div>
         <div class="rm-item"><div class="rm-ph" style="padding-bottom:177%;position:relative;overflow:hidden"><img src="https://res.cloudinary.com/dnc5d6fvj/image/upload/v1780907519/gallery3_kguw51.webp" style="position:absolute;top:0;left:0;width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
 
-<div class="rc-overlay"><button class="rc-overlay-btn">Try this</button></div>
+
 <div class="rm-label"><span class="rm-label-text">Brand Film</span></div>
 <span class="rm-badge">Drop</span></div>
-        <div class="rm-item"><div class="rm-ph" style="padding-bottom:100%;position:relative;overflow:hidden"><img src="https://res.cloudinary.com/dnc5d6fvj/image/upload/v1780907518/gallery4_gqfluz.webp" style="position:absolute;top:0;left:0;width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div><div class="rc-overlay"><button class="rc-overlay-btn">Try this</button></div><div class="rm-label"><span class="rm-label-text">Flat-lay</span></div><span class="rm-badge">Snap</span></div>
+        <div class="rm-item"><div class="rm-ph" style="padding-bottom:100%;position:relative;overflow:hidden"><img src="https://res.cloudinary.com/dnc5d6fvj/image/upload/v1780907518/gallery4_gqfluz.webp" style="position:absolute;top:0;left:0;width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div><div class="rm-label"><span class="rm-label-text">Flat-lay</span></div><span class="rm-badge">Snap</span></div>
       </div>
       <div>
         <div class="rm-item"><div class="rm-ph" style="padding-bottom:133%;position:relative;overflow:hidden"><img src="https://res.cloudinary.com/dnc5d6fvj/image/upload/v1780893972/image_67_g2p9xj.png" style="position:absolute;top:0;left:0;width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
 
-<div class="rc-overlay"><button class="rc-overlay-btn">Try this</button></div>
+
 <div class="rm-label"><span class="rm-label-text">Motion Shot</span></div>
 <span class="rm-badge">Drop</span></div>
-        <div class="rm-item"><div class="rm-ph" style="padding-bottom:177%;position:relative;overflow:hidden"><img src="https://res.cloudinary.com/dnc5d6fvj/image/upload/v1780893970/image_88_gnlxlw.jpg" style="position:absolute;top:0;left:0;width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div><div class="rc-overlay"><button class="rc-overlay-btn">Try this</button></div><div class="rm-label"><span class="rm-label-text">Lookbook</span></div><span class="rm-badge">Snap</span></div>
+        <div class="rm-item"><div class="rm-ph" style="padding-bottom:177%;position:relative;overflow:hidden"><img src="https://res.cloudinary.com/dnc5d6fvj/image/upload/v1780893970/image_88_gnlxlw.jpg" style="position:absolute;top:0;left:0;width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div><div class="rm-label"><span class="rm-label-text">Lookbook</span></div><span class="rm-badge">Snap</span></div>
       </div>
       <div>
         <div class="rm-item"><div class="rm-ph" style="padding-bottom:133%;position:relative;overflow:hidden"><img src="https://res.cloudinary.com/dnc5d6fvj/image/upload/v1780908069/image_71_lwjrpp.png" style="position:absolute;top:0;left:0;width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
 
-<div class="rc-overlay"><button class="rc-overlay-btn">Try this</button></div>
+
 <div class="rm-label"><span class="rm-label-text">Visual Drop</span></div>
 <span class="rm-badge">Drop</span></div>
-        <div class="rm-item"><div class="rm-ph" style="padding-bottom:100%;position:relative;overflow:hidden"><img src="https://res.cloudinary.com/dnc5d6fvj/image/upload/v1780893967/image_86_wdsirj.jpg" style="position:absolute;top:0;left:0;width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div><div class="rc-overlay"><button class="rc-overlay-btn">Try this</button></div><div class="rm-label"><span class="rm-label-text">Outdoor shot</span></div><span class="rm-badge">Snap</span></div>
+        <div class="rm-item"><div class="rm-ph" style="padding-bottom:100%;position:relative;overflow:hidden"><img src="https://res.cloudinary.com/dnc5d6fvj/image/upload/v1780893967/image_86_wdsirj.jpg" style="position:absolute;top:0;left:0;width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div><div class="rm-label"><span class="rm-label-text">Outdoor shot</span></div><span class="rm-badge">Snap</span></div>
       </div>
     </div>
   </div>
 </section>
-<div style="text-align:center;margin-top:-80px;position:relative;z-index:20;padding-bottom:40px"><button class="btn-browse-mag" onclick="window.open('https://realsnap.ai/en/gallery','_blank')" style="font-size:14px;padding:14px 36px;border:1px solid rgba(240,240,236,0.4);background:rgba(0,0,0,0.6);backdrop-filter:blur(12px);color:var(--w);border-radius:40px;cursor:pointer;font-family:var(--T)">Browse Magazine →</button></div>
+<div style="text-align:center;margin-top:-80px;position:relative;z-index:20;padding-bottom:40px"><button onclick="window.open('magazine.html','_blank')" style="font-size:14px;padding:14px 36px;border:1px solid rgba(240,240,236,0.28);background:rgba(0,0,0,0.6);backdrop-filter:blur(12px);color:var(--w);border-radius:40px;cursor:pointer;font-family:var(--T)">Browse Magazine ↗</button></div>
+
 <!-- CTA -->
-<div class="cta-outer">
+<div class="cta-footer-wrap"><div class="cta-outer demo-cta-section" style="max-width:none;margin:0;padding:0;">
   <section class="cta">
     <div class="cta-h">Redefine How<br>Brands Create Visuals</div>
     <p class="cta-sub">From one product photo to a full campaign. Starting at $49/mo.</p>
     <div class="cta-btns">
       <button class="btn-g-lg" onclick="window.location.href='pricing.html'">View pricing</button>
-      <button class="btn-r-lg" onclick="window.open('https://realsnap.ai/book-demo','_blank')">Book a demo</button>
+      <button class="demo-cta-btn" onclick="window.open('https://realsnap.ai/auth/signIn','_blank')">Try it free ↗</button>
     </div>
   </section>
 </div>
 
 <!-- FOOTER -->
+
 <footer class="footer">
   <div class="footer-copy">© 2026 RealSnap Inc. All rights reserved.</div>
   <div class="footer-links">
@@ -1415,6 +1489,7 @@ body{background:var(--bg);background-color:#000;color:var(--w);font-family:var(-
     <a class="footer-link" href="https://realsnap.ai/cookie-policy">Cookie Policy</a>
   </div>
 </footer>
+</div>
 <script>
 var sets = [
     {
@@ -1808,6 +1883,8 @@ function closeDemo(){
     document.getElementById('demoStep1').style.display='';
     document.getElementById('demoProcessing').style.display='none';
     document.getElementById('demoStep2').style.display='none';
+    var bgSlider = document.getElementById('demoBgSlider');
+    if(bgSlider) bgSlider.style.opacity = '1';
     document.getElementById('demoFileInput').value='';
     document.getElementById('demoImages').innerHTML='';
   }, 400);
@@ -1958,9 +2035,9 @@ function showDemoResult(dataUrl, result){
 
   // Set generated cards (3 cards stacked vertically)
   var styles = [
-    { title: result.scene1 ? result.scene1.title : 'Editorial', sub: result.scene1 ? result.scene1.setting : 'High-fashion magazine style' },
-    { title: result.scene2 ? result.scene2.title : 'Lookbook', sub: result.scene2 ? result.scene2.setting : 'Seasonal campaign shot' },
-    { title: 'Studio', sub: 'White background · Commerce-ready' }
+    { title: 'Editorial', sub: 'High-fashion magazine style' },
+    { title: 'Studio Cut', sub: 'White background · Commerce-ready' },
+    { title: 'Lookbook', sub: 'Lifestyle · On-location' }
   ];
   imgBox.innerHTML = styles.map(function(s){
     return '<div class="demo-img-box" style="display:flex;flex-direction:column;align-items:center;justify-content:flex-end;padding:14px;text-align:center;">' +
@@ -1971,6 +2048,8 @@ function showDemoResult(dataUrl, result){
 
   var step2 = document.getElementById('demoStep2');
   step2.style.display = 'block';
+  var bgSlider = document.getElementById('demoBgSlider');
+  if(bgSlider) bgSlider.style.opacity = '0';
 }
 
 // ESC로 닫기
@@ -1997,16 +2076,16 @@ if(zone){
 
 <script>
 var ucData = {
-  studiocut:   { label:'Snap',  name:'Studio Cut',        desc:'Transform any product photo into a clean studio shot with pure white or custom backgrounds. Professional-grade results without a studio.',               link:'https://realsnap.ai/en/snap',    linkText:'Try Studio Cut →', imgDesktop:'https://res.cloudinary.com/dnc5d6fvj/image/upload/v1780905571/studio_cut_u0ows5.png', imgMobile:'https://res.cloudinary.com/dnc5d6fvj/image/upload/v1780905571/studio_cut_u0ows5.png' },
-  editorial:   { label:'Snap',  name:'Editorial',       desc:'High-fashion editorial shoots from a single product photo. Magazine-ready visuals for campaigns, lookbooks, and brand storytelling.',  link:'https://realsnap.ai/en/snap',    linkText:'Try Editorial →', imgDesktop:'https://res.cloudinary.com/dnc5d6fvj/image/upload/v1780892556/tabs-03_f7vgeq.png', imgMobile:'https://res.cloudinary.com/dnc5d6fvj/image/upload/v1780892556/tabs-03_f7vgeq.png' },
-  lookbook:    { label:'Snap',  name:'Lookbook',         desc:'Season lookbooks with model shots, styled compositions, and on-location scenes — all generated from your product upload.',             link:'https://realsnap.ai/en/snap',    linkText:'Try Lookbook →', imgDesktop:'https://res.cloudinary.com/dnc5d6fvj/image/upload/v1780905786/lookbook_d233ah.png', imgMobile:'https://res.cloudinary.com/dnc5d6fvj/image/upload/v1780905786/lookbook_d233ah.png' },
-  location:    { label:'Snap',  name:'Location Shot',    desc:'Outdoor and on-location model photography generated without a shoot. Urban, nature, architectural — any setting your brand needs.',     link:'https://realsnap.ai/en/snap',    linkText:'Try Location Shot →', imgDesktop:'https://res.cloudinary.com/dnc5d6fvj/image/upload/v1780892545/tabs-01_tspju9.png', imgMobile:'https://res.cloudinary.com/dnc5d6fvj/image/upload/v1780892545/tabs-01_tspju9.png' },
-  product:     { label:'Snap',  name:'Product Shot',     desc:'White background studio shots, flat-lays, detail crops — every format your PDP or marketplace listing needs. Consistent, clean, commerce-ready.', link:'https://realsnap.ai/en/snap', linkText:'Try Product Shot →', imgDesktop:'https://res.cloudinary.com/dnc5d6fvj/image/upload/v1780892556/tabs-02_k9h6ev.png', imgMobile:'https://res.cloudinary.com/dnc5d6fvj/image/upload/v1780892556/tabs-02_k9h6ev.png' },
-  campaign:    { label:'Drop',  name:'Campaign Film',    desc:'Campaign films, social reels, ad creative. No crew, no set, no timeline. From still image to 30-second film in minutes.',              link:'https://realsnap.ai/en/drop',    linkText:'Try Campaign Film →', vidSrc:'https://res.cloudinary.com/dnc5d6fvj/video/upload/v1780918386/%E1%84%85%E1%85%AE%E1%84%91%E1%85%B5%E1%86%BC%E1%84%8B%E1%85%A7%E1%86%BC%E1%84%89%E1%85%A1%E1%86%BC_z1z486.mp4' },
-  dailysnap:   { label:'Snap',  name:'Daily Snap',       desc:'Quick, high-quality content for daily social posting. Fresh visuals every day without a photographer or studio.',                       link:'https://realsnap.ai/en/snap',    linkText:'Try Daily Snap →', imgDesktop:'https://res.cloudinary.com/dnc5d6fvj/image/upload/v1780898359/daily_tsdzga.png', imgMobile:'https://res.cloudinary.com/dnc5d6fvj/image/upload/v1780898359/daily_tsdzga.png' },
-  security:    { label:'Edit',  name:'Security',         desc:'Watermark, tag, and protect your visual assets. Batch-process your entire library with consistent brand security marks.',               link:'https://realsnap.ai/en/edit',    linkText:'Try Security →', imgDesktop:'https://res.cloudinary.com/dnc5d6fvj/image/upload/v1780906734/security_v4adzn.png', imgMobile:'https://res.cloudinary.com/dnc5d6fvj/image/upload/v1780906734/security_v4adzn.png' },
-  realstudio:  { label:'Snap',  name:'Lighting Control', desc:'Fine-tune lighting conditions, shadows, and atmosphere across your entire image set. Studio-quality control at scale.',                link:'https://realsnap.ai/en/snap',    linkText:'Try Lighting Control →', imgDesktop:'https://res.cloudinary.com/dnc5d6fvj/image/upload/v1780895602/%E1%84%8C%E1%85%A9%E1%84%86%E1%85%A7%E1%86%BC7_uxqdza.png', imgMobile:'https://res.cloudinary.com/dnc5d6fvj/image/upload/v1780895602/%E1%84%8C%E1%85%A9%E1%84%86%E1%85%A7%E1%86%BC7_uxqdza.png' },
-  colorgrade:  { label:'Snap',  name:'Color Grade',       desc:'Automatically apply professional color grading to your entire product shoot. Consistent tones, rich colors, and cinematic quality — all powered by AI.',  link:'https://realsnap.ai/en/snap',    linkText:'Try Color Grade →' }
+  studiocut:   { label:'Snap',  name:'Studio Cut',        desc:'Transform any product photo into a clean studio shot with pure white or custom backgrounds. Professional-grade results without a studio.',               link:'https://realsnap.ai/en/snap',    linkText:'Try Studio Cut ↗', imgDesktop:'https://res.cloudinary.com/dnc5d6fvj/image/upload/v1780905571/studio_cut_u0ows5.png', imgMobile:'https://res.cloudinary.com/dnc5d6fvj/image/upload/v1780905571/studio_cut_u0ows5.png' },
+  editorial:   { label:'Snap',  name:'Editorial',       desc:'High-fashion editorial shoots from a single product photo. Magazine-ready visuals for campaigns, lookbooks, and brand storytelling.',  link:'https://realsnap.ai/en/snap',    linkText:'Try Editorial ↗', imgDesktop:'https://res.cloudinary.com/dnc5d6fvj/image/upload/v1780892556/tabs-03_f7vgeq.png', imgMobile:'https://res.cloudinary.com/dnc5d6fvj/image/upload/v1780892556/tabs-03_f7vgeq.png' },
+  lookbook:    { label:'Snap',  name:'Lookbook',         desc:'Season lookbooks with model shots, styled compositions, and on-location scenes — all generated from your product upload.',             link:'https://realsnap.ai/en/snap',    linkText:'Try Lookbook ↗', imgDesktop:'https://res.cloudinary.com/dnc5d6fvj/image/upload/v1780905786/lookbook_d233ah.png', imgMobile:'https://res.cloudinary.com/dnc5d6fvj/image/upload/v1780905786/lookbook_d233ah.png' },
+  location:    { label:'Snap',  name:'Location Shot',    desc:'Outdoor and on-location model photography generated without a shoot. Urban, nature, architectural — any setting your brand needs.',     link:'https://realsnap.ai/en/snap',    linkText:'Try Location Shot ↗', imgDesktop:'https://res.cloudinary.com/dnc5d6fvj/image/upload/v1780892545/tabs-01_tspju9.png', imgMobile:'https://res.cloudinary.com/dnc5d6fvj/image/upload/v1780892545/tabs-01_tspju9.png' },
+  product:     { label:'Snap',  name:'Product Shot',     desc:'White background studio shots, flat-lays, detail crops — every format your PDP or marketplace listing needs. Consistent, clean, commerce-ready.', link:'https://realsnap.ai/en/snap', linkText:'Try Product Shot ↗', imgDesktop:'https://res.cloudinary.com/dnc5d6fvj/image/upload/v1780892556/tabs-02_k9h6ev.png', imgMobile:'https://res.cloudinary.com/dnc5d6fvj/image/upload/v1780892556/tabs-02_k9h6ev.png' },
+  campaign:    { label:'Drop',  name:'Campaign Film',    desc:'Campaign films, social reels, ad creative. No crew, no set, no timeline. From still image to 30-second film in minutes.',              link:'https://realsnap.ai/en/drop',    linkText:'Try Campaign Film ↗', vidSrc:'https://res.cloudinary.com/dnc5d6fvj/video/upload/v1780918386/%E1%84%85%E1%85%AE%E1%84%91%E1%85%B5%E1%86%BC%E1%84%8B%E1%85%A7%E1%86%BC%E1%84%89%E1%85%A1%E1%86%BC_z1z486.mp4' },
+  dailysnap:   { label:'Snap',  name:'Daily Snap',       desc:'Quick, high-quality content for daily social posting. Fresh visuals every day without a photographer or studio.',                       link:'https://realsnap.ai/en/snap',    linkText:'Try Daily Snap ↗', imgDesktop:'https://res.cloudinary.com/dnc5d6fvj/image/upload/v1780898359/daily_tsdzga.png', imgMobile:'https://res.cloudinary.com/dnc5d6fvj/image/upload/v1780898359/daily_tsdzga.png' },
+  security:    { label:'Edit',  name:'Security',         desc:'Watermark, tag, and protect your visual assets. Batch-process your entire library with consistent brand security marks.',               link:'https://realsnap.ai/en/edit',    linkText:'Try Security ↗', imgDesktop:'https://res.cloudinary.com/dnc5d6fvj/image/upload/v1780906734/security_v4adzn.png', imgMobile:'https://res.cloudinary.com/dnc5d6fvj/image/upload/v1780906734/security_v4adzn.png' },
+  realstudio:  { label:'Snap',  name:'Lighting Control', desc:'Fine-tune lighting conditions, shadows, and atmosphere across your entire image set. Studio-quality control at scale.',                link:'https://realsnap.ai/en/snap',    linkText:'Try Lighting Control ↗', imgDesktop:'https://res.cloudinary.com/dnc5d6fvj/image/upload/v1780895602/%E1%84%8C%E1%85%A9%E1%84%86%E1%85%A7%E1%86%BC7_uxqdza.png', imgMobile:'https://res.cloudinary.com/dnc5d6fvj/image/upload/v1780895602/%E1%84%8C%E1%85%A9%E1%84%86%E1%85%A7%E1%86%BC7_uxqdza.png' },
+  colorgrade:  { label:'Snap',  name:'Color Grade',       desc:'Automatically apply professional color grading to your entire product shoot. Consistent tones, rich colors, and cinematic quality — all powered by AI.',  link:'https://realsnap.ai/en/snap',    linkText:'Try Color Grade ↗', imgDesktop:'https://res.cloudinary.com/dnc5d6fvj/image/upload/v1780994307/color_grading_zgfzfz.png', imgMobile:'https://res.cloudinary.com/dnc5d6fvj/image/upload/v1780994307/color_grading_zgfzfz.png' }
 };
 
 function selectUC(key, btn) {
@@ -2123,7 +2202,7 @@ function selectUC(key, btn) {
   window.addEventListener('scroll', function(){
     var currentScroll = window.scrollY;
     var delta = currentScroll - lastScroll;
-    deg += delta * 0.5;
+    deg += delta * 0.25;
     lastScroll = currentScroll;
     var dot = document.getElementById('pill-dot-logo');
     if(dot) dot.style.transform = 'rotate(' + deg + 'deg)';
