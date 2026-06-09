@@ -727,29 +727,6 @@ function toggleFaq(el){
 }
 </script>
 
-<div style="position:fixed;top:20px;left:50%;transform:translateX(-50%);z-index:999;opacity:0;transition:opacity 0.4s ease;pointer-events:none" id="pillWrapper"><div class="pill-nav" id="pillNav" style="position:static;top:auto;left:auto;transform:none;opacity:1;pointer-events:auto;z-index:auto">
-  <span class="pill-logo" onclick="window.location.href='index.html'">Realsnap</span>
-  <div class="pill-divider"></div>
-  <ul class="pill-nav-links">
-    <li class="pill-studio-wrap">
-      <span class="pill-nl">STUDIO<span class="pill-nl-arrow">▾</span></span>
-      <div class="pill-studio-dd">
-        <a class="pill-dd-item" href="https://realsnap.ai/en/snap" target="_blank"><span class="pill-dd-dot" style="background:#e8251a;"></span>SNAP</a>
-        <a class="pill-dd-item" href="https://realsnap.ai/en/drop" target="_blank"><span class="pill-dd-dot" style="background:#22C55E;"></span>DROP</a>
-        <a class="pill-dd-item" href="https://realsnap.ai/en/edit" target="_blank"><span class="pill-dd-dot" style="background:#38BDF8;"></span>EDIT</a>
-        <a class="pill-dd-item" href="https://realsnap.ai/en/tutorials" target="_blank"><span class="pill-dd-dot" style="background:rgba(255,255,255,0.3);"></span>TUTORIALS</a>
-      </div>
-    </li>
-    <li class="pill-nl" onclick="window.location.href='magazine.html'">Magazine</li>
-    <li class="pill-nl" style="color:#fff;font-weight:600;cursor:default;">Pricing</li>
-  </ul>
-  <button class="pill-btn" onclick="window.open('https://realsnap.ai/auth/signIn','_blank')">Get started</button>
-</div>
-</div>
-</div>
-<script>
-
-</script>
 <script>
 // Pill nav scroll
 (function(){
@@ -764,7 +741,6 @@ function toggleFaq(el){
   function toCenter(){
     if(!scattered) return;
     if(window.innerWidth <= 767) return;
-    if(!nav) return;
     scattered = false;
     // nav 배경 페이드
     nav.style.transition = 'opacity 0.35s ease';
@@ -802,7 +778,7 @@ function toggleFaq(el){
     });
     pill.style.opacity='1';
     pill.style.pointerEvents='auto';
-    var fl=document.getElementById('floatLogo'); if(fl) fl.classList.add('visible');
+    var fl=document.getElementById('floatLogo'); if(fl) fl.classList.remove('visible');
     requestAnimationFrame(function(){
       requestAnimationFrame(function(){
         var dot2 = document.getElementById('pillDot');
@@ -824,11 +800,10 @@ function toggleFaq(el){
     scattered = true;
     pill.style.opacity='0';
     pill.style.pointerEvents='none';
-    var fl=document.getElementById('floatLogo'); if(fl) fl.classList.remove('visible');
+    var fl=document.getElementById('floatLogo'); if(fl) fl.classList.add('visible');
     var dot2 = document.getElementById('pillDot');
     if(dot2){ dot2.style.opacity='0'; dot2.style.pointerEvents='none'; }
     (function(){
-      if(!nav) return;
       nav.style.transition = 'opacity 0.4s ease';
       nav.style.opacity = '1';
       nav.style.pointerEvents = '';
@@ -858,20 +833,9 @@ function toggleFaq(el){
     else { toScatter(); }
   }, {passive:true});
 })();
-</script>
-<script>
-(function(){
-  var deg = 0;
-  var lastScroll = window.scrollY;
-  window.addEventListener('scroll', function(){
-    var currentScroll = window.scrollY;
-    var delta = currentScroll - lastScroll;
-    deg += delta * 0.5;
-    lastScroll = currentScroll;
-    var dot = document.getElementById('pill-dot-logo');
-    if(dot) dot.style.transform = 'rotate(' + deg + 'deg)';
-  }, {passive:true});
-})();
+
+
+
 </script>
 </body>
 </html>
