@@ -31,13 +31,12 @@ html,body{background:#000;color:var(--w);font-family:var(--T);-webkit-font-smoot
 /* NAV */
 .nav{height:60px;display:flex;align-items:center;justify-content:space-between;padding:0 48px;background:rgba(0,0,0,0.6);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border-bottom:1px solid rgba(240,240,236,0.12);position:sticky;top:0;z-index:1000}
 .nav-logo{display:flex;align-items:center;cursor:pointer;flex:1;font-family:'Druk',var(--T);font-size:18px;font-weight:400;color:#fff;letter-spacing:0.01em}
-.nav-links{display:flex;list-style:none;position:absolute;left:50%;transform:translateX(-50%);overflow:visible}
-.nl{font-size:11px;font-weight:500;color:rgba(240,240,236,0.7);letter-spacing:0.03em;cursor:pointer;padding:0 24px;height:60px;display:flex;align-items:center;transition:color .15s;text-transform:uppercase}
+.nav-links{display:flex;list-style:none;position:absolute;left:50%;transform:translateX(-50%)}
+.nl{font-size:11px;font-weight:400;color:rgba(240,240,236,0.7);letter-spacing:0.03em;cursor:pointer;padding:0 24px;height:60px;display:flex;align-items:center;transition:color .15s;text-transform:uppercase}
 .nl:hover{color:var(--w)}
-.nl.active{color:var(--w)}
 .nav-r{display:flex;gap:8px;align-items:center;flex:1;justify-content:flex-end}
 .btn-login{padding:8px 18px;border:none;background:none;color:rgba(240,240,236,0.5);font-size:13px;cursor:pointer;font-family:var(--T);border-radius:40px}
-.btn-demo{padding:8px 18px;border:1px solid rgba(240,240,236,0.25);background:none;color:var(--w);font-size:13px;cursor:pointer;font-family:var(--T);border-radius:40px;letter-spacing:-0.02em;font-weight:400;}
+.btn-demo{padding:8px 18px;border:1px solid rgba(240,240,236,0.25);background:none;color:var(--w);font-size:13px;cursor:pointer;font-family:var(--T);border-radius:40px}
 .btn-start{padding:8px 20px;background:var(--w);color:#000;font-size:13px;cursor:pointer;font-family:var(--T);border:none;font-weight:400;border-radius:40px}
 .nav-hamburger{display:none;flex-direction:column;gap:4px;cursor:pointer;padding:8px;background:none;border:none}
 .nav-hamburger span{width:20px;height:1.5px;background:var(--w);display:block}
@@ -51,16 +50,16 @@ html,body{background:#000;color:var(--w);font-family:var(--T);-webkit-font-smoot
 
 .dropdown{position:absolute;top:calc(100% + 0px);left:0;background:#0a0a0a;backdrop-filter:none;-webkit-backdrop-filter:none;border:1px solid rgba(240,240,236,0.1);min-width:220px;width:max-content;opacity:0;visibility:hidden;transition:opacity .2s ease,transform .2s ease,visibility .2s;transform:translateY(-4px);z-index:300;overflow:hidden}
 .nl.has-dropdown:hover .dropdown,.dropdown:hover{opacity:1;visibility:visible;transform:translateY(0)}
-.dropdown-header{padding:14px 20px 8px;font-size:9px;font-weight:600;letter-spacing:0.15em;text-transform:uppercase;color:rgba(240,240,236,0.25);border-bottom:1px solid rgba(240,240,236,0.06)}
+.dropdown-header{padding:14px 20px 8px;font-size:9px;font-weight:400;letter-spacing:0.15em;text-transform:uppercase;color:rgba(240,240,236,0.25);border-bottom:1px solid rgba(240,240,236,0.06)}
 .dropdown-item{display:flex;align-items:flex-start;gap:12px;padding:12px 20px;cursor:pointer;transition:background .15s}
 .dropdown-item:last-child{border-bottom:none}
 .dropdown-item:hover{background:rgba(240,240,236,0.05)}
 .dropdown-item-icon{width:28px;height:28px;flex-shrink:0;display:flex;align-items:center;justify-content:center;background:rgba(240,240,236,0.06);border-radius:6px;margin-top:1px}
 .dropdown-item-icon svg{width:13px;height:13px;fill:none;stroke:rgba(240,240,236,0.5);stroke-width:1.5}
 .dropdown-item-text{}
-.dropdown-item-label{font-size:11px;font-weight:500;color:var(--w);letter-spacing:0.01em;margin-bottom:2px}
-.dropdown-item-desc{font-size:10px;color:rgba(240,240,236,0.35);line-height:1.4;font-weight:300}
-.dropdown-badge{display:inline-block;font-size:8px;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;padding:2px 5px;background:rgba(232,37,26,0.15);color:var(--red);border-radius:3px;margin-left:6px;vertical-align:middle;line-height:1.3}
+.dropdown-item-label{font-size:11px;font-weight:400;color:var(--w);letter-spacing:0.01em;margin-bottom:2px}
+.dropdown-item-desc{font-size:10px;color:rgba(240,240,236,0.5);line-height:1.4;font-weight:400}
+.dropdown-badge{display:inline-block;font-size:8px;font-weight:400;letter-spacing:0.08em;text-transform:uppercase;padding:2px 5px;background:rgba(224,26,10,0.15);color:var(--red);border-radius:3px;margin-left:6px;vertical-align:middle;line-height:1.3}
 .dropdown-divider{height:1px;background:rgba(240,240,236,0.06);margin:4px 20px}
 .dropdown-footer{padding:10px 20px;border-top:1px solid rgba(240,240,236,0.06)}
 .dropdown-footer-link{font-size:10px;color:rgba(240,240,236,0.4);display:flex;align-items:center;gap:4px;cursor:pointer;transition:color .15s}
@@ -70,15 +69,15 @@ html,body{background:#000;color:var(--w);font-family:var(--T);-webkit-font-smoot
 .drawer-head{display:flex;align-items:center;justify-content:space-between;margin-bottom:32px}
 .drawer-close{font-size:22px;color:var(--w);cursor:pointer;background:none;border:none}
 .drawer-links{display:flex;flex-direction:column;gap:0;flex:1}
-.dl{font-size:22px;font-weight:300;color:var(--body);padding:14px 0;border-bottom:1px solid var(--b);cursor:pointer}
+.dl{font-size:22px;font-weight:400;color:var(--body);padding:14px 0;border-bottom:1px solid var(--b);cursor:pointer}
 .dl-sub{display:flex;flex-direction:column;gap:0;border-bottom:1px solid var(--b);}
 .dl-sub-item{font-size:14px;font-weight:400;color:var(--body);padding:12px 0 12px 16px;cursor:pointer;border-bottom:0.5px solid rgba(240,240,236,0.05);}
-.dl-sub-item:last-child{border-bottom:none;}
+.dl-sub-item:last-child{border-bottom:1px solid rgba(240,240,236,0.12);}
 .dl-sub-item:hover{color:var(--w);}
-.dl-parent{font-size:22px;font-weight:300;color:var(--body);padding:14px 0;cursor:default;}
+.dl-parent{font-size:22px;font-weight:400;color:var(--body);padding:14px 0;cursor:default;}
 .drawer-btns{display:flex;flex-direction:column;gap:8px;margin-top:24px}
 .drawer-btn-g{padding:14px;border:1px solid var(--b2);background:none;color:var(--w);font-size:13px;cursor:pointer;font-family:var(--T);text-align:center;border-radius:40px}
-.drawer-btn-r{padding:14px;background:var(--w);color:#000;font-size:13px;cursor:pointer;font-family:var(--T);border:none;font-weight:500;text-align:center;border-radius:40px}
+.drawer-btn-r{padding:14px;background:var(--w);color:#000;font-size:13px;cursor:pointer;font-family:var(--T);border:none;font-weight:400;text-align:center;border-radius:40px}
 
 /* HERO */
 .hero{padding:120px 48px 0;margin-bottom:80px;isolation:isolate;position:relative;z-index:2;max-width:1400px;margin-left:auto;margin-right:auto;text-align:center;overflow:visible}
@@ -477,7 +476,7 @@ html,body{background:#000;color:var(--w);font-family:var(--T);-webkit-font-smoot
 
 <div class="nav-drawer" id="drawer">
   <div class="drawer-head">
-    <div class="nav-logo" style="font-family:'Druk',var(--T);cursor:pointer;" onclick="window.location.href='index.html'">Realsnap</div>
+    <div class="nav-logo">Realsnap</div>
     <button class="drawer-close" onclick="closeDrawer()">✕</button>
   </div>
   <div class="drawer-links">
@@ -489,16 +488,16 @@ html,body{background:#000;color:var(--w);font-family:var(--T);-webkit-font-smoot
       <div class="dl-sub-item" onclick="window.open('https://realsnap.ai/en/tutorials','_blank')">Tutorials</div>
     </div>
     <div class="dl" onclick="window.open('magazine.html','_blank')">Magazine</div>
-    <div class="dl" style="color:#fff;cursor:default;">Pricing</div>
+    <div class="dl" onclick="window.location.href='pricing.html'">Pricing</div>
   </div>
   <div class="drawer-btns">
-    <button class="drawer-btn-g" onclick="window.open('https://realsnap.ai/auth/signIn','_blank')">Log in</button>
-    <button class="drawer-btn-r" onclick="window.open('https://realsnap.ai/auth/signIn','_blank')">Get started</button>
+    <button class="drawer-btn-g">Book a demo</button>
+    <button class="drawer-btn-r">Get started</button>
   </div>
 </div>
 
 <nav class="nav">
-  <div class="nav-logo" onclick="window.location.href='index.html'">Realsnap</div>
+  <div class="nav-logo" onclick="window.scrollTo({top:0,behavior:\'smooth\'})">Realsnap</div>
   <ul class="nav-links">
     <!-- STUDIO dropdown -->
     <li class="nl has-dropdown">Studio
@@ -523,11 +522,12 @@ html,body{background:#000;color:var(--w);font-family:var(--T);-webkit-font-smoot
           </div>
         </a>
         <div class="dropdown-divider"></div>
-        <a class="dropdown-item" href="https://realsnap.ai/en/tutorials" target="_blank" style="text-decoration:none">
+        <div class="dropdown-item">
           <div class="dropdown-item-text">
             <div class="dropdown-item-label">Tutorials</div>
+            
           </div>
-        </a>
+        </div>
 
       </div>
     </li>
@@ -536,7 +536,7 @@ html,body{background:#000;color:var(--w);font-family:var(--T);-webkit-font-smoot
     <li class="nl" onclick="window.open('magazine.html','_blank')" style="cursor:pointer">Magazine</li>
 
     <!-- PRICING (no dropdown) -->
-    <li class="nl" style="cursor:default;color:#fff;">Pricing</li>
+    <li class="nl" onclick="window.location.href='pricing.html'" style="cursor:pointer">Pricing</li>
 
   </ul>
   <div class="nav-r">
@@ -546,17 +546,6 @@ html,body{background:#000;color:var(--w);font-family:var(--T);-webkit-font-smoot
     <button class="nav-hamburger" onclick="openDrawer()"><span></span><span></span><span></span></button>
   </div>
 </nav>
-
-<div class="hero">
-  <div class="hero-eyebrow">Pricing</div>
-  <div class="hero-title">All-in-One Plan.<br>Every Tool.</div>
-  <div class="hero-sub">Snap, Drop, and Edit — all included in every plan. No add-ons, no surprises.</div>
-
-  <div class="toggle-wrap">
-    <div class="toggle-opt" id="tog-m" onclick="setToggle('monthly')">Monthly</div>
-    <div class="toggle-opt on" id="tog-a" onclick="setToggle('annual')">Annually <span class="save-badge" id="save-badge">Save 10%</span></div>
-  </div>
-</div>
 
 <div class="plans">
 
@@ -731,8 +720,8 @@ function setToggle(mode){
   setToggle('annual');
 })();
 
-function openDrawer(){document.getElementById('drawer').classList.add('open');document.body.style.overflow='hidden'}
-function closeDrawer(){document.getElementById('drawer').classList.remove('open');document.body.style.overflow=''}
+function openDrawer(){var d=document.getElementById('drawer');if(d){d.style.display='flex';document.body.style.overflow='hidden';}}
+function closeDrawer(){var d=document.getElementById('drawer');if(d){d.style.display='none';document.body.style.overflow='';}}
 function toggleFaq(el){
   el.classList.toggle('open');
 }

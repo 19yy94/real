@@ -21,43 +21,54 @@ html{height:100%}body{background:#000;color:var(--w);font-family:var(--T);min-he
 .nav{height:60px;display:flex;align-items:center;justify-content:space-between;padding:0 48px;background:rgba(0,0,0,0.6);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border-bottom:1px solid rgba(240,240,236,0.12);position:sticky;top:0;z-index:1000}
 .nav-logo{display:flex;align-items:center;cursor:pointer;flex:1;font-family:'Druk',var(--T);font-size:18px;font-weight:400;color:#fff;letter-spacing:0.01em}
 .nav-links{display:flex;list-style:none;position:absolute;left:50%;transform:translateX(-50%)}
-.nl{font-size:11px;font-weight:400;color:rgba(240,240,236,0.7);letter-spacing:0.03em;cursor:pointer;padding:0 24px;height:60px;display:flex;align-items:center;transition:color .15s;text-transform:uppercase;position:relative}
+.nl{font-size:11px;font-weight:400;color:rgba(240,240,236,0.7);letter-spacing:0.03em;cursor:pointer;padding:0 24px;height:60px;display:flex;align-items:center;transition:color .15s;text-transform:uppercase}
 .nl:hover{color:var(--w)}
-.nl.active{color:var(--w)}
 .nav-r{display:flex;gap:8px;align-items:center;flex:1;justify-content:flex-end}
 .btn-login{padding:8px 18px;border:none;background:none;color:rgba(240,240,236,0.5);font-size:13px;cursor:pointer;font-family:var(--T);border-radius:40px}
+.btn-demo{padding:8px 18px;border:1px solid rgba(240,240,236,0.25);background:none;color:var(--w);font-size:13px;cursor:pointer;font-family:var(--T);border-radius:40px}
 .btn-start{padding:8px 20px;background:var(--w);color:#000;font-size:13px;cursor:pointer;font-family:var(--T);border:none;font-weight:400;border-radius:40px}
 .nav-hamburger{display:none;flex-direction:column;gap:4px;cursor:pointer;padding:8px;background:none;border:none}
 .nav-hamburger span{width:20px;height:1.5px;background:var(--w);display:block}
+.nav-drawer{display:none;position:fixed;inset:0;background:var(--bg);z-index:200;flex-direction:column;padding:20px 24px}
 
 /* DROPDOWN */
+.nl{position:relative}
 .nl.has-dropdown{cursor:pointer;padding-right:16px}
 .nl.has-dropdown:hover::after{border-top-color:var(--w);transform:rotate(180deg)}
 .nl.has-dropdown::after{content:'';display:inline-block;width:0;height:0;margin-left:5px;border-left:3px solid transparent;border-right:3px solid transparent;border-top:3px solid rgba(240,240,236,0.4);transition:transform .2s,border-color .2s;vertical-align:middle;position:relative;top:-1px}
-.dropdown{position:absolute;top:calc(100%);left:0;background:#0a0a0a;border:1px solid rgba(240,240,236,0.1);min-width:220px;width:max-content;opacity:0;visibility:hidden;transition:opacity .2s ease,transform .2s ease,visibility .2s;transform:translateY(-4px);z-index:300;overflow:hidden}
-.nl.has-dropdown:hover .dropdown,.dropdown:hover{opacity:1;visibility:visible;transform:translateY(0)}
-.dropdown-item{display:flex;align-items:flex-start;gap:12px;padding:12px 20px;cursor:pointer;transition:background .15s;text-decoration:none;color:var(--w)}
-.dropdown-item:hover{background:rgba(240,240,236,0.05)}
-.dropdown-divider{height:1px;background:rgba(240,240,236,0.06);margin:4px 0}
-.dropdown-item-label{font-size:13px;font-weight:400;color:var(--w)}
-.dropdown-item-desc{font-size:11px;color:var(--body);margin-top:1px}
 
-/* DRAWER */
-.nav-drawer{display:none;position:fixed;inset:0;background:var(--bg);z-index:200;flex-direction:column;padding:20px 24px}
+.dropdown{position:absolute;top:calc(100% + 0px);left:0;background:#0a0a0a;backdrop-filter:none;-webkit-backdrop-filter:none;border:1px solid rgba(240,240,236,0.1);min-width:220px;width:max-content;opacity:0;visibility:hidden;transition:opacity .2s ease,transform .2s ease,visibility .2s;transform:translateY(-4px);z-index:300;overflow:hidden}
+.nl.has-dropdown:hover .dropdown,.dropdown:hover{opacity:1;visibility:visible;transform:translateY(0)}
+.dropdown-header{padding:14px 20px 8px;font-size:9px;font-weight:400;letter-spacing:0.15em;text-transform:uppercase;color:rgba(240,240,236,0.25);border-bottom:1px solid rgba(240,240,236,0.06)}
+.dropdown-item{display:flex;align-items:flex-start;gap:12px;padding:12px 20px;cursor:pointer;transition:background .15s}
+.dropdown-item:last-child{border-bottom:none}
+.dropdown-item:hover{background:rgba(240,240,236,0.05)}
+.dropdown-item-icon{width:28px;height:28px;flex-shrink:0;display:flex;align-items:center;justify-content:center;background:rgba(240,240,236,0.06);border-radius:6px;margin-top:1px}
+.dropdown-item-icon svg{width:13px;height:13px;fill:none;stroke:rgba(240,240,236,0.5);stroke-width:1.5}
+.dropdown-item-text{}
+.dropdown-item-label{font-size:11px;font-weight:400;color:var(--w);letter-spacing:0.01em;margin-bottom:2px}
+.dropdown-item-desc{font-size:10px;color:rgba(240,240,236,0.5);line-height:1.4;font-weight:400}
+.dropdown-badge{display:inline-block;font-size:8px;font-weight:400;letter-spacing:0.08em;text-transform:uppercase;padding:2px 5px;background:rgba(224,26,10,0.15);color:var(--red);border-radius:3px;margin-left:6px;vertical-align:middle;line-height:1.3}
+.dropdown-divider{height:1px;background:rgba(240,240,236,0.06);margin:4px 20px}
+.dropdown-footer{padding:10px 20px;border-top:1px solid rgba(240,240,236,0.06)}
+.dropdown-footer-link{font-size:10px;color:rgba(240,240,236,0.4);display:flex;align-items:center;gap:4px;cursor:pointer;transition:color .15s}
+.dropdown-footer-link:hover{color:var(--w)}
+.dropdown-footer-link svg{width:10px;height:10px;stroke:currentColor;fill:none;stroke-width:1.5}
+.nav-drawer.open{display:flex}
 .drawer-head{display:flex;align-items:center;justify-content:space-between;margin-bottom:32px}
 .drawer-close{font-size:22px;color:var(--w);cursor:pointer;background:none;border:none}
 .drawer-links{display:flex;flex-direction:column;gap:0;flex:1}
 .dl{font-size:22px;font-weight:400;color:var(--body);padding:14px 0;border-bottom:1px solid var(--b);cursor:pointer}
-.dl:hover{color:var(--w)}
-.dl-sub{display:flex;flex-direction:column;gap:0;border-bottom:1px solid var(--b)}
-.dl-sub-item{font-size:14px;font-weight:400;color:var(--body);padding:12px 0 12px 16px;cursor:pointer;border-bottom:0.5px solid rgba(240,240,236,0.05)}
-.dl-sub-item:last-child{border-bottom:1px solid rgba(240,240,236,0.12)}
-.dl-sub-item:hover{color:var(--w)}
-.dl-parent{font-size:22px;font-weight:400;color:var(--body);padding:14px 0;cursor:default}
-.drawer-btns{display:flex;flex-direction:column;gap:10px;padding-top:24px}
-.drawer-btn-g{padding:14px;border:1px solid rgba(240,240,236,0.18);background:none;color:var(--w);font-size:15px;font-family:var(--T);cursor:pointer;border-radius:12px}
-.drawer-btn-r{padding:14px;background:var(--w);color:#000;border:none;font-size:15px;font-family:var(--T);cursor:pointer;border-radius:12px}
+.dl-sub{display:flex;flex-direction:column;gap:0;border-bottom:1px solid var(--b);}
+.dl-sub-item{font-size:14px;font-weight:400;color:var(--body);padding:12px 0 12px 16px;cursor:pointer;border-bottom:0.5px solid rgba(240,240,236,0.05);}
+.dl-sub-item:last-child{border-bottom:1px solid rgba(240,240,236,0.12);}
+.dl-sub-item:hover{color:var(--w);}
+.dl-parent{font-size:22px;font-weight:400;color:var(--body);padding:14px 0;cursor:default;}
+.drawer-btns{display:flex;flex-direction:column;gap:8px;margin-top:24px}
+.drawer-btn-g{padding:14px;border:1px solid var(--b2);background:none;color:var(--w);font-size:13px;cursor:pointer;font-family:var(--T);text-align:center;border-radius:40px}
+.drawer-btn-r{padding:14px;background:var(--w);color:#000;font-size:13px;cursor:pointer;font-family:var(--T);border:none;font-weight:400;text-align:center;border-radius:40px}
 
+/* HERO */
 /* MAIN */
 .main{flex:1;overflow:hidden;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:0 48px;position:relative;overflow:hidden}
 .main::before{display:none}
@@ -267,7 +278,7 @@ html{height:100%}body{background:#000;color:var(--w);font-family:var(--T);min-he
       <div class="dl-sub-item" onclick="window.open('https://realsnap.ai/en/edit','_blank')">Edit</div>
       <div class="dl-sub-item" onclick="window.open('https://realsnap.ai/en/tutorials','_blank')">Tutorials</div>
     </div>
-    <div class="dl" onclick="window.location.href='magazine.html'">Magazine</div>
+    <div class="dl" onclick="window.open('magazine.html','_blank')">Magazine</div>
     <div class="dl" onclick="window.location.href='pricing.html'">Pricing</div>
   </div>
   <div class="drawer-btns">
@@ -277,10 +288,12 @@ html{height:100%}body{background:#000;color:var(--w);font-family:var(--T);min-he
 </div>
 
 <nav class="nav">
-  <div class="nav-logo" onclick="window.location.href='index.html'">Realsnap</div>
+  <div class="nav-logo" onclick="window.scrollTo({top:0,behavior:\'smooth\'})">Realsnap</div>
   <ul class="nav-links">
+    <!-- STUDIO dropdown -->
     <li class="nl has-dropdown">Studio
       <div class="dropdown">
+
         <a class="dropdown-item" href="https://realsnap.ai/en/snap" target="_blank" style="text-decoration:none">
           <div class="dropdown-item-text">
             <div class="dropdown-item-label">Snap</div>
@@ -303,39 +316,24 @@ html{height:100%}body{background:#000;color:var(--w);font-family:var(--T);min-he
         <div class="dropdown-item">
           <div class="dropdown-item-text">
             <div class="dropdown-item-label">Tutorials</div>
+            
           </div>
         </div>
+
       </div>
     </li>
-    <li class="nl active" onclick="window.location.href='magazine.html'" style="cursor:pointer">Magazine</li>
+
+    <!-- GALLERY dropdown -->
+    <li class="nl" onclick="window.open('magazine.html','_blank')" style="cursor:pointer">Magazine</li>
+
+    <!-- PRICING (no dropdown) -->
     <li class="nl" onclick="window.location.href='pricing.html'" style="cursor:pointer">Pricing</li>
+
   </ul>
   <div class="nav-r">
     <button class="btn-login" onclick="window.open('https://realsnap.ai/auth/signIn','_blank')">Log in</button>
+    
     <button class="btn-start" onclick="window.open('https://realsnap.ai/auth/signIn','_blank')">Get started</button>
     <button class="nav-hamburger" onclick="openDrawer()"><span></span><span></span><span></span></button>
   </div>
 </nav>
-
-<div class="mag-bottom-wrap"><main class="main">
-  <div class="content">
-    <div class="title">Coming<br>Soon.</div>
-  </div>
-</main>
-
-<footer class="footer">
-  <div class="footer-copy">© 2026 RealSnap Inc. All rights reserved.</div>
-  <div class="footer-links">
-    <a class="footer-link" href="https://realsnap.ai/terms">Terms of Service</a>
-    <a class="footer-link" href="https://realsnap.ai/privacy">Privacy Policy</a>
-    <a class="footer-link" href="https://realsnap.ai/cookie-policy">Cookie Policy</a>
-  </div>
-</footer>
-</div>
-
-<script>
-function openDrawer(){ var d=document.getElementById('drawer'); d.style.display='flex'; }
-function closeDrawer(){ var d=document.getElementById('drawer'); d.style.display='none'; }
-</script>
-</body>
-</html>
