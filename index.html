@@ -268,13 +268,13 @@ body{background:#1a1412;background-color:#1a1412;color:var(--w);font-family:var(
 
 /* ── TOOLS ── */
 .tools-section{margin-bottom:120px;padding:60px 48px 0;max-width:1400px;margin-left:auto;margin-right:auto}
-.tools-head{text-align:center;margin-bottom:48px}
+.tools-head{text-align:center;margin-bottom:48px;position:relative;z-index:4}
 .tools-h{font-family:'Druk',var(--T);font-weight:400;font-size:48px;line-height:1.05;letter-spacing:0.01em;color:var(--w);margin-bottom:0;max-width:900px;margin-left:auto;margin-right:auto;text-wrap:balance}
 .section-sub{font-size:15px;font-weight:400;color:var(--body);line-height:1.6;max-width:630px;margin:20px auto 0;text-align:center}
 .tools-tabs{display:none}
 .tools-inner{display:contents}
 .tools-panes{display:none}
-.tool-cards{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+.tool-cards{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;position:relative;z-index:4}
 .tool-card{border-radius:16px;overflow:hidden;background:var(--card);border:1px solid rgba(240,240,236,0.28);cursor:pointer;transition:border-color .25s,transform .25s;display:flex;flex-direction:column;height:100%;min-height:0;}
 .tool-card:hover{border-color:rgba(240,240,236,0.22);transform:translateY(-4px)}
 .tool-card-img{width:100%;aspect-ratio:1/1;background:#0d0d0d;position:relative;overflow:hidden;display:flex;align-items:center;justify-content:center}
@@ -350,6 +350,14 @@ body{background:#1a1412;background-color:#1a1412;color:var(--w);font-family:var(
   .usecases-h{font-size:34px}
   .tools-h{font-size:34px}
   .results-h{font-size:34px}
+  .section-sub{max-width:460px;margin-left:auto;margin-right:auto}
+  .hero-sub{max-width:380px;margin-left:auto;margin-right:auto}
+  .usecases-h{max-width:500px;margin-left:auto;margin-right:auto}
+  .tools-h{max-width:500px;margin-left:auto;margin-right:auto}
+  .results-h{max-width:500px;margin-left:auto;margin-right:auto}
+  .cta-h{max-width:500px;margin-left:auto;margin-right:auto}
+  .tools-section{margin-bottom:100px}
+  .usecases{margin-bottom:100px}
   .cta-h{font-size:34px}
   .usecases{padding:0 48px}
   .tools-section{padding:64px 20px 0}
@@ -375,18 +383,23 @@ body{background:#1a1412;background-color:#1a1412;color:var(--w);font-family:var(
   .tool-card-btn-g{display:flex;justify-content:center;}
   .hero-h-top{font-size:26px}.demo-cta-text{font-size:26px}
   .hero{padding-left:20px;padding-right:20px;}
-  .hero-sub{font-size:14px;font-weight:400;width:85%;max-width:340px;margin-left:auto;margin-right:auto}
-  .section-sub{font-size:14px;width:100%;max-width:none;margin-left:auto;margin-right:auto}
-  .uc-desc{font-size:14px;width:100%;max-width:none}
-  .cta-sub{font-size:14px;width:100%;max-width:none;margin-left:auto;margin-right:auto}
-  .usecases-h{font-size:26px}
-  .tools-h{font-size:26px}
-  .results-h{font-size:26px}
-  .cta-h{font-size:26px}
+  .hero-sub{font-size:14px;font-weight:400;width:90%;max-width:320px;margin-left:auto;margin-right:auto}
+  .section-sub{font-size:14px;width:90%;max-width:320px;margin-left:auto;margin-right:auto}
+  .uc-desc{font-size:14px;width:90%;max-width:320px;margin-left:auto;margin-right:auto}
+  .cta-sub{font-size:14px;width:90%;max-width:320px;margin-left:auto;margin-right:auto}
+  .usecases-h{font-size:26px;max-width:280px;margin-left:auto;margin-right:auto}
+  .tools-h{font-size:26px;max-width:280px;margin-left:auto;margin-right:auto}
+  .results-h{font-size:26px;max-width:280px;margin-left:auto;margin-right:auto}
+  .cta-h{font-size:26px;max-width:280px;margin-left:auto;margin-right:auto}
   .tool-card-name{font-size:20px}
   .uc-name{font-size:20px}
   .uc-info{padding:28px 20px}
   .results-masonry-inner{grid-template-columns:repeat(3,1fr)}
+  .hero{padding-top:80px;margin-bottom:80px}
+  .tools-section{margin-bottom:80px}
+  .usecases{margin-bottom:80px}
+  .results{margin-bottom:32px}
+  .demo-cta-section{margin-bottom:0}
 }
 
 .hero-mock-mobile{display:none}
@@ -1510,7 +1523,7 @@ body{background:#1a1412;background-color:#1a1412;color:var(--w);font-family:var(
     </div>
   </div>
 </section>
-<div style="text-align:center;margin-top:-80px;position:relative;z-index:20;padding-bottom:40px"><button onclick="window.location.href='magazine.html'" style="font-size:14px;padding:14px 36px;border:1px solid rgba(240,240,236,0.28);background:rgba(0,0,0,0.6);backdrop-filter:blur(12px);color:var(--w);border-radius:40px;cursor:pointer;font-family:var(--T)">Browse Magazine &nbsp;<svg width="10" height="10" viewBox="0 0 10 10" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><line x1="2" y1="8" x2="8" y2="2"/><polyline points="3,2 8,2 8,7"/></svg></button></div>
+<div style="text-align:center;margin-top:-60px;position:relative;z-index:20;padding-bottom:64px"><button onclick="window.location.href='magazine.html'" style="font-size:14px;padding:14px 36px;border:1px solid rgba(240,240,236,0.28);background:rgba(0,0,0,0.6);backdrop-filter:blur(12px);color:var(--w);border-radius:40px;cursor:pointer;font-family:var(--T)">Browse Magazine &nbsp;<svg width="10" height="10" viewBox="0 0 10 10" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><line x1="2" y1="8" x2="8" y2="2"/><polyline points="3,2 8,2 8,7"/></svg></button></div>
 
 <!-- CTA -->
 <div class="cta-footer-wrap"><div class="cta-outer demo-cta-section" style="max-width:none;margin:0;padding:0;">

@@ -81,12 +81,16 @@ html,body{background:#000;color:var(--w);font-family:var(--T);}
 .drawer-btn-r{padding:14px;background:var(--w);color:#000;font-size:15px;cursor:pointer;font-family:var(--T);border:none;font-weight:400;text-align:center;border-radius:40px}
 
 /* HERO */
+.pricing-hero{text-align:center;padding:120px 48px 48px;max-width:800px;margin:0 auto;}
+.pricing-eyebrow{font-size:11px;letter-spacing:0.1em;text-transform:uppercase;color:rgba(240,240,236,0.4);font-family:var(--T);margin-bottom:16px;}
+.pricing-title{font-family:'Druk',var(--T);font-size:56px;font-weight:400;line-height:1.05;letter-spacing:0.01em;color:var(--w);margin:0 0 20px;max-width:640px;margin-left:auto;margin-right:auto;}
+.pricing-sub{font-size:15px;color:var(--body);line-height:1.6;margin:0;max-width:480px;margin-left:auto;margin-right:auto;}
 .plans{
   display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr) minmax(0,1fr);
   gap:12px;
   max-width:1100px;margin:0 auto;
   padding:0 48px 120px;
-  margin-top:-12px;
+  margin-top:0;
   align-items:stretch;
 }
 .plan{
@@ -272,6 +276,13 @@ html,body{background:#000;color:var(--w);font-family:var(--T);}
 .footer-link{font-size:12px;color:var(--body);text-decoration:none;transition:color 0.15s;}
 .footer-link:hover{color:var(--w);}
 
+
+.toggle-wrap{display:flex;justify-content:center;margin-bottom:40px;}
+.toggle-pill{display:flex;align-items:center;background:rgba(255,255,255,0.07);border:1px solid rgba(255,255,255,0.1);border-radius:40px;padding:4px;}
+.toggle-opt{font-size:13px;font-family:var(--T);font-weight:400;color:rgba(255,255,255,0.45);padding:8px 20px;border-radius:40px;cursor:pointer;transition:all .2s;white-space:nowrap;}
+.toggle-opt.on{background:#f0f0ec;color:#000;}
+.save-badge{font-size:11px;font-weight:400;background:rgba(232,37,26,0.15);color:#e8251a;border-radius:20px;padding:3px 8px;margin-left:6px;font-family:var(--T);}
+
 @media(max-width:767px){
   .nav-links,.btn-login,.btn-demo,.btn-start,#langSwitcher{display:none!important}
   .nav-hamburger{display:flex!important}
@@ -280,19 +291,21 @@ html,body{background:#000;color:var(--w);font-family:var(--T);}
 @media(max-width:900px){
   .plans{grid-template-columns:1fr;max-width:480px;}
   #floatLogo{display:none!important}
-.nav{padding:0 20px;}
+  .nav{padding:0 20px;}
   .hero{padding:100px 24px 32px;}
   .hero-title{font-size:clamp(44px,12vw,72px);}
-  .hero-sub{font-size:15px;margin-bottom:20px;}
+  .hero-sub{font-size:15px;margin-bottom:20px;max-width:320px;margin-left:auto;margin-right:auto;}
   .toggle-wrap{margin-bottom:36px;}
-  .plans{padding:0 20px 64px;max-width:100%;}
+  .plans{padding:0 20px 80px;max-width:100%;}
+  .pricing-hero{padding:90px 20px 36px;margin-bottom:0;}
+  .pricing-title{font-size:clamp(34px,10vw,48px);max-width:460px;}
+  .pricing-sub{font-size:14px;max-width:320px;}
   .plan{padding:28px 24px 24px;}
   .plan-price{font-size:clamp(40px,10vw,56px);}
-  .faq-section{padding:0 20px 64px;}
+  .faq-section{padding:0 20px 80px;}
   .faq-title{font-size:28px;margin-bottom:32px;}
   .footer{padding:24px 20px;flex-direction:column;align-items:flex-start;gap:12px;}
   .footer-links{flex-wrap:wrap;gap:16px;}
-  .nav-logo{font-size:17px;}
   .plan-header-block{min-height:0;}
 }
 
@@ -307,6 +320,11 @@ html,body{background:#000;color:var(--w);font-family:var(--T);}
   .hero-eyebrow{font-size:10px;}
   .hero-title{font-size:clamp(38px,11vw,60px);}
   .hero-sub{font-size:14px;}
+  .pricing-hero{padding:80px 20px 28px;}
+  .pricing-title{font-size:clamp(28px,9vw,38px);max-width:280px;}
+  .pricing-sub{font-size:14px;max-width:280px;}
+  .plans{padding:0 20px 80px;}
+  .faq-section{padding:0 20px 80px;}
   .plan-name{font-size:11px;}
   .plan-price{white-space:nowrap;}
   .plan-credit{font-size:12px;}
@@ -577,6 +595,19 @@ html,body{background:#000;color:var(--w);font-family:var(--T);}
   <div class="pill-dot" id="pill-dot-logo" style="width:40px;height:40px;min-width:40px;min-height:40px;background:#e8251a;border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0;"><span style="font-size:12px;font-weight:400;color:#000;letter-spacing:-0.02em;line-height:1;">Try!</span></div>
 </div>
 
+</div>
+
+<div class="pricing-hero">
+  <div class="pricing-eyebrow">Pricing</div>
+  <h1 class="pricing-title">All-in-One Plan.<br>Every Tool.</h1>
+  <p class="pricing-sub">Snap, Drop, and Edit — all included in every plan. No add-ons, no surprises.</p>
+</div>
+
+<div class="toggle-wrap">
+  <div class="toggle-pill">
+    <span class="toggle-opt on" id="tog-m" onclick="setToggle('monthly')">Monthly</span>
+    <span class="toggle-opt" id="tog-a" onclick="setToggle('annual')">Annually <span class="save-badge">Save 10%</span></span>
+  </div>
 </div>
 
 <div class="plans">
