@@ -267,20 +267,20 @@ body{background:#1a1412;background-color:#1a1412;color:var(--w);font-family:var(
 .results-masonry::after{content:'';position:absolute;bottom:0;left:0;right:0;height:500px;background:linear-gradient(to bottom,transparent 0%,var(--bg) 75%);pointer-events:none;z-index:2}
 
 /* ── TOOLS ── */
-.tools-section{margin-bottom:120px;padding:60px 48px 0;max-width:1400px;margin-left:auto;margin-right:auto}
-.tools-head{text-align:center;margin-bottom:48px;position:relative;z-index:4}
+.tools-section{margin-bottom:120px;padding:60px 48px 0;max-width:1400px;margin-left:auto;margin-right:auto;position:relative}
+.tools-head{text-align:center;margin-bottom:48px;position:relative;z-index:1}
 .tools-h{font-family:'Druk',var(--T);font-weight:400;font-size:48px;line-height:1.05;letter-spacing:0.01em;color:var(--w);margin-bottom:0;max-width:900px;margin-left:auto;margin-right:auto;text-wrap:balance}
 .section-sub{font-size:15px;font-weight:400;color:var(--body);line-height:1.6;max-width:630px;margin:20px auto 0;text-align:center}
 .tools-tabs{display:none}
 .tools-inner{display:contents}
 .tools-panes{display:none}
-.tool-cards{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;position:relative;z-index:4}
+.tool-cards{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;position:relative;z-index:1}
 .tool-card{border-radius:16px;overflow:hidden;background:var(--card);border:1px solid rgba(240,240,236,0.28);cursor:pointer;transition:border-color .25s,transform .25s;display:flex;flex-direction:column;height:100%;min-height:0;}
 .tool-card:hover{border-color:rgba(240,240,236,0.22);transform:translateY(-4px)}
 .tool-card-img{width:100%;aspect-ratio:1/1;background:#0d0d0d;position:relative;overflow:hidden;display:flex;align-items:center;justify-content:center}
 .tool-card-img::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 30% 40%,rgba(240,240,236,0.05) 0%,transparent 70%)}
 .tool-card-img-ph{font-size:10px;color:rgba(240,240,236,0.25);letter-spacing:0.08em;text-transform:uppercase;text-align:center;padding:20px;line-height:1.8;position:relative;z-index:1}
-.tool-card-body{padding:22px 24px 28px;display:flex;flex-direction:column;flex:1;overflow:hidden}
+.tool-card-body{padding:22px 24px 28px;display:flex;flex-direction:column;flex:1;overflow:hidden;position:relative;z-index:4}
 .tool-card-label{font-size:11px;font-weight:400;letter-spacing:0.12em;text-transform:uppercase;color:var(--mid);margin-bottom:10px}
 .tool-card-name{font-size:32px;font-weight:400;font-family:'Druk',var(--T);color:var(--w);line-height:1.0;margin-bottom:12px;max-width:7em}
 .tool-card-desc{font-size:14px;color:var(--body);font-weight:400;line-height:1.45;margin-bottom:24px;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}
@@ -324,7 +324,7 @@ body{background:#1a1412;background-color:#1a1412;color:var(--w);font-family:var(
 .cta-outer{padding:0 48px;max-width:1400px;margin:40px auto 100px}
 .cta{padding:60px 48px 120px;position:relative;z-index:1;text-align:center;display:flex;flex-direction:column;align-items:center}
 .cta-h{font-family:'Druk',var(--T);font-weight:400;font-size:48px;line-height:1.05;letter-spacing:0.01em;color:var(--w);margin-bottom:24px;max-width:900px;margin-left:auto;margin-right:auto;text-wrap:balance}
-.cta-sub{font-size:15px;color:var(--body);font-weight:400;line-height:1.6;margin-bottom:32px}
+.cta-sub{font-size:15px;color:var(--body);font-weight:400;line-height:1.6;margin-bottom:32px;max-width:630px;margin-left:auto;margin-right:auto}
 .cta-btns{display:flex;gap:10px;justify-content:center}
 .btn-r-lg{padding:14px 36px;background:var(--w);color:#000;border:none;font-size:14px;font-family:var(--T);cursor:pointer;font-weight:400;letter-spacing:0.01em;border-radius:40px}
 .btn-g-lg{padding:14px 30px;border:1px solid rgba(240,240,236,0.28);background:none;color:var(--w);font-size:14px;transition:background 0.2s,border-color 0.2s;font-family:var(--T);cursor:pointer;font-weight:400;letter-spacing:0.01em;border-radius:40px}
@@ -384,13 +384,13 @@ body{background:#1a1412;background-color:#1a1412;color:var(--w);font-family:var(
   .hero-h-top{font-size:26px}.demo-cta-text{font-size:26px}
   .hero{padding-left:20px;padding-right:20px;}
   .hero-sub{font-size:14px;font-weight:400;width:90%;max-width:320px;margin-left:auto;margin-right:auto}
-  .section-sub{font-size:14px;width:90%;max-width:320px;margin-left:auto;margin-right:auto}
-  .uc-desc{font-size:14px;width:90%;max-width:320px;margin-left:auto;margin-right:auto}
-  .cta-sub{font-size:14px;width:90%;max-width:320px;margin-left:auto;margin-right:auto}
-  .usecases-h{font-size:26px;max-width:280px;margin-left:auto;margin-right:auto}
-  .tools-h{font-size:26px;max-width:280px;margin-left:auto;margin-right:auto}
-  .results-h{font-size:26px;max-width:280px;margin-left:auto;margin-right:auto}
-  .cta-h{font-size:26px;max-width:280px;margin-left:auto;margin-right:auto}
+  .section-sub{font-size:14px;width:90%;max-width:380px;margin-left:auto;margin-right:auto}
+  .uc-desc{font-size:14px;width:90%;max-width:380px;margin-left:auto;margin-right:auto}
+  .cta-sub{font-size:14px;width:90%;max-width:380px;margin-left:auto;margin-right:auto}
+  .usecases-h{font-size:26px;max-width:420px;margin-left:auto;margin-right:auto}
+  .tools-h{font-size:26px;max-width:420px;margin-left:auto;margin-right:auto}
+  .results-h{font-size:26px;max-width:420px;margin-left:auto;margin-right:auto}
+  .cta-h{font-size:26px;max-width:420px;margin-left:auto;margin-right:auto}
   .tool-card-name{font-size:20px}
   .uc-name{font-size:20px}
   .uc-info{padding:28px 20px}
@@ -957,13 +957,14 @@ body{background:#1a1412;background-color:#1a1412;color:var(--w);font-family:var(
 }
 
 @media(max-width:767px){
-  .tools-section{position:relative;}
-  .tools-section::after{
+  .tools-section{overflow:hidden;}
+  .tool-cards-wrap{position:relative;}
+  .tool-cards-wrap::after{
     content:'';
     position:absolute;
     top:0;right:0;bottom:0;
     height:100%;
-    width:80px;
+    width:60px;
     background:linear-gradient(to right, transparent, var(--bg) 90%);
     pointer-events:none;
     z-index:3;
@@ -1390,6 +1391,7 @@ body{background:#1a1412;background-color:#1a1412;color:var(--w);font-family:var(
     <div class="tools-h">From Lookbooks<br>To Campaign Films</div>
     <p class="section-sub">Everything your brand needs — all from a single product photo.</p>
   </div>
+  <div class="tool-cards-wrap">
   <div class="tool-cards">
 
     <!-- Drop -->
@@ -1437,6 +1439,7 @@ body{background:#1a1412;background-color:#1a1412;color:var(--w);font-family:var(
       </div>
     </div>
 
+  </div>
   </div>
 </section>
 
