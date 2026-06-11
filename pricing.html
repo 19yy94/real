@@ -67,7 +67,7 @@ html,body{background:#000;color:var(--w);font-family:var(--T);}
 .dropdown-footer-link:hover{color:var(--w)}
 .dropdown-footer-link svg{width:10px;height:10px;stroke:currentColor;fill:none;stroke-width:1.5}
 .nav-drawer.open{display:flex}
-.drawer-head{display:flex;align-items:center;justify-content:space-between;margin-bottom:32px}
+.drawer-head{display:flex;align-items:center;justify-content:flex-end;margin-bottom:32px}
 .drawer-close{font-size:22px;color:var(--w);cursor:pointer;background:none;border:none}
 .drawer-links{display:flex;flex-direction:column;gap:0;flex:1}
 .dl{font-size:22px;font-weight:400;color:var(--body);padding:14px 0;border-bottom:1px solid var(--b);cursor:pointer}
@@ -77,8 +77,8 @@ html,body{background:#000;color:var(--w);font-family:var(--T);}
 .dl-sub-item:hover{color:var(--w);}
 .dl-parent{font-size:22px;font-weight:400;color:var(--body);padding:14px 0;cursor:default;}
 .drawer-btns{display:flex;flex-direction:column;gap:8px;margin-top:24px}
-.drawer-btn-g{padding:14px;border:1px solid var(--b2);background:none;color:var(--w);font-size:13px;cursor:pointer;font-family:var(--T);text-align:center;border-radius:40px}
-.drawer-btn-r{padding:14px;background:var(--w);color:#000;font-size:13px;cursor:pointer;font-family:var(--T);border:none;font-weight:400;text-align:center;border-radius:40px}
+.drawer-btn-g{padding:14px;border:1px solid var(--b2);background:none;color:var(--w);font-size:15px;cursor:pointer;font-family:var(--T);text-align:center;border-radius:40px}
+.drawer-btn-r{padding:14px;background:var(--w);color:#000;font-size:15px;cursor:pointer;font-family:var(--T);border:none;font-weight:400;text-align:center;border-radius:40px}
 
 /* HERO */
 .plans{
@@ -447,7 +447,6 @@ html,body{background:#000;color:var(--w);font-family:var(--T);}
 
 <div class="nav-drawer" id="drawer">
   <div class="drawer-head">
-    <div class="nav-logo">Realsnap</div>
     <button class="drawer-close" onclick="closeDrawer()">✕</button>
   </div>
   <div class="drawer-links">

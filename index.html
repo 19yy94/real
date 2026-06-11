@@ -149,7 +149,7 @@ body{background:#1a1412;background-color:#1a1412;color:var(--w);font-family:var(
 .dropdown-footer-link:hover{color:var(--w)}
 .dropdown-footer-link svg{width:10px;height:10px;stroke:currentColor;fill:none;stroke-width:1.5}
 .nav-drawer.open{display:flex}
-.drawer-head{display:flex;align-items:center;justify-content:space-between;margin-bottom:32px}
+.drawer-head{display:flex;align-items:center;justify-content:flex-end;margin-bottom:32px}
 .drawer-close{font-size:22px;color:var(--w);cursor:pointer;background:none;border:none}
 .drawer-links{display:flex;flex-direction:column;gap:0;flex:1}
 .dl{font-size:22px;font-weight:400;color:var(--body);padding:14px 0;border-bottom:1px solid var(--b);cursor:pointer}
@@ -159,8 +159,8 @@ body{background:#1a1412;background-color:#1a1412;color:var(--w);font-family:var(
 .dl-sub-item:hover{color:var(--w);}
 .dl-parent{font-size:22px;font-weight:400;color:var(--body);padding:14px 0;cursor:default;}
 .drawer-btns{display:flex;flex-direction:column;gap:8px;margin-top:24px}
-.drawer-btn-g{padding:14px;border:1px solid var(--b2);background:none;color:var(--w);font-size:13px;cursor:pointer;font-family:var(--T);text-align:center;border-radius:40px}
-.drawer-btn-r{padding:14px;background:var(--w);color:#000;font-size:13px;cursor:pointer;font-family:var(--T);border:none;font-weight:400;text-align:center;border-radius:40px}
+.drawer-btn-g{padding:14px;border:1px solid var(--b2);background:none;color:var(--w);font-size:15px;cursor:pointer;font-family:var(--T);text-align:center;border-radius:40px}
+.drawer-btn-r{padding:14px;background:var(--w);color:#000;font-size:15px;cursor:pointer;font-family:var(--T);border:none;font-weight:400;text-align:center;border-radius:40px}
 
 /* HERO */
 .hero{padding:120px 48px 0;margin-bottom:80px;isolation:isolate;position:relative;z-index:2;max-width:1400px;margin-left:auto;margin-right:auto;text-align:center;overflow:visible}
@@ -222,7 +222,7 @@ body{background:#1a1412;background-color:#1a1412;color:var(--w);font-family:var(
 .hm-prompt-meta{display:flex;gap:5px;align-items:center;flex-shrink:0}
 .hm-meta-pill{font-size:10px;color:rgba(255,255,255,0.3);background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.09);padding:4px 10px;border-radius:20px;white-space:nowrap}
 .hm-meta-badge{font-size:10px;font-weight:400;color:#fff;background:rgba(255,255,255,0.12);border:1px solid rgba(255,255,255,0.15);padding:5px 12px;border-radius:20px;white-space:nowrap}
-.hm-generate{padding:10px 16px;background:#f0f0ec;color:#111;border:none;border-radius:8px;font-size:13px;font-weight:400;font-family:var(--T);cursor:pointer;white-space:nowrap;flex-shrink:0;}
+.hm-generate{padding:10px 16px;background:#2a2a2a;color:rgba(255,255,255,0.65);border:none;border-radius:8px;font-size:13px;font-weight:400;font-family:var(--T);cursor:pointer;white-space:nowrap;flex-shrink:0;transition:background .15s;}
 
 /* ── USE CASES ── */
 
@@ -230,6 +230,7 @@ body{background:#1a1412;background-color:#1a1412;color:var(--w);font-family:var(
 .usecases-head{text-align:center;margin-bottom:0}
 .usecases-h{font-family:'Druk',var(--T);font-weight:400;font-size:48px;line-height:1.05;letter-spacing:0.01em;color:var(--w);text-wrap:balance}
 .usecases-tabs{display:flex;justify-content:center;gap:6px;flex-wrap:wrap;padding:40px 0 0;overflow:visible}
+.uc-dots{display:none}
 .uc-tab{padding:8px 20px;font-size:14px;font-weight:400;color:rgba(240,240,236,0.45);letter-spacing:0.03em;cursor:pointer;border:1px solid rgba(240,240,236,0.25);background:none;font-family:var(--T);transition:all .2s;border-radius:40px;white-space:nowrap}
 .uc-tab:hover{color:var(--w);border-color:rgba(240,240,236,0.3)}
 .uc-tab.on{color:var(--w);font-weight:400;background:rgba(240,240,236,0.1);border-color:rgba(240,240,236,0.3)}
@@ -1005,17 +1006,10 @@ body{background:#1a1412;background-color:#1a1412;color:var(--w);font-family:var(
 }
 
 @media(max-width:767px){
-  .usecases-tabs{
-    flex-wrap:nowrap!important;
-    overflow-x:auto!important;
-    justify-content:flex-start!important;
-    -webkit-overflow-scrolling:touch;
-    padding:24px 0 8px;
-    gap:6px;
-  }
-  .usecases-tabs::-webkit-scrollbar{display:none;}
-  .usecases-tabs{scrollbar-width:none;}
-  .uc-tab{flex-shrink:0;}
+  .usecases-tabs{display:none!important;}
+  .uc-dots{display:flex;justify-content:center;gap:6px;padding:16px 0 0;}
+  .uc-dot{width:5px;height:5px;border-radius:50%;background:rgba(240,240,236,0.2);transition:background .2s,width .2s;cursor:pointer;}
+  .uc-dot.on{background:rgba(240,240,236,0.75);width:16px;border-radius:3px;}
 }
 
 @media(max-width:767px){
@@ -1044,7 +1038,6 @@ body{background:#1a1412;background-color:#1a1412;color:var(--w);font-family:var(
 
 <div class="nav-drawer" id="drawer">
   <div class="drawer-head">
-    <div class="nav-logo">Realsnap</div>
     <button class="drawer-close" onclick="closeDrawer()">✕</button>
   </div>
   <div class="drawer-links">
@@ -1466,6 +1459,7 @@ body{background:#1a1412;background-color:#1a1412;color:var(--w);font-family:var(
       <img id="uc-ph" style="position:absolute;top:0;left:0;width:100%;height:auto;object-fit:contain;display:block;" src="" style="width:100%;height:100%;object-fit:cover;display:block;" alt="Snap Editorial">
     </div>
   </div>
+  <div class="uc-dots" id="ucDots"></div>
 </section>
 
 
@@ -1516,7 +1510,7 @@ body{background:#1a1412;background-color:#1a1412;color:var(--w);font-family:var(
     </div>
   </div>
 </section>
-<div style="text-align:center;margin-top:-80px;position:relative;z-index:20;padding-bottom:40px"><button onclick="window.location.href='magazine.html'" style="font-size:14px;padding:14px 36px;border:1px solid rgba(240,240,236,0.28);background:rgba(0,0,0,0.6);backdrop-filter:blur(12px);color:var(--w);border-radius:40px;cursor:pointer;font-family:var(--T)">Browse Magazine ↗</button></div>
+<div style="text-align:center;margin-top:-80px;position:relative;z-index:20;padding-bottom:40px"><button onclick="window.location.href='magazine.html'" style="font-size:14px;padding:14px 36px;border:1px solid rgba(240,240,236,0.28);background:rgba(0,0,0,0.6);backdrop-filter:blur(12px);color:var(--w);border-radius:40px;cursor:pointer;font-family:var(--T)">Browse Magazine &nbsp;<svg width="10" height="10" viewBox="0 0 10 10" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><line x1="2" y1="8" x2="8" y2="2"/><polyline points="3,2 8,2 8,7"/></svg></button></div>
 
 <!-- CTA -->
 <div class="cta-footer-wrap"><div class="cta-outer demo-cta-section" style="max-width:none;margin:0;padding:0;">
@@ -1525,7 +1519,7 @@ body{background:#1a1412;background-color:#1a1412;color:var(--w);font-family:var(
     <p class="cta-sub">From one product photo to a full campaign. Starting at $49/mo.</p>
     <div class="cta-btns">
       <button class="btn-g-lg" onclick="window.location.href='pricing.html'">View pricing</button>
-      <button class="demo-cta-btn" onclick="window.open('https://realsnap.ai/auth/signIn','_blank')">Try it free ↗</button>
+      <button class="demo-cta-btn" onclick="window.open('https://realsnap.ai/auth/signIn','_blank')">Try it free &nbsp;<svg width="10" height="10" viewBox="0 0 10 10" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><line x1="2" y1="8" x2="8" y2="2"/><polyline points="3,2 8,2 8,7"/></svg></button>
     </div>
   </section>
 </div>
@@ -2152,6 +2146,10 @@ function selectUC(key, btn) {
   if(!d) return;
   document.querySelectorAll('.uc-tab').forEach(function(t){ t.classList.remove('on'); });
   btn.classList.add('on');
+  // sync dots
+  var tabs = document.querySelectorAll('.uc-tab');
+  var dotEls = document.querySelectorAll('.uc-dot');
+  tabs.forEach(function(t,i){ if(t===btn && dotEls[i]) { dotEls.forEach(function(d){d.classList.remove('on');}); dotEls[i].classList.add('on'); } });
   var label = document.getElementById('uc-label');
   var name  = document.getElementById('uc-name');
   var desc  = document.getElementById('uc-desc');
@@ -2242,6 +2240,22 @@ function selectUC(key, btn) {
       current = 0;
     }
     startTimer();
+
+    // 도트 생성
+    var dotsWrap = document.getElementById('ucDots');
+    if(dotsWrap){
+      tabs.forEach(function(btn, i){
+        var dot = document.createElement('div');
+        dot.className = 'uc-dot' + (i===0?' on':'');
+        dot.addEventListener('click', function(){
+          var key = btn.getAttribute('onclick').match(/selectUC\('([^']+)'/)[1];
+          selectUC(key, btn);
+          current = i;
+          stopTimer();
+        });
+        dotsWrap.appendChild(dot);
+      });
+    }
 
     // 탭 클릭 시 완전히 멈춤
     document.querySelectorAll('.uc-tab').forEach(function(btn, i){
