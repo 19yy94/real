@@ -2420,6 +2420,8 @@ function selectUC(key, btn) {
     lastScroll = currentScroll;
     var dot = document.getElementById('pill-dot-logo');
     if(dot) dot.style.transform = 'rotate(' + deg + 'deg)';
+    var fab = document.querySelector('#mobileDemoFab span');
+    if(fab) fab.style.transform = 'rotate(' + deg + 'deg)';
   }, {passive:true});
 })();
 </script>
