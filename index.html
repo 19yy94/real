@@ -641,7 +641,7 @@ body{background:#1a1412;background-color:#1a1412;color:var(--w);font-family:var(
 .demo-img-box{border-radius:14px;overflow:hidden;aspect-ratio:3/4;position:relative;background:#1a1a1a;border:0.5px solid rgba(255,255,255,0.08);}
 .demo-img-box img{width:100%;height:100%;object-fit:cover;}
 #demoImages::-webkit-scrollbar{display:none;}
-@media(min-width:768px){
+@media(min-width:900px){
   #demoImages{display:grid!important;grid-template-columns:repeat(3,1fr)!important;gap:16px!important;overflow:visible!important;}
   #demoImages .demo-img-box{flex:none!important;aspect-ratio:3/4!important;border-radius:16px;}
   #demoImages .demo-img-box:nth-child(n+4){display:none!important;}
@@ -757,19 +757,18 @@ body{background:#1a1412;background-color:#1a1412;color:var(--w);font-family:var(
   .demo-upload-label{font-size:13px;}
   #demoContent{max-width:90vw;padding:0 16px;margin-top:0;}
   .demo-close{top:14px;right:14px;width:32px;height:32px;}
-  #demoImages{gap:8px!important}
+  #demoContent{padding-left:16px!important;padding-right:16px!important;}
+  .demo-result-actions{padding:0 16px;box-sizing:border-box;}
+  .demo-result-note{padding:0 16px;box-sizing:border-box;}
+  #demoImages{display:flex!important;gap:12px!important;overflow-x:auto!important;width:100%!important;align-items:center!important;box-sizing:border-box!important;padding:0 16px!important;-webkit-mask-image:linear-gradient(to right, transparent 0, #000 16px, #000 82%, transparent 100%)!important;mask-image:linear-gradient(to right, transparent 0, #000 16px, #000 82%, transparent 100%)!important;}
+  .demo-img-box{flex:0 0 calc(78vw - 16px)!important;max-width:300px!important;aspect-ratio:3/4!important;}
   .demo-result-actions{flex-direction:row;gap:8px;width:100%;margin-top:28px!important;}
   .demo-btn-download{flex:1;text-align:center;padding:11px 14px;font-size:12px;}
   .demo-btn-studio{display:none!important;}
-  .demo-img-box{flex:0 0 88%!important;}
-  #demoImages{margin-right:-16px;padding-right:16px;-webkit-mask-image:linear-gradient(to right, #000 85%, transparent 100%);mask-image:linear-gradient(to right, #000 85%, transparent 100%);}
   #demoOverlay{height:100dvh;overflow:hidden;align-items:stretch;justify-content:stretch;box-sizing:border-box;padding:0!important;}
   #demoContent{max-width:100%;width:100%;padding-left:16px;padding-right:16px;margin-top:0;height:100%;display:flex;flex-direction:column;justify-content:center;box-sizing:border-box;}
-  .demo-preview-wrap{max-width:100%;height:100%;display:none;flex-direction:column;justify-content:space-between;gap:24px;padding:72px 16px 32px;box-sizing:border-box;}
-  .demo-preview-wrap > div:nth-child(3){display:flex;flex-direction:column;align-items:center;justify-content:center;flex:1;min-height:0;overflow:hidden;}
-  .demo-preview-wrap > div:nth-child(3) > div:last-of-type{flex-shrink:0;}
-  #demoImages{flex-shrink:0;}
-  .demo-img-box{flex-shrink:0;}
+  .demo-preview-wrap{max-width:100%;height:100%;display:none;flex-direction:column;justify-content:center;gap:24px;padding:72px 0 32px;box-sizing:border-box;}
+  .demo-preview-wrap > div:nth-child(3){display:flex;flex-direction:column;align-items:center;justify-content:center;width:100%;}
   .demo-preview-wrap > .demo-result-actions,
   .demo-preview-wrap > .demo-result-note{flex-shrink:0;}
   .demo-preview-wrap[style*="block"]{display:flex!important;}
@@ -777,14 +776,18 @@ body{background:#1a1412;background-color:#1a1412;color:var(--w);font-family:var(
   .demo-preview-wrap > div:first-child div{font-size:20px!important;}
   #demoOrigBox{width:64px!important;}
   .demo-original-row{display:none!important;}
-  .demo-img-box{aspect-ratio:3/4!important;}
-  #demoImages{margin-bottom:0;margin-top:8px;}
+  .demo-img-box{flex-shrink:0;}
   #demoDots{margin-top:16px!important;}
   .demo-result-note{font-size:10px;margin-top:4px!important;line-height:1.0;}
   .demo-yourlook-title{display:none!important;}
   #demoBgSlider{gap:8px!important;padding:0!important;}
   #demoBgSlider .bg-card{height:55vh!important;}
 
+}
+
+@media(max-width:480px){
+  .demo-img-box{flex:0 0 84vw!important;}
+  #demoImages{gap:10px;}
 }
 
 .pill-studio-wrap{position:relative;display:flex;align-items:center;}
