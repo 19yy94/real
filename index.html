@@ -169,6 +169,30 @@ body{background:#1a1412;background-color:#1a1412;color:var(--w);font-family:var(
 .hero-sub{font-size:15px;font-weight:400;color:var(--body);line-height:1.6;max-width:480px;margin-top:20px;margin-bottom:40px}
 .hero-cta{padding:14px 36px;background:var(--w);color:#000;border:none;font-size:14px;font-family:var(--T);font-weight:400;border-radius:40px;cursor:pointer;transition:opacity .15s;letter-spacing:0.01em}
 .hero-cta:hover{opacity:0.85}
+.hero-cta-try{display:none;background:none;border:1px solid rgba(240,240,236,0.25);color:var(--w);margin-left:10px;}
+.hero-cta-try:hover{opacity:0.85;background:rgba(255,255,255,0.06)}
+#mobileDemoFab{
+  display:none;
+  position:fixed;right:20px;bottom:20px;z-index:998;
+  width:60px;height:60px;min-width:60px;min-height:60px;
+  background:rgba(50,50,50,0.45);
+  backdrop-filter:blur(24px);-webkit-backdrop-filter:blur(24px);
+  border:1px solid rgba(255,255,255,0.1);
+  border-radius:50%;
+  align-items:center;justify-content:center;
+  box-shadow:0 8px 32px rgba(0,0,0,0.4);
+  cursor:pointer;padding:0;
+  transition:background 0.15s;
+}
+#mobileDemoFab:hover{background:rgba(70,70,70,0.55)}
+#mobileDemoFab span{
+  width:44px;height:44px;min-width:44px;min-height:44px;
+  background:#e8251a;border-radius:50%;
+  display:flex;align-items:center;justify-content:center;
+  font-size:13px;font-weight:400;color:#000;letter-spacing:-0.02em;line-height:1;
+  font-family:var(--T);
+  pointer-events:none;
+}
 
 /* ── HERO MOCK (App UI) ── */
 .hero-mock{width:100%;border-radius:16px;background:#0a0a0a;border:1px solid rgba(240,240,236,0.08);position:relative;z-index:10;display:flex;flex-direction:column;overflow:hidden}
@@ -621,6 +645,7 @@ body{background:#1a1412;background-color:#1a1412;color:var(--w);font-family:var(
 .demo-images{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:24px;}
 .demo-img-box{border-radius:14px;overflow:hidden;aspect-ratio:3/4;position:relative;background:#1a1a1a;border:0.5px solid rgba(255,255,255,0.08);}
 .demo-img-box img{width:100%;height:100%;object-fit:cover;}
+#demoImages::-webkit-scrollbar{display:none;}
 .demo-img-label{
   position:absolute;bottom:10px;left:10px;
   font-size:10px;font-weight:400;letter-spacing:0.1em;text-transform:uppercase;
@@ -718,6 +743,37 @@ body{background:#1a1412;background-color:#1a1412;color:var(--w);font-family:var(
 @media(max-width:767px){
   .nav-links,.btn-login,.btn-demo,.btn-start,#langSwitcher{display:none!important}
   .nav-hamburger{display:flex!important}
+  .hero-cta-try{display:inline-block!important}
+  #mobileDemoFab{display:flex!important}
+  .hero-text{display:flex;flex-direction:column;align-items:center;}
+  .hero-text .hero-cta,.hero-text .hero-cta-try{margin-top:10px;margin-left:0;}
+  .demo-title{font-size:28px;margin-bottom:8px;}
+  .demo-sub{font-size:13px;margin-bottom:28px;padding:0 12px;}
+  #demoStep1{flex:none!important;}
+  .demo-upload-zone{padding:0;border-radius:18px;aspect-ratio:1/1;max-height:50vh;}
+  .demo-upload-icon{font-size:32px;margin-bottom:12px}
+  .demo-upload-label{font-size:13px;}
+  #demoContent{max-width:90vw;padding:0 16px;margin-top:0;}
+  .demo-close{top:14px;right:14px;width:32px;height:32px;}
+  #demoImages{gap:8px!important}
+  .demo-result-actions{flex-direction:row;gap:8px;width:100%;margin-top:20px!important;}
+  .demo-btn-download{flex:1;text-align:center;padding:11px 14px;font-size:12px;}
+  .demo-btn-studio{display:none!important;}
+  .demo-img-box{flex:0 0 88%!important;}
+  #demoImages{margin-right:-16px;padding-right:16px;-webkit-mask-image:linear-gradient(to right, #000 85%, transparent 100%);mask-image:linear-gradient(to right, #000 85%, transparent 100%);}
+  #demoOverlay{height:100dvh;overflow:hidden;align-items:stretch;justify-content:stretch;box-sizing:border-box;padding:0!important;}
+  #demoContent{max-width:100%;width:100%;padding-left:16px;padding-right:16px;margin-top:0;height:100%;display:flex;flex-direction:column;justify-content:center;box-sizing:border-box;}
+  .demo-preview-wrap{max-width:100%;height:100%;display:none;flex-direction:column;justify-content:center;padding:56px 16px;box-sizing:border-box;}
+  .demo-preview-wrap[style*="block"]{display:flex!important;}
+  .demo-preview-wrap > div:first-child{margin-bottom:14px!important;}
+  .demo-preview-wrap > div:first-child div{font-size:20px!important;}
+  #demoOrigBox{width:64px!important;}
+  .demo-img-box{aspect-ratio:3/4!important;}
+  #demoImages{margin-bottom:0;}
+  #demoDots{margin-top:16px!important;}
+  .demo-result-note{font-size:10px;margin-top:8px!important;}
+  #demoBgSlider .bg-card{height:48vh!important;}
+
 }
 
 .pill-studio-wrap{position:relative;display:flex;align-items:center;}
@@ -913,7 +969,7 @@ body{background:#1a1412;background-color:#1a1412;color:var(--w);font-family:var(
     height:180px;
     overflow:hidden;
   }
-  .uc-label{margin-bottom:4px;}
+  .uc-label{margin-bottom:8px;}
   .uc-name{font-size:22px;margin-bottom:0;}
   .uc-desc{font-size:13px;margin-top:14px;margin-bottom:0;}
   .uc-chips{display:none;}
@@ -971,7 +1027,7 @@ body{background:#1a1412;background-color:#1a1412;color:var(--w);font-family:var(
   }
   .tool-card-desc{display:none!important;}
   .tool-card-btns{display:none!important;}
-  .tool-card-label{color:rgba(255,255,255,0.6)!important;margin-bottom:4px;}
+  .tool-card-label{color:rgba(255,255,255,0.6)!important;margin-bottom:8px;}
   .tool-card-name{font-size:22px;margin-bottom:0;color:#fff!important;}
 }
 
@@ -1194,6 +1250,7 @@ body{background:#1a1412;background-color:#1a1412;color:var(--w);font-family:var(
 <!-- Dot Menu Popup -->
 
 <!-- Demo Overlay -->
+<button id="mobileDemoFab" onclick="openDemo()"><span>Try!</span></button>
 <div id="demoOverlay">
   <button class="demo-close" onclick="closeDemo()"><svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg"><line x1="1" y1="1" x2="13" y2="13" stroke="rgba(255,255,255,0.6)" stroke-width="1.2" stroke-linecap="round"/><line x1="13" y1="1" x2="1" y2="13" stroke="rgba(255,255,255,0.6)" stroke-width="1.2" stroke-linecap="round"/></svg></button>
   
@@ -1258,7 +1315,8 @@ body{background:#1a1412;background-color:#1a1412;color:var(--w);font-family:var(
     <!-- Generated — 3 cols below -->
     <div style="display:flex;flex-direction:column;gap:8px;width:100%;">
       <div style="font-size:8px;font-weight:400;letter-spacing:0.1em;text-transform:uppercase;color:rgba(255,255,255,0.22);text-align:center;">Generated</div>
-      <div id="demoImages" style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px;"></div>
+      <div id="demoImages" style="display:flex;gap:12px;overflow-x:auto;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch;scrollbar-width:none;"></div>
+      <div id="demoDots" style="display:flex;gap:6px;justify-content:center;margin-top:12px;"></div>
     </div>
 
     <div class="demo-result-actions" style="margin-top:52px;">
@@ -1313,6 +1371,7 @@ body{background:#1a1412;background-color:#1a1412;color:var(--w);font-family:var(
     <div class="hero-h-top">One Product Shot.<br>Every Look.</div>
     <p class="hero-sub">Upload one product photo — studio shots, lookbooks, editorials, campaign films and more. All in minutes.</p>
     <button class="hero-cta" onclick="window.open('https://realsnap.ai/auth/signIn','_blank')">Get started</button>
+    <button class="hero-cta hero-cta-try" onclick="openDemo()">Try it free</button>
   </div>
   <!-- 모바일 전용 히어로 이미지 -->
   <div class="hero-mock-mobile">
@@ -1542,7 +1601,7 @@ body{background:#1a1412;background-color:#1a1412;color:var(--w);font-family:var(
     <p class="cta-sub">From one product photo to a full campaign. Starting at $49/mo.</p>
     <div class="cta-btns">
       <button class="btn-g-lg" onclick="window.location.href='pricing.html'">View pricing</button>
-      <button class="demo-cta-btn" onclick="window.open('https://realsnap.ai/auth/signIn','_blank')">Try it free &nbsp;<svg width="10" height="10" viewBox="0 0 10 10" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><line x1="2" y1="8" x2="8" y2="2"/><polyline points="3,2 8,2 8,7"/></svg></button>
+      <button class="demo-cta-btn" onclick="openDemo()">Try it free &nbsp;<svg width="10" height="10" viewBox="0 0 10 10" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><line x1="2" y1="8" x2="8" y2="2"/><polyline points="3,2 8,2 8,7"/></svg></button>
     </div>
   </section>
 </div>
@@ -1944,6 +2003,7 @@ function openDemo(){
   initDemoStrip();
 }
 function closeDemo(){ 
+  if(window.demoAutoSwipeTimer) clearInterval(window.demoAutoSwipeTimer);
   document.getElementById('demoOverlay').classList.remove('open');
   document.body.style.overflow='';
   // 초기화
@@ -2107,12 +2167,60 @@ function showDemoResult(dataUrl, result){
     { title: 'Studio Cut', sub: 'White background · Commerce-ready' },
     { title: 'Lookbook', sub: 'Lifestyle · On-location' }
   ];
-  imgBox.innerHTML = styles.map(function(s){
-    return '<div class="demo-img-box" style="display:flex;flex-direction:column;align-items:center;justify-content:flex-end;padding:14px;text-align:center;">' +
+  function cardHtml(s){
+    return '<div class="demo-img-box" style="display:flex;flex-direction:column;align-items:center;justify-content:flex-end;padding:14px;text-align:center;flex:0 0 88%;scroll-snap-align:center;">' +
       '<div style="font-size:11px;font-weight:400;color:#fff;margin-bottom:3px">' + s.title + '</div>' +
       '<div style="font-size:10px;color:rgba(255,255,255,0.35);line-height:1.4;">' + s.sub + '</div>' +
     '</div>';
+  }
+  // Duplicate list so the strip can loop forward seamlessly
+  var loopStyles = styles.concat(styles);
+  imgBox.innerHTML = loopStyles.map(cardHtml).join('');
+
+  // Dots
+  var dots = document.getElementById('demoDots');
+  dots.innerHTML = styles.map(function(_,i){
+    return '<div class="demo-dot" data-i="'+i+'" style="width:6px;height:6px;border-radius:50%;background:rgba(255,255,255,'+(i===0?'0.8':'0.25')+');transition:background .2s;"></div>';
   }).join('');
+
+  // Update dots based on current real index (mod styles.length)
+  function updateDots(realIdx){
+    var dotEls = dots.querySelectorAll('.demo-dot');
+    dotEls.forEach(function(d,i){
+      d.style.background = (i===realIdx) ? 'rgba(255,255,255,0.8)' : 'rgba(255,255,255,0.25)';
+    });
+  }
+
+  // Auto-swipe: scroll forward through the doubled strip, then silently jump back to start
+  if(window.demoAutoSwipeTimer) clearInterval(window.demoAutoSwipeTimer);
+  var pauseAuto = false;
+  var demoIdx = 0;
+  imgBox.addEventListener('touchstart', function(){ pauseAuto = true; });
+  imgBox.addEventListener('mousedown', function(){ pauseAuto = true; });
+  imgBox.scrollLeft = 0;
+  updateDots(0);
+  window.demoAutoSwipeTimer = setInterval(function(){
+    if(pauseAuto) return;
+    var cardW = imgBox.scrollWidth / loopStyles.length;
+    demoIdx++;
+    if(demoIdx >= styles.length){
+      // scroll to the duplicated card (visually identical), then reset to the real one without animation
+      imgBox.scrollTo({ left: demoIdx * cardW, behavior: 'smooth' });
+      demoIdx = 0;
+      setTimeout(function(){
+        imgBox.style.scrollSnapType = 'none';
+        imgBox.style.scrollBehavior = 'auto';
+        imgBox.scrollLeft = 0;
+        requestAnimationFrame(function(){
+          imgBox.style.scrollSnapType = '';
+          imgBox.style.scrollBehavior = '';
+        });
+      }, 550);
+    } else {
+      imgBox.scrollTo({ left: demoIdx * cardW, behavior: 'smooth' });
+    }
+    updateDots(demoIdx % styles.length);
+  }, 2800);
 
   var step2 = document.getElementById('demoStep2');
   step2.style.display = 'block';
