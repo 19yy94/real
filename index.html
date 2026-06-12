@@ -169,8 +169,7 @@ body{background:#1a1412;background-color:#1a1412;color:var(--w);font-family:var(
 .hero-sub{font-size:15px;font-weight:400;color:var(--body);line-height:1.6;max-width:480px;margin-top:20px;margin-bottom:40px}
 .hero-cta{padding:14px 36px;background:var(--w);color:#000;border:none;font-size:14px;font-family:var(--T);font-weight:400;border-radius:40px;cursor:pointer;transition:opacity .15s;letter-spacing:0.01em}
 .hero-cta:hover{opacity:0.85}
-.hero-cta-try{display:none;background:none;border:1px solid rgba(240,240,236,0.25);color:var(--w);margin-left:10px;}
-.hero-cta-try:hover{opacity:0.85;background:rgba(255,255,255,0.06)}
+
 #mobileDemoFab{
   display:none;
   position:fixed;right:20px;bottom:20px;z-index:998;
@@ -565,7 +564,7 @@ body{background:#1a1412;background-color:#1a1412;color:var(--w);font-family:var(
 }
 #demoBgSlider .bg-card{
   height:70vh;
-  width:calc(70vh * 9 / 16);
+  aspect-ratio:9/16;
   flex-shrink:0;
   border-radius:16px;
   overflow:hidden;
@@ -743,10 +742,9 @@ body{background:#1a1412;background-color:#1a1412;color:var(--w);font-family:var(
 @media(max-width:767px){
   .nav-links,.btn-login,.btn-demo,.btn-start,#langSwitcher{display:none!important}
   .nav-hamburger{display:flex!important}
-  .hero-cta-try{display:inline-block!important}
   #mobileDemoFab{display:flex!important}
   .hero-text{display:flex;flex-direction:column;align-items:center;}
-  .hero-text .hero-cta,.hero-text .hero-cta-try{margin-top:10px;margin-left:0;}
+  .hero-text .hero-cta{margin-top:10px;margin-left:0;}
   .demo-title{font-size:28px;margin-bottom:8px;}
   .demo-sub{font-size:13px;margin-bottom:28px;padding:0 12px;}
   #demoStep1{flex:none!important;}
@@ -773,7 +771,8 @@ body{background:#1a1412;background-color:#1a1412;color:var(--w);font-family:var(
   #demoImages{margin-bottom:0;}
   #demoDots{margin-top:16px!important;}
   .demo-result-note{font-size:10px;margin-top:8px!important;}
-  #demoBgSlider .bg-card{height:48vh!important;}
+  #demoBgSlider{gap:8px!important;padding:0!important;}
+  #demoBgSlider .bg-card{height:55vh!important;}
 
 }
 
@@ -1372,7 +1371,6 @@ body{background:#1a1412;background-color:#1a1412;color:var(--w);font-family:var(
     <div class="hero-h-top">One Product Shot.<br>Every Look.</div>
     <p class="hero-sub">Upload one product photo — studio shots, lookbooks, editorials, campaign films and more. All in minutes.</p>
     <button class="hero-cta" onclick="window.open('https://realsnap.ai/auth/signIn','_blank')">Get started</button>
-    <button class="hero-cta hero-cta-try" onclick="openDemo()">Try it free</button>
   </div>
   <!-- 모바일 전용 히어로 이미지 -->
   <div class="hero-mock-mobile">
@@ -2029,9 +2027,9 @@ function initDemoStrip(){
   }
   if(imgs.length === 0) return;
 
-  // fullscreen bg slider — triple for seamless loop
+  // fullscreen bg slider — duplicate for seamless loop (matches translateX(-50%))
   if(bgSlider){
-    var bgImgs = imgs.concat(imgs).concat(imgs);
+    var bgImgs = imgs.concat(imgs);
     bgImgs.forEach(function(src){
       var card = document.createElement('div');
       card.className = 'bg-card';
