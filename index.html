@@ -584,7 +584,7 @@ body{background:#1a1412;background-color:#1a1412;color:var(--w);font-family:var(
 #demoContent{
   position:relative;z-index:3;
   display:flex;flex-direction:column;align-items:center;
-  width:100%;max-width:300px;
+  width:100%;max-width:860px;
   padding:0 24px;
   margin-top:-60px;
 }
@@ -611,7 +611,7 @@ body{background:#1a1412;background-color:#1a1412;color:var(--w);font-family:var(
   text-align:center;margin-bottom:48px;font-weight:400;
 }
 .demo-upload-zone{
-  width:480px;max-width:90vw;
+  width:320px;max-width:90vw;
   border:1px solid rgba(255,255,255,0.12);
   border-radius:24px;
   padding:56px 40px;
@@ -631,7 +631,7 @@ body{background:#1a1412;background-color:#1a1412;color:var(--w);font-family:var(
 .demo-upload-icon{font-size:40px;margin-bottom:16px}
 .demo-upload-label{font-size:15px;color:rgba(255,255,255,0.6);line-height:1.6}
 .demo-upload-label span{color:#fff;font-weight:400}
-.demo-file-input{position:absolute;inset:0;opacity:0;cursor:pointer;font-size:0;color:transparent;z-index:2;}
+.demo-file-input{position:absolute;inset:0;opacity:0;cursor:pointer;font-size:0;color:transparent;z-index:5;}
 .demo-preview-wrap{display:none;width:100%;max-width:860px;position:relative;z-index:3;}
 .demo-layout{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:24px;align-items:start;}
 .demo-orig-col{display:flex;flex-direction:column;gap:8px;}
@@ -641,6 +641,13 @@ body{background:#1a1412;background-color:#1a1412;color:var(--w);font-family:var(
 .demo-img-box{border-radius:14px;overflow:hidden;aspect-ratio:3/4;position:relative;background:#1a1a1a;border:0.5px solid rgba(255,255,255,0.08);}
 .demo-img-box img{width:100%;height:100%;object-fit:cover;}
 #demoImages::-webkit-scrollbar{display:none;}
+@media(min-width:768px){
+  #demoImages{display:grid!important;grid-template-columns:repeat(3,1fr)!important;gap:16px!important;overflow:visible!important;}
+  #demoImages .demo-img-box{flex:none!important;aspect-ratio:3/4!important;border-radius:16px;}
+  #demoImages .demo-img-box:nth-child(n+4){display:none!important;}
+  #demoDots{display:none!important;}
+  #demoContent{padding-left:40px;padding-right:40px;}
+}
 .demo-img-label{
   position:absolute;bottom:10px;left:10px;
   font-size:10px;font-weight:400;letter-spacing:0.1em;text-transform:uppercase;
@@ -744,7 +751,7 @@ body{background:#1a1412;background-color:#1a1412;color:var(--w);font-family:var(
   .demo-title{font-size:28px;margin-bottom:8px;}
   .demo-sub{font-size:13px;margin-bottom:28px;padding:0 12px;}
   #demoStep1{flex:none!important;}
-  .demo-upload-zone{padding:0;border-radius:18px;width:64vw!important;max-width:64vw!important;aspect-ratio:1/1;margin-left:0;margin-right:0;}
+  .demo-upload-zone{padding:0;border-radius:18px;width:min(80vw,280px)!important;max-width:min(80vw,280px)!important;aspect-ratio:1/1;}
   .demo-upload-tags{margin-top:14px!important;margin-bottom:0!important;}
   .demo-upload-icon{font-size:32px;margin-bottom:12px}
   .demo-upload-label{font-size:13px;}
@@ -1267,7 +1274,7 @@ body{background:#1a1412;background-color:#1a1412;color:var(--w);font-family:var(
       </div>
 
       <!-- Upload box — glass effect -->
-      <div class="demo-upload-zone" id="demoZone" style="display:flex;flex-direction:column;align-items:center;justify-content:center;padding:0;position:relative;background:rgba(255,255,255,0.06);backdrop-filter:blur(32px);-webkit-backdrop-filter:blur(32px);border:1px solid rgba(255,255,255,0.15);box-shadow:0 8px 48px rgba(0,0,0,0.4),inset 0 1px 0 rgba(255,255,255,0.1);width:min(100%,440px);aspect-ratio:1/1;">
+      <div class="demo-upload-zone" id="demoZone" style="display:flex;flex-direction:column;align-items:center;justify-content:center;padding:0;position:relative;background:rgba(255,255,255,0.06);backdrop-filter:blur(32px);-webkit-backdrop-filter:blur(32px);border:1px solid rgba(255,255,255,0.15);box-shadow:0 8px 48px rgba(0,0,0,0.4),inset 0 1px 0 rgba(255,255,255,0.1);width:min(100%,280px);aspect-ratio:1/1;">
         <input type="file" class="demo-file-input" id="demoFileInput" accept="image/*" onchange="handleDemoUpload(this)">
         <div class="demo-upload-label">
           <svg width="26" height="26" viewBox="0 0 24 24" fill="none" style="margin-bottom:10px;opacity:0.35;" aria-hidden="true">
@@ -1287,8 +1294,7 @@ body{background:#1a1412;background-color:#1a1412;color:var(--w);font-family:var(
   </div>
 
   <div class="demo-processing" id="demoProcessing">
-    <div class="demo-spinner"></div>
-    <div style="display:flex;flex-direction:column;align-items:center;gap:8px;">
+        <div style="display:flex;flex-direction:column;align-items:center;gap:8px;">
       <div class="demo-processing-text" id="demoProcessingText" style="font-size:15px;font-weight:400;color:#fff;">Analyzing your product...</div>
       <div id="demoProcessingSub" style="font-size:13px;color:rgba(255,255,255,0.35);">This takes a few seconds</div>
     </div>
