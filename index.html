@@ -555,12 +555,12 @@ body{background:#1a1412;background-color:#1a1412;color:var(--w);font-family:var(
 }
 /* Fullscreen slider background */
 #demoBgSlider{
-  position:absolute;inset:0;z-index:0;
+  position:absolute;top:0;left:0;bottom:0;z-index:0;
   display:flex;align-items:center;gap:16px;
   padding:0 6px;
-  animation:demoBgScroll 65s linear infinite;
   width:max-content;
   will-change:transform;
+  transform:translateX(0);
 }
 #demoBgSlider .bg-card{
   height:70vh;
@@ -573,10 +573,6 @@ body{background:#1a1412;background-color:#1a1412;color:var(--w);font-family:var(
   width:100%;height:100%;object-fit:cover;
   filter:brightness(0.45);
   display:block;
-}
-@keyframes demoBgScroll{
-  0%{transform:translateX(0)}
-  100%{transform:translateX(-33.3333%)}
 }
 /* Dark overlay on top of slider */
 #demoOverlay::before{
@@ -748,8 +744,8 @@ body{background:#1a1412;background-color:#1a1412;color:var(--w);font-family:var(
   .demo-title{font-size:28px;margin-bottom:8px;}
   .demo-sub{font-size:13px;margin-bottom:28px;padding:0 12px;}
   #demoStep1{flex:none!important;}
-  .demo-upload-zone{padding:0;border-radius:18px;aspect-ratio:1/1;max-height:38vh;width:auto!important;}
-  .demo-upload-tags{margin-bottom:16px!important;}
+  .demo-upload-zone{padding:0;border-radius:18px;width:64vw!important;max-width:64vw!important;aspect-ratio:1/1;margin-left:0;margin-right:0;}
+  .demo-upload-tags{margin-top:14px!important;margin-bottom:0!important;}
   .demo-upload-icon{font-size:32px;margin-bottom:12px}
   .demo-upload-label{font-size:13px;}
   #demoContent{max-width:90vw;padding:0 16px;margin-top:0;}
@@ -1270,13 +1266,8 @@ body{background:#1a1412;background-color:#1a1412;color:var(--w);font-family:var(
         <div style="font-size:15px;font-weight:400;color:rgba(255,255,255,0.75);">Drop your product photo</div>
       </div>
 
-      <!-- What you get -->
-      <div class="demo-upload-tags" style="text-align:center;width:100%;margin-bottom:14px;">
-        <div style="font-size:11px;color:rgba(255,255,255,0.25);letter-spacing:0.04em;">Editorial · Studio Cut · Lookbook</div>
-      </div>
-
       <!-- Upload box — glass effect -->
-      <div class="demo-upload-zone" id="demoZone" style="width:100%;aspect-ratio:1/1;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:0;position:relative;background:rgba(255,255,255,0.06);backdrop-filter:blur(32px);-webkit-backdrop-filter:blur(32px);border:1px solid rgba(255,255,255,0.15);box-shadow:0 8px 48px rgba(0,0,0,0.4),inset 0 1px 0 rgba(255,255,255,0.1);">
+      <div class="demo-upload-zone" id="demoZone" style="display:flex;flex-direction:column;align-items:center;justify-content:center;padding:0;position:relative;background:rgba(255,255,255,0.06);backdrop-filter:blur(32px);-webkit-backdrop-filter:blur(32px);border:1px solid rgba(255,255,255,0.15);box-shadow:0 8px 48px rgba(0,0,0,0.4),inset 0 1px 0 rgba(255,255,255,0.1);width:min(100%,440px);aspect-ratio:1/1;">
         <input type="file" class="demo-file-input" id="demoFileInput" accept="image/*" onchange="handleDemoUpload(this)">
         <div class="demo-upload-label">
           <svg width="26" height="26" viewBox="0 0 24 24" fill="none" style="margin-bottom:10px;opacity:0.35;" aria-hidden="true">
@@ -1284,6 +1275,11 @@ body{background:#1a1412;background-color:#1a1412;color:var(--w);font-family:var(
           </svg>
           <div style="font-size:10px;color:rgba(255,255,255,0.3);letter-spacing:0.05em;">PNG · JPG · WEBP</div>
         </div>
+      </div>
+
+      <!-- What you get -->
+      <div class="demo-upload-tags" style="text-align:center;width:100%;margin-top:14px;">
+        <div style="font-size:11px;color:rgba(255,255,255,0.25);letter-spacing:0.04em;">Editorial · Studio Cut · Lookbook</div>
       </div>
 
     </div>
@@ -2038,6 +2034,25 @@ function initDemoStrip(){
       img.src = src;
       card.appendChild(img);
       bgSlider.appendChild(card);
+    });
+
+    // JS-driven scroll (avoids CSS animation freeze on mobile w/ backdrop-filter)
+    requestAnimationFrame(function(){
+      var total = bgSlider.scrollWidth;
+      var oneSet = total / 3;
+      var speed = oneSet / 65000; // px per ms, full set over 65s
+      var pos = 0;
+      var last = null;
+      function step(ts){
+        if(last !== null){
+          pos += speed * (ts - last);
+          if(pos >= oneSet) pos -= oneSet;
+          bgSlider.style.transform = 'translateX(-' + pos + 'px)';
+        }
+        last = ts;
+        requestAnimationFrame(step);
+      }
+      requestAnimationFrame(step);
     });
   }
 }
