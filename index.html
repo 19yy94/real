@@ -576,7 +576,7 @@ body{background:#1a1412;background-color:#1a1412;color:var(--w);font-family:var(
 }
 @keyframes demoBgScroll{
   0%{transform:translateX(0)}
-  100%{transform:translateX(-50%)}
+  100%{transform:translateX(-33.3333%)}
 }
 /* Dark overlay on top of slider */
 #demoOverlay::before{
@@ -748,7 +748,8 @@ body{background:#1a1412;background-color:#1a1412;color:var(--w);font-family:var(
   .demo-title{font-size:28px;margin-bottom:8px;}
   .demo-sub{font-size:13px;margin-bottom:28px;padding:0 12px;}
   #demoStep1{flex:none!important;}
-  .demo-upload-zone{padding:0;border-radius:18px;aspect-ratio:1/1;max-height:50vh;}
+  .demo-upload-zone{padding:0;border-radius:18px;aspect-ratio:1/1;max-height:38vh;width:auto!important;}
+  .demo-upload-tags{margin-bottom:16px!important;}
   .demo-upload-icon{font-size:32px;margin-bottom:12px}
   .demo-upload-label{font-size:13px;}
   #demoContent{max-width:90vw;padding:0 16px;margin-top:0;}
@@ -1269,6 +1270,11 @@ body{background:#1a1412;background-color:#1a1412;color:var(--w);font-family:var(
         <div style="font-size:15px;font-weight:400;color:rgba(255,255,255,0.75);">Drop your product photo</div>
       </div>
 
+      <!-- What you get -->
+      <div class="demo-upload-tags" style="text-align:center;width:100%;margin-bottom:14px;">
+        <div style="font-size:11px;color:rgba(255,255,255,0.25);letter-spacing:0.04em;">Editorial · Studio Cut · Lookbook</div>
+      </div>
+
       <!-- Upload box — glass effect -->
       <div class="demo-upload-zone" id="demoZone" style="width:100%;aspect-ratio:1/1;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:0;position:relative;background:rgba(255,255,255,0.06);backdrop-filter:blur(32px);-webkit-backdrop-filter:blur(32px);border:1px solid rgba(255,255,255,0.15);box-shadow:0 8px 48px rgba(0,0,0,0.4),inset 0 1px 0 rgba(255,255,255,0.1);">
         <input type="file" class="demo-file-input" id="demoFileInput" accept="image/*" onchange="handleDemoUpload(this)">
@@ -1278,11 +1284,6 @@ body{background:#1a1412;background-color:#1a1412;color:var(--w);font-family:var(
           </svg>
           <div style="font-size:10px;color:rgba(255,255,255,0.3);letter-spacing:0.05em;">PNG · JPG · WEBP</div>
         </div>
-      </div>
-
-      <!-- What you get -->
-      <div style="text-align:center;width:100%;margin-top:14px;">
-        <div style="font-size:11px;color:rgba(255,255,255,0.25);letter-spacing:0.04em;">Editorial · Studio Cut · Lookbook</div>
       </div>
 
     </div>
@@ -2027,9 +2028,9 @@ function initDemoStrip(){
   }
   if(imgs.length === 0) return;
 
-  // fullscreen bg slider — duplicate for seamless loop (matches translateX(-50%))
+  // fullscreen bg slider — triple for seamless loop
   if(bgSlider){
-    var bgImgs = imgs.concat(imgs);
+    var bgImgs = imgs.concat(imgs).concat(imgs);
     bgImgs.forEach(function(src){
       var card = document.createElement('div');
       card.className = 'bg-card';
