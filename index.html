@@ -93,31 +93,28 @@
 .drawer-lang-item.active{color:var(--w)}
 .drawer-lang-item:hover{color:var(--w)}
 
-/* ── credit pill (floating CTA) ── */
-.credit-pill{position:fixed;right:24px;bottom:24px;z-index:990;
-  display:inline-flex;align-items:center;gap:10px;
-  padding:13px 20px 13px 16px;border-radius:40px;cursor:pointer;
-  background:rgba(28,28,28,0.72);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);
-  border:1px solid rgba(240,240,236,0.12);
-  box-shadow:0 10px 34px rgba(0,0,0,0.5);
-  font-family:var(--T);color:var(--w);white-space:nowrap;text-decoration:none;
-  transition:transform .25s cubic-bezier(.2,.9,.25,1),background .2s,border-color .2s;
-  -webkit-tap-highlight-color:transparent;animation:pillIn .5s .8s both}
-.credit-pill:hover,.credit-pill:focus-visible{transform:translateY(-2px);background:rgba(40,40,40,0.82);border-color:rgba(240,240,236,0.22);outline:none}
-.credit-pill .dot{position:relative;width:9px;height:9px;flex:none}
-.credit-pill .dot::before{content:'';position:absolute;inset:0;border-radius:50%;background:var(--red)}
-.credit-pill .dot::after{content:'';position:absolute;inset:0;border-radius:50%;background:var(--red);
-  animation:pillPulse 2s ease-out infinite}
-.credit-pill .pill-main{font-size:14px;font-weight:600;letter-spacing:-0.01em}
-.credit-pill .pill-sub{font-size:14px;font-weight:400;color:rgba(240,240,236,0.55);letter-spacing:-0.01em}
-.credit-pill .pill-arrow{font-size:13px;color:rgba(240,240,236,0.5);transition:transform .25s,color .2s}
-.credit-pill:hover .pill-arrow{transform:translateX(2px);color:var(--w)}
-@keyframes pillPulse{0%{transform:scale(1);opacity:.7}100%{transform:scale(2.8);opacity:0}}
-@keyframes pillIn{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:translateY(0)}}
+/* ── floating leaflet-cover CTA ── */
+.leaflet-fab{position:fixed;right:34px;bottom:30px;z-index:990;
+  display:flex;flex-direction:column;align-items:center;gap:11px;
+  background:none;border:0;padding:0;cursor:pointer;-webkit-tap-highlight-color:transparent;
+  animation:fabFloat 4.6s ease-in-out infinite,fabIn .6s .7s both}
+.lf-cover{display:block;width:clamp(94px,9vw,120px);aspect-ratio:780/1654;
+  background-image:var(--outside);background-size:300% 100%;background-position:100% 50%;background-repeat:no-repeat;
+  border-radius:2.5px;box-shadow:0 24px 52px rgba(0,0,0,0.55),0 2px 0 rgba(0,0,0,0.25);
+  transform:rotate(-4deg);transition:transform .4s cubic-bezier(.2,.9,.25,1),box-shadow .3s}
+.leaflet-fab:hover .lf-cover,.leaflet-fab:focus-visible .lf-cover{transform:rotate(0deg) translateY(-5px) scale(1.04);box-shadow:0 32px 64px rgba(0,0,0,0.6)}
+.leaflet-fab:focus-visible{outline:none}
+.lf-cap{display:flex;align-items:center;gap:6px;font-family:var(--T);font-size:12px;font-weight:600;
+  letter-spacing:-0.01em;color:var(--w);opacity:.9;white-space:nowrap}
+.lf-cap::before{content:'';width:7px;height:7px;border-radius:50%;background:var(--red);
+  box-shadow:0 0 0 0 rgba(232,37,26,.6);animation:fabPulse 2.2s ease-out infinite}
+@keyframes fabFloat{0%,100%{transform:translateY(0)}50%{transform:translateY(-9px)}}
+@keyframes fabIn{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:translateY(0)}}
+@keyframes fabPulse{0%{box-shadow:0 0 0 0 rgba(232,37,26,.55)}100%{box-shadow:0 0 0 9px rgba(232,37,26,0)}}
 @media (max-width:760px){
-  .credit-pill{right:auto;left:16px;bottom:20px;padding:11px 16px 11px 14px;gap:8px}
-  .credit-pill .pill-sub,.credit-pill .pill-arrow{display:none}
-  .credit-pill .pill-main{font-size:13px}
+  .leaflet-fab{right:auto;left:16px;bottom:18px;gap:8px}
+  .lf-cover{width:72px}
+  .lf-cap{font-size:11px}
 }
 </style>
 
@@ -1195,7 +1192,7 @@ select.fld option{background:#1a1412;color:#f4f1ea}
 @media (max-width:560px){.row2{grid-template-columns:1fr}}
 .stage{position:fixed;inset:0;z-index:1500;background:rgba(8,6,6,0);backdrop-filter:blur(0);overflow-y:auto;overflow-x:hidden;opacity:0;visibility:hidden;transition:opacity .5s ease,background .6s ease,backdrop-filter .6s ease}
 .stage.on{opacity:1;visibility:visible;background:rgba(8,6,6,.92);backdrop-filter:blur(6px)}
-body.lf-open .credit-pill{opacity:0;visibility:hidden;pointer-events:none;transition:opacity .25s ease,visibility .25s ease}
+body.lf-open .leaflet-fab{opacity:0;visibility:hidden;pointer-events:none;transition:opacity .25s ease,visibility .25s ease}
 .leaflet-screen{min-height:100svh;display:flex;align-items:center;justify-content:center;padding:60px 20px;perspective:2800px;position:relative}
 .scrollcue2{position:absolute;bottom:22px;left:50%;transform:translateX(-50%);z-index:5;display:inline-flex;align-items:center;gap:8px;font-size:11.5px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:rgba(244,241,234,.5);text-decoration:none;transition:color .25s}
 .scrollcue2:hover{color:#fff}
@@ -2653,10 +2650,8 @@ function selectUC(key, btn) {
   }catch(e){}
 })();
 </script>
-<button class="credit-pill" id="creditPill" aria-label="20 크레딧 받기">
-  <span class="dot"></span>
-  <span class="pill-main">20 크레딧 받기</span>
-  <span class="pill-arrow">→</span>
+<button class="leaflet-fab" id="creditPill" aria-label="20 크레딧 무료로 받기">
+  <span class="lf-cover"></span>
 </button>
 <div class="stage" id="stage" aria-hidden="true">
   <div class="leaflet-screen" id="leafletScreen">
