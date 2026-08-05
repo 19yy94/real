@@ -1,0 +1,621 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Single Surv — RealSnap Magazine</title>
+<style>
+@font-face {
+  font-family: 'Druk';
+  src: url('https://res.cloudinary.com/dnc5d6fvj/raw/upload/v1780892840/DrukWide-Medium_momwik.otf') format('opentype');
+  font-weight: 500;
+  font-style: normal;
+}
+@import url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/packages/pretendard-jp/dist/web/static/pretendard-jp.css');
+:root{--T:'Pretendard JP','Pretendard',sans-serif;--bg:#F7F7F4;--card:#FFFFFF;--w:#141414;--body:#6B6B67;--mid:#A8A8A4;--red:#e8251a;--b:rgba(20,20,20,0.09);--b2:rgba(20,20,20,0.18)}
+*{box-sizing:border-box;margin:0;padding:0}
+html{height:100%}body{background:#FFFFFF;color:var(--w);font-family:var(--T);min-height:100vh;display:flex;flex-direction:column;overflow-x:hidden}
+
+/* NAV */
+.nav{height:60px;display:flex;align-items:center;justify-content:space-between;padding:0 48px;background:rgba(255,255,255,0.75);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border-bottom:1px solid rgba(20,20,20,0.12);position:sticky;top:0;z-index:1000}
+.nav-logo{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);display:flex;align-items:center;cursor:pointer;font-family:var(--T);font-size:18px;font-weight:700;color:var(--w);letter-spacing:0.01em}
+.nav-logo-img{height:18px;width:auto;display:block;}
+.nav-links{display:flex;list-style:none;flex:1}
+.nl{font-size:11px;font-weight:400;color:rgba(20,20,20,0.7);letter-spacing:0.03em;cursor:pointer;padding:0 24px;height:60px;display:flex;align-items:center;transition:color .15s;text-transform:uppercase}
+.nl:hover{color:var(--w)}
+.nl.active{color:var(--w)!important;opacity:1;}
+.nav-r{display:flex;gap:8px;align-items:center;flex:1;justify-content:flex-end;white-space:nowrap}
+.btn-login{padding:8px 18px;border:none;background:none;color:rgba(20,20,20,0.5);font-size:13px;cursor:pointer;font-family:var(--T);border-radius:40px;white-space:nowrap}
+.btn-demo{padding:8px 18px;border:1px solid rgba(20,20,20,0.25);background:none;color:var(--w);font-size:13px;cursor:pointer;font-family:var(--T);border-radius:40px;white-space:nowrap}
+.btn-start{padding:8px 20px;background:#141414;color:#fff;font-size:13px;cursor:pointer;font-family:var(--T);border:none;font-weight:400;border-radius:40px;white-space:nowrap}
+.nav-hamburger{display:none;flex-direction:column;gap:4px;cursor:pointer;padding:8px;background:none;border:none}
+.nav-hamburger span{width:20px;height:1.5px;background:var(--w);display:block}
+.nav-drawer{display:none;position:fixed;inset:0;background:var(--bg);z-index:200;flex-direction:column;padding:20px 24px}
+
+/* DROPDOWN */
+.nl{position:relative}
+.nl.has-dropdown{cursor:pointer;padding-right:16px}
+.nl.has-dropdown:hover::after{border-top-color:var(--w);transform:rotate(180deg)}
+.nl.has-dropdown::after{content:'';display:inline-block;width:0;height:0;margin-left:5px;border-left:3px solid transparent;border-right:3px solid transparent;border-top:3px solid rgba(20,20,20,0.4);transition:transform .2s,border-color .2s;vertical-align:middle;position:relative;top:-1px}
+
+.dropdown{position:absolute;top:calc(100% + 0px);left:0;background:#FFFFFF;backdrop-filter:none;-webkit-backdrop-filter:none;border:1px solid rgba(20,20,20,0.1);min-width:220px;width:max-content;opacity:0;visibility:hidden;transition:opacity .2s ease,transform .2s ease,visibility .2s;transform:translateY(-4px);z-index:300;overflow:hidden}
+.nl.has-dropdown:hover .dropdown,.dropdown:hover{opacity:1;visibility:visible;transform:translateY(0)}
+.dropdown-header{padding:14px 20px 8px;font-size:9px;font-weight:400;letter-spacing:0.15em;text-transform:uppercase;color:rgba(20,20,20,0.25);border-bottom:1px solid rgba(20,20,20,0.06)}
+.dropdown-item{display:flex;align-items:flex-start;gap:12px;padding:12px 20px;cursor:pointer;transition:background .15s}
+.dropdown-item:last-child{border-bottom:none}
+.dropdown-item:hover{background:rgba(20,20,20,0.05)}
+.dropdown-item-icon{width:28px;height:28px;flex-shrink:0;display:flex;align-items:center;justify-content:center;background:rgba(20,20,20,0.06);border-radius:6px;margin-top:1px}
+.dropdown-item-icon svg{width:13px;height:13px;fill:none;stroke:rgba(20,20,20,0.5);stroke-width:1.5}
+.dropdown-item-text{}
+.dropdown-item-label{font-size:11px;font-weight:400;color:var(--w);letter-spacing:0.01em;margin-bottom:2px}
+.dropdown-item-desc{font-size:10px;color:rgba(20,20,20,0.5);line-height:1.4;font-weight:400}
+.dropdown-badge{display:inline-block;font-size:8px;font-weight:400;letter-spacing:0.08em;text-transform:uppercase;padding:2px 5px;background:rgba(20,20,20,0.08);color:var(--w);border-radius:3px;margin-left:6px;vertical-align:middle;line-height:1.3}
+.dropdown-divider{height:1px;background:rgba(20,20,20,0.06);margin:4px 20px}
+.dropdown-footer{padding:10px 20px;border-top:1px solid rgba(20,20,20,0.06)}
+.dropdown-footer-link{font-size:10px;color:rgba(20,20,20,0.4);display:flex;align-items:center;gap:4px;cursor:pointer;transition:color .15s}
+.dropdown-footer-link:hover{color:var(--w)}
+.dropdown-footer-link svg{width:10px;height:10px;stroke:currentColor;fill:none;stroke-width:1.5}
+.nav-drawer.open{display:flex}
+.drawer-head{display:flex;align-items:center;justify-content:space-between;margin-bottom:32px}
+.drawer-head .nav-logo{position:static;transform:none;left:auto;top:auto}
+.drawer-close{font-size:22px;color:var(--w);cursor:pointer;background:none;border:none}
+.drawer-links{display:flex;flex-direction:column;gap:0;flex:1}
+.dl{font-size:22px;font-weight:400;color:var(--body);padding:14px 0;border-bottom:1px solid var(--b);cursor:pointer}
+.dl-sub{display:flex;flex-direction:column;gap:0;border-bottom:1px solid var(--b);}
+.dl-sub-item{font-size:14px;font-weight:400;color:var(--body);padding:12px 0 12px 16px;cursor:pointer;border-bottom:0.5px solid rgba(20,20,20,0.05);}
+.dl-sub-item:last-child{border-bottom:1px solid rgba(20,20,20,0.12);}
+.dl-sub-item:hover{color:var(--w);}
+.dl-parent{font-size:22px;font-weight:400;color:var(--body);padding:14px 0;cursor:default;}
+.drawer-btns{display:flex;flex-direction:column;gap:8px;margin-top:24px}
+.drawer-btn-g{padding:14px;border:1px solid var(--b2);background:none;color:var(--w);font-size:13px;cursor:pointer;font-family:var(--T);text-align:center;border-radius:40px}
+.drawer-btn-r{padding:14px;background:#141414;color:#fff;font-size:13px;cursor:pointer;font-family:var(--T);border:none;font-weight:400;text-align:center;border-radius:40px}
+
+/* HERO */
+/* MAIN */
+.main{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:0 48px;position:relative;min-height:200px}
+.main::before{display:none}
+
+
+.content{position:relative;z-index:1;display:flex;flex-direction:column;align-items:center;gap:24px}
+.eyebrow{font-size:11px;font-weight:400;letter-spacing:0.1em;text-transform:uppercase;color:rgba(20,20,20,0.35)}
+.title{font-family:var(--T);font-size:48px;font-weight:700;color:var(--w);line-height:0.92;letter-spacing:-0.01em}
+.desc{font-size:15px;color:var(--body);line-height:1.6;max-width:380px}
+.notify-form{display:flex;gap:8px;margin-top:8px}
+.notify-input{padding:12px 18px;background:rgba(20,20,20,0.06);border:1px solid rgba(20,20,20,0.18);border-radius:40px;color:var(--w);font-size:14px;font-family:var(--T);outline:none;width:240px;transition:border-color 0.2s}
+.notify-input::placeholder{color:rgba(20,20,20,0.3)}
+.notify-input:focus{border-color:rgba(20,20,20,0.35)}
+.notify-btn{padding:12px 24px;background:#141414;color:#fff;border:none;border-radius:40px;font-size:14px;font-family:var(--T);font-weight:400;cursor:pointer;transition:opacity 0.15s;white-space:nowrap}
+.notify-btn:hover{opacity:0.85}
+
+
+/* FOOTER */
+.footer{border-top:1px solid rgba(20,20,20,0.12);position:relative;z-index:10;background:transparent;padding:32px 48px;margin-top:auto;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:16px}
+.footer-copy{font-size:12px;color:var(--body)}
+.footer-links{display:flex;gap:24px}
+.footer-link{font-size:12px;color:var(--body);text-decoration:none;transition:color 0.15s;cursor:pointer}
+.footer-link:hover{color:var(--w)}
+
+/* ── RESPONSIVE ── */
+@media(max-width:1279px){
+    .nav{padding:0 20px;position:fixed;top:0;left:0;right:0}
+  .nav-links{display:none}
+  .nav-hamburger{display:flex}
+  .mag-bottom-wrap{padding-top:60px}
+}
+@media(max-width:767px){
+    .footer{padding:24px 20px;flex-direction:column;align-items:flex-start;gap:12px}
+  .footer-links{flex-wrap:wrap;gap:16px}
+  .btn-login,.btn-start{display:none!important}
+}
+@media(max-width:479px){
+        .main{padding:0 20px}
+  .title{font-size:36px}
+  .notify-form{flex-direction:column;width:100%}
+  .notify-input{width:100%}
+}
+#pillDot{display:none!important}
+#floatLogo{display:none!important}
+
+
+/* SCROLL PILL NAV */
+.nav{transition:transform .35s ease, opacity .3s ease}
+.nav.nav-hidden{transform:translateY(-100%);opacity:0;pointer-events:none}
+.pill-nav{display:grid;grid-template-columns:1fr auto 1fr;align-items:center;gap:24px;padding:8px 10px 8px 22px;background:rgba(255,255,255,0.7);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border:1px solid rgba(20,20,20,0.1);border-radius:40px;box-shadow:0 8px 24px rgba(20,20,20,0.08);}
+.pill-logo{font-family:var(--T);font-size:14px;font-weight:700;color:var(--w);cursor:pointer;white-space:nowrap;justify-self:center;display:flex;align-items:center;}
+.pill-logo-img{height:14px;width:auto;display:block;}
+.pill-nav-links{display:flex;list-style:none;align-items:center;gap:2px;justify-self:start;}
+.pill-actions{display:flex;align-items:center;gap:4px;justify-self:end;}
+.pill-login{padding:9px 14px;border:none;background:none;color:var(--body);font-size:12px;font-family:var(--T);cursor:pointer;border-radius:32px;white-space:nowrap;transition:color .15s;}
+.pill-login:hover{color:var(--w);}
+.pill-nl{font-size:11px;font-weight:400;letter-spacing:0.02em;color:var(--body);cursor:pointer;padding:8px 12px;border-radius:20px;transition:color .15s,background .15s;display:flex;align-items:center;gap:3px;white-space:nowrap;text-transform:uppercase;}
+.pill-nl:hover{color:var(--w);background:rgba(20,20,20,0.05);}
+.pill-nl-arrow{font-size:8px;transition:transform .2s;}
+.pill-studio-wrap{position:relative;}
+.pill-studio-wrap:hover .pill-nl-arrow{transform:rotate(180deg);}
+.pill-studio-dd{position:absolute;top:calc(100% + 10px);left:50%;transform:translateX(-50%) translateY(-4px);background:#FFFFFF;border:1px solid rgba(20,20,20,0.1);border-radius:12px;min-width:220px;width:max-content;opacity:0;visibility:hidden;transition:opacity .2s ease,transform .2s ease,visibility .2s;box-shadow:0 12px 32px rgba(20,20,20,0.12);overflow:hidden;z-index:10;}
+.pill-studio-wrap:hover .pill-studio-dd{opacity:1;visibility:visible;transform:translateX(-50%) translateY(0);}
+.pill-dd-item{display:block;padding:12px 18px;transition:background .15s;}
+.pill-dd-item:hover{background:rgba(20,20,20,0.04);}
+.pill-dd-item-label{font-size:12px;color:var(--w);margin-bottom:2px;}
+.pill-dd-item-desc{font-size:10px;color:var(--body);}
+.pill-btn{padding:9px 18px;background:#141414;color:#fff;border:none;font-size:12px;font-family:var(--T);font-weight:400;cursor:pointer;border-radius:32px;white-space:nowrap;transition:opacity .15s;}
+.pill-btn:hover{opacity:.85;}
+@media(max-width:1279px){
+  .pill-nav-links{display:none;}
+  .pill-actions{display:none;}
+  .pill-nav{padding:8px 22px;min-width:120px;justify-content:center;}
+}
+/* ── ARTICLE — editorial long-form layout ── */
+.mag-bottom-wrap{position:relative;overflow:hidden;}
+
+.article-hero{
+  position:relative;
+  height:82vh;
+  min-height:520px;
+  overflow:hidden;
+  background:#EFEFEC;
+}
+.article-hero img{width:100%;height:100%;object-fit:cover;display:block;}
+.article-hero-overlay{
+  position:absolute;inset:0;
+  background:linear-gradient(to top, rgba(20,20,20,.88) 0%, rgba(20,20,20,.35) 45%, rgba(20,20,20,0) 75%);
+  display:flex;flex-direction:column;justify-content:flex-end;
+  padding:56px 0;
+}
+.article-hero-inner{max-width:660px;margin:0 auto;width:100%;padding:0 24px;box-sizing:border-box;}
+.article-eyebrow{font-family:var(--T);font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:#fff;opacity:.85;margin-bottom:6px;}
+.article-title{font-family:var(--T);font-weight:600;font-size:clamp(32px,5.5vw,64px);line-height:0.96;letter-spacing:-0.01em;color:#fff;margin-bottom:18px;}
+.article-dek{font-family:var(--T);font-size:13px;line-height:1.5;color:rgba(255,255,255,.85);}
+.article-meta{margin-top:40px;display:flex;gap:16px;font-family:var(--T);font-size:10.5px;letter-spacing:.06em;text-transform:uppercase;color:rgba(255,255,255,.6);}
+.article-byline{margin-top:10px;display:flex;gap:16px;font-family:var(--T);font-size:10.5px;letter-spacing:.06em;text-transform:uppercase;color:rgba(255,255,255,.6);}
+
+.article-body{
+  max-width:660px;
+  margin:0 auto;
+  padding:72px 24px 40px;
+}
+.article-lede{font-family:var(--T);font-size:19px;line-height:1.3;font-weight:400;color:var(--w);margin-bottom:32px;}
+.article-p{font-family:var(--T);font-size:14px;line-height:1.8;font-weight:400;color:#3a3a37;margin-bottom:24px;}
+.article-p:last-child{margin-bottom:0;}
+
+.article-pullquote{
+  max-width:660px;
+  margin:12px auto 48px;
+  padding:4px 24px;
+  box-sizing:border-box;
+}
+.article-pullquote-text{font-family:var(--T);font-weight:400;font-size:17px;line-height:1.07;letter-spacing:normal;color:var(--w);}
+
+.article-image-break{width:100%;background:#EFEFEC;margin:56px 0;}
+.article-image-duo{display:grid;grid-template-columns:1fr 1fr;gap:16px;max-width:1800px;margin:56px auto;padding:0 24px;box-sizing:border-box;}
+.article-image-duo img{width:100%;height:auto;display:block;filter:grayscale(.1);}
+.article-image-break img{width:100%;height:auto;display:block;filter:grayscale(.1);}
+.article-image-caption{
+  max-width:660px;margin:0 auto;padding:14px 24px 0;
+  display:flex;flex-direction:column;gap:1px;
+}
+.article-image-caption .row{display:flex;justify-content:space-between;gap:10px;font-size:12px;line-height:1.05;font-family:var(--T);}
+.article-image-caption .k{color:rgba(20,20,20,.4);}
+.article-image-caption .v{color:var(--w);font-weight:400;text-align:right;}
+
+.article-qa{margin:0 0 24px;}
+.article-qa-q{display:block;font-family:var(--T);font-size:14px;font-weight:700;color:var(--w);margin-bottom:10px;}
+.article-qa-a{font-family:var(--T);font-size:14px;line-height:1.8;color:#3a3a37;}
+.article-model-tag{display:flex;align-items:center;gap:10px;margin-bottom:20px;}
+.article-model-tag img{width:44px;height:44px;object-fit:cover;border-radius:50%;}
+.article-model-tag .name{font-family:var(--T);font-weight:600;font-size:14px;color:var(--w);}
+.article-model-tag .look{font-family:var(--T);font-size:12px;color:var(--body);}
+.article-cta{
+  max-width:660px;margin:64px auto 0;padding:0 24px;
+  display:flex;flex-direction:column;align-items:center;gap:24px;text-align:center;
+}
+.article-cta-divider{display:flex;align-items:center;gap:16px;width:100%;}
+.article-cta-divider .line{flex:1;height:1px;background:rgba(20,20,20,.15);}
+.article-cta-divider .label{font-family:var(--T);font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;color:rgba(20,20,20,.45);white-space:nowrap;}
+.article-cta-text{font-family:var(--T);font-size:14px;color:var(--body);max-width:420px;}
+.article-cta-btn{padding:11px 24px;background:none;color:var(--w);border:1px solid rgba(20,20,20,.25);font-size:13px;font-family:var(--T);font-weight:400;cursor:pointer;border-radius:32px;white-space:nowrap;transition:border-color .15s,color .15s;}
+.article-cta-btn:hover{border-color:var(--w);}
+
+.related-section{max-width:1400px;margin:0 auto;padding:88px 48px 64px;border-top:1px solid rgba(20,20,20,.1);margin-top:64px;}
+.related-heading{font-family:var(--T);font-weight:700;font-size:22px;letter-spacing:-0.01em;color:var(--w);margin-bottom:32px;}
+.related-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12.5px 16px;}
+.related-item{cursor:pointer;text-decoration:none;color:inherit;display:block;}
+.related-frame{overflow:hidden;position:relative;background:#EFEFEC;}
+.related-frame img{width:100%;height:auto;display:block;filter:grayscale(.15);transition:transform .5s cubic-bezier(.2,.7,.2,1),filter .4s;}
+.related-item:hover .related-frame img{transform:scale(1.03);filter:grayscale(0) brightness(.9);}
+.related-caption{padding:10px 2px;display:flex;flex-direction:column;gap:1px;}
+.related-caption .row{display:flex;justify-content:space-between;gap:10px;font-size:11px;line-height:1.05;font-family:var(--T);}
+.related-caption .k{color:rgba(0,0,0,.4);flex-shrink:0;}
+.related-caption .v{color:#1a1412;font-weight:400;text-align:right;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+
+@media(max-width:767px){
+  .article-hero{height:64vh;min-height:420px;}
+  .article-hero-overlay{padding:28px 20px;}
+  .article-meta{flex-wrap:wrap;}
+  .article-body{padding:48px 20px 8px;}
+  .article-lede{font-size:17px;}
+  .article-pullquote{margin:8px 20px 40px;}
+  .article-image-caption{padding:14px 20px 0;}
+  .article-image-duo{grid-template-columns:1fr;gap:12px;margin:40px auto;padding:0 20px;}
+  .article-cta{padding:0 20px;}
+  .related-section{padding:56px 20px 48px;}
+  .related-grid{grid-template-columns:repeat(2,1fr);gap:24px 12px;}
+}
+</style>
+<script>
+(function(){
+  var link = document.createElement('link');
+  link.rel = 'icon';
+  link.type = 'image/svg+xml';
+  link.href = 'data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAzMiAzMiI+PGNpcmNsZSBjeD0iMTYiIGN5PSIxNiIgcj0iMTYiIGZpbGw9IiNlODI1MWEiLz48L3N2Zz4=';
+  document.head.appendChild(link);
+})();
+</script>
+</head>
+<body>
+
+<div class="nav-drawer" id="drawer">
+  <div class="drawer-head">
+    <div class="nav-logo"><img src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz4KPHN2ZyBpZD0iTGF5ZXJfMiIgZGF0YS1uYW1lPSJMYXllciAyIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA0MDc5LjUgNTIxLjMiPgogIDxkZWZzPgogICAgPHN0eWxlPgogICAgICAuY2xzLTEgewogICAgICAgIGZpbGw6ICMxYTE0MTI7CiAgICAgIH0KICAgIDwvc3R5bGU+CiAgPC9kZWZzPgogIDxnIGlkPSJMYXllcl8xLTIiIGRhdGEtbmFtZT0iTGF5ZXIgMSI+CiAgICA8Zz4KICAgICAgPGc+CiAgICAgICAgPHBhdGggY2xhc3M9ImNscy0xIiBkPSJNNjM5LjEsNDE3LjZoLTEyOC41M1Y3LjE4aDMzMC45OGMxMzYuODEsMCwxNzguMTgsNDcuNDQsMTc4LjE4LDEwNi40NnY2LjYyYzAsNTguNDYtNDkuMDksODEuNjQtNzYuMTIsODkuOTEsNDEuOTIsMTEuMDMsNzcuNzgsNDEuOTMsNzcuNzgsOTQuMzN2NjAuMTNjMCwzMy4xLDQuNDEsNDMuNTgsNy43Miw1MC4ydjIuNzVoLTEzMC43NGMtMy44Ni00Ljk2LTYuMDctMTEuNTktNi4wNy0yNS45M3YtNDcuNDRjMC01MC4yLTIyLjA2LTcyLjI2LTg1LjUtNzIuMjZoLTE2Ny43djE0NS42MlpNNjM5LjEsMTgwLjk0aDE5NC43M2MzNi40MSwwLDUxLjg1LTE3LjY1LDUxLjg1LTQwLjI3di0uNTZjMC0yMS41MS0xNC4zNC0zOS43MS01MS44NS0zOS43MWgtMTk0LjczdjgwLjUzWiIvPgogICAgICAgIDxwYXRoIGNsYXNzPSJjbHMtMSIgZD0iTTEyOTMuMTYsNDI1Ljg3aC0zMS40NWMtMTU4LjMyLDAtMjA5LjA3LTczLjkyLTIwOS4wNy0xNTEuN3YtMTIuMTNjMC03Ni4xMyw0NS4yNC0xNDkuNDksMjA1Ljc2LTE0OS40OWgzMy42NmMxNzMuNzcsMCwyMDYuMzEsODcuNzIsMjA2LjMxLDE1OS45OHYyMC40MWgtMzI0LjkyYzcuMTcsMzQuNzYsMzYuOTYsNTcuOTMsMTA0LjgxLDU3LjkzaC41NWM4MS42NCwwLDk0Ljg4LTMwLjM0LDk2LjU0LTM4LjA3aDEyMS4zN3YuNTZjMCw0MC4yNy0yNi40OSwxMTIuNTMtMjAzLjU2LDExMi41M1pNMTE3NS42NiwyMzEuNjloMTk4LjU5Yy03LjcyLTMxLjQzLTM3LjUxLTUwLjE5LTk5LjI5LTUwLjE5aC0uNTVjLTYxLjc4LDAtODkuMzcsMTguNzYtOTguNzUsNTAuMTlaIi8+CiAgICAgICAgPHBhdGggY2xhc3M9ImNscy0xIiBkPSJNMTY2Ni43Nyw0MjMuMTJoLTcuMTdjLTk5LjMsMC0xMzcuOTItNDYuMzMtMTM3LjkyLTk3LjF2LTMuODZjMC01NC42MSwzNS44Ni04MC41MywxMjQuNjctODguODFsMTM1LjcxLTEyLjY5YzEzLjc5LTEuMSwxOC43Ni02LjA3LDE4Ljc2LTE1LjQ0LDAtMTEuMDQtNS41Mi0yNC4yOC03Ny4yNC0yNC4yOGgtMi43NWMtNzMuMzcsMC03Ni42OCwyMy4xNy03Ny43OSwzMy4xaC0xMTQuMTl2LTEuMWMwLTM5LjE2LDExLjU5LTEwMC4zOSwxNzcuMDgtMTAwLjM5aDMwLjM0YzE3Mi4xMSwwLDE4My4xNCw1Mi45NiwxODMuMTQsOTUuOTl2MTEzLjYzYzAsOC44MywzLjMxLDE0LjksMTUuNDQsMTQuOWgxNnY4MC41M2gtOTkuODVjLTIzLjE3LDAtNDIuNDgtMTMuMjQtNDYuODktNDAuODEtMTMuNzksMTUuNDQtNDkuNjUsNDYuMzMtMTM3LjM2LDQ2LjMzWk0xODAwLjgyLDI3Ni4zOGwtMTE3LjUsMTguMjFjLTMxLjQ1LDQuOTYtNDQuNjgsMTEuMDMtNDQuNjgsMjcuNTh2LjU2YzAsMTUuOTksMTIuMTQsMzMuNjQsNTQuMDYsMzMuNjQsNjYuMTksMCwxMDguMTItMzUuMzEsMTA4LjEyLTcwLjYxdi05LjM4WiIvPgogICAgICAgIDxwYXRoIGNsYXNzPSJjbHMtMSIgZD0iTTIxMDkuMTEsNDE3LjZoLTEyMy4wMlY3LjE4aDEyMy4wMnY0MTAuNDFaIi8+CiAgICAgICAgPHBhdGggY2xhc3M9ImNscy0xIiBkPSJNMjE0Ny45OCwyNzguMDR2LTYuMDdoMTM0LjA1YzEuNjYsMjQuMjYsMTYsNjUuMDksMTIxLjkxLDY1LjA5aDcuNzJjMTA4LjEyLDAsMTIwLjI2LTIxLjUxLDEyMC4yNi00My41OCwwLTIzLjcyLTEyLjY4LTM5LjE2LTEwNy41Ni00MS4zN2wtNzAuNjEtMS42NmMtMTUzLjM2LTQuNDItMjAwLjI1LTU2LjI3LTIwMC4yNS0xMjAuMjZ2LTQuOTZjMC02MS4yMywzNi45Ni0xMjUuMjMsMjIzLjQyLTEyNS4yM2gzOC4wN2MxOTQuMTgsMCwyMzguMzEsNjcuODYsMjM4LjMxLDEyOS42NXY1LjUxaC0xMzMuNWMtMi4yMS0xNS45OS0xMS41OS00OS4wOS0xMTguNjEtNDkuMDloLTguODNjLTk5LjI5LDAtMTA2LjQ3LDE4LjItMTA2LjQ3LDM1LjMxczEwLjQ4LDM0LjIsOTQuODksMzUuMzFsNjguOTUsMS4wOWMxNTQuNDYsMy4zMSwyMTYuNzksNDAuMjgsMjE2Ljc5LDEyMS45MnY3LjczYzAsNjcuODQtMzQuMiwxMzcuMzUtMjQwLjUyLDEzNy4zNWgtMzguMDZjLTIxNS4xNCwwLTIzOS45Ny05Mi42Ny0yMzkuOTctMTQ2LjczWiIvPgogICAgICAgIDxwYXRoIGNsYXNzPSJjbHMtMSIgZD0iTTI3MDguOTIsMTIwLjgxaDEyMS45MXY1MC43NWMxNC45LTE0LjM0LDU4LjQ4LTU3LjM3LDE0Ny4yOS01Ny4zN2gzLjg2YzEwMy4xNiwwLDE0NC41Myw1OC40OCwxNDQuNTMsMTE1Ljg1djE4Ny41NWgtMTI0LjEydi0xNDYuNzNjMC00NS4yNC0yNS4zNy03My45Mi03OS40NC03My45MnMtOTEuMDIsMzEuOTktOTEuMDIsODAuNTN2MTQwLjEyaC0xMjMuMDJWMTIwLjgxWiIvPgogICAgICAgIDxwYXRoIGNsYXNzPSJjbHMtMSIgZD0iTTMzMDguMTQsNDIzLjEyaC03LjE3Yy05OS4zLDAtMTM3LjkyLTQ2LjMzLTEzNy45Mi05Ny4xdi0zLjg2YzAtNTQuNjEsMzUuODYtODAuNTMsMTI0LjY3LTg4LjgxbDEzNS43MS0xMi42OWMxMy43OS0xLjEsMTguNzYtNi4wNywxOC43Ni0xNS40NCwwLTExLjA0LTUuNTItMjQuMjgtNzcuMjQtMjQuMjhoLTIuNzVjLTczLjM3LDAtNzYuNjgsMjMuMTctNzcuNzksMzMuMWgtMTE0LjE5di0xLjFjMC0zOS4xNiwxMS41OS0xMDAuMzksMTc3LjA4LTEwMC4zOWgzMC4zNGMxNzIuMTEsMCwxODMuMTQsNTIuOTYsMTgzLjE0LDk1Ljk5djExMy42M2MwLDguODMsMy4zMSwxNC45LDE1LjQ0LDE0LjloMTZ2ODAuNTNoLTk5Ljg1Yy0yMy4xNywwLTQyLjQ4LTEzLjI0LTQ2Ljg5LTQwLjgxLTEzLjc5LDE1LjQ0LTQ5LjY1LDQ2LjMzLTEzNy4zNiw0Ni4zM1pNMzQ0Mi4xOSwyNzYuMzhsLTExNy41LDE4LjIxYy0zMS40NSw0Ljk2LTQ0LjY4LDExLjAzLTQ0LjY4LDI3LjU4di41NmMwLDE1Ljk5LDEyLjE0LDMzLjY0LDU0LjA2LDMzLjY0LDY2LjE5LDAsMTA4LjEyLTM1LjMxLDEwOC4xMi03MC42MXYtOS4zOFoiLz4KICAgICAgICA8cGF0aCBjbGFzcz0iY2xzLTEiIGQ9Ik0zNzM5LjY5LDEyMC44MXY0Mi40OGMxMi42OS0xMS41OSw2MC42OC00OS42NSwxNTAuNi00OS42NWg5LjkzYzEzNC42LDAsMTc5LjI5LDY3LjMsMTc5LjI5LDE0OC45NXYxMC40N2MwLDc3Ljc5LTQ2Ljg5LDE1MS43LTE4My4xNCwxNTEuN2gtOC44M2MtODguODEsMC0xMzcuMzYtMzguMDYtMTQ3Ljg1LTQ5LjA5djE0NS42MmgtMTIzLjAyVjEyMC44MWgxMjMuMDJaTTM3MzkuNjksMjY5LjIxYzAsMzYuOTcsMzQuMiw3Ny4yNCwxMDkuNzgsNzcuMjRoMi43NmM3OS45OCwwLDEwMS41LTQxLjM3LDEwMS41LTc3LjI0di0yLjIxYzAtMzguNjItMjEuNTItNzYuNjgtMTAxLjUtNzYuNjhoLTIuNzZjLTc2LjY4LDAtMTA5Ljc4LDM4LjA2LTEwOS43OCw3Ni42OHYyLjIxWiIvPgogICAgICA8L2c+CiAgICAgIDxjaXJjbGUgY2xhc3M9ImNscy0xIiBjeD0iMjE1LjU4IiBjeT0iMjE1LjYiIHI9IjIxNS41OCIvPgogICAgPC9nPgogIDwvZz4KPC9zdmc+" alt="Realsnap" class="nav-logo-img"></div>
+    <button class="drawer-close" onclick="closeDrawer()">✕</button>
+  </div>
+  <div class="drawer-links">
+    <div class="dl-parent">Studio</div>
+    <div class="dl-sub">
+      <div class="dl-sub-item" onclick="window.open('https://realsnap.ai/en/snap','_blank')">Snap</div>
+      <div class="dl-sub-item" onclick="window.open('https://realsnap.ai/en/drop','_blank')">Drop</div>
+      <div class="dl-sub-item" onclick="window.open('https://realsnap.ai/en/edit','_blank')">Edit</div>
+      <div class="dl-sub-item" onclick="window.open('https://realsnap.ai/en/tutorials','_blank')">Tutorials</div>
+    </div>
+    <div class="dl" onclick="window.location.href='magazine.html'">Magazine</div>
+    <div class="dl" onclick="window.location.href='pricing.html'">Pricing</div>
+  </div>
+  <div class="drawer-btns">
+    <button class="drawer-btn-g">Book a demo</button>
+    <button class="drawer-btn-r">Get started</button>
+  </div>
+</div>
+
+<nav class="nav">
+  <div class="nav-logo" onclick="window.scrollTo({top:0,behavior:\'smooth\'})"><img src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz4KPHN2ZyBpZD0iTGF5ZXJfMiIgZGF0YS1uYW1lPSJMYXllciAyIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA0MDc5LjUgNTIxLjMiPgogIDxkZWZzPgogICAgPHN0eWxlPgogICAgICAuY2xzLTEgewogICAgICAgIGZpbGw6ICMxYTE0MTI7CiAgICAgIH0KICAgIDwvc3R5bGU+CiAgPC9kZWZzPgogIDxnIGlkPSJMYXllcl8xLTIiIGRhdGEtbmFtZT0iTGF5ZXIgMSI+CiAgICA8Zz4KICAgICAgPGc+CiAgICAgICAgPHBhdGggY2xhc3M9ImNscy0xIiBkPSJNNjM5LjEsNDE3LjZoLTEyOC41M1Y3LjE4aDMzMC45OGMxMzYuODEsMCwxNzguMTgsNDcuNDQsMTc4LjE4LDEwNi40NnY2LjYyYzAsNTguNDYtNDkuMDksODEuNjQtNzYuMTIsODkuOTEsNDEuOTIsMTEuMDMsNzcuNzgsNDEuOTMsNzcuNzgsOTQuMzN2NjAuMTNjMCwzMy4xLDQuNDEsNDMuNTgsNy43Miw1MC4ydjIuNzVoLTEzMC43NGMtMy44Ni00Ljk2LTYuMDctMTEuNTktNi4wNy0yNS45M3YtNDcuNDRjMC01MC4yLTIyLjA2LTcyLjI2LTg1LjUtNzIuMjZoLTE2Ny43djE0NS42MlpNNjM5LjEsMTgwLjk0aDE5NC43M2MzNi40MSwwLDUxLjg1LTE3LjY1LDUxLjg1LTQwLjI3di0uNTZjMC0yMS41MS0xNC4zNC0zOS43MS01MS44NS0zOS43MWgtMTk0LjczdjgwLjUzWiIvPgogICAgICAgIDxwYXRoIGNsYXNzPSJjbHMtMSIgZD0iTTEyOTMuMTYsNDI1Ljg3aC0zMS40NWMtMTU4LjMyLDAtMjA5LjA3LTczLjkyLTIwOS4wNy0xNTEuN3YtMTIuMTNjMC03Ni4xMyw0NS4yNC0xNDkuNDksMjA1Ljc2LTE0OS40OWgzMy42NmMxNzMuNzcsMCwyMDYuMzEsODcuNzIsMjA2LjMxLDE1OS45OHYyMC40MWgtMzI0LjkyYzcuMTcsMzQuNzYsMzYuOTYsNTcuOTMsMTA0LjgxLDU3LjkzaC41NWM4MS42NCwwLDk0Ljg4LTMwLjM0LDk2LjU0LTM4LjA3aDEyMS4zN3YuNTZjMCw0MC4yNy0yNi40OSwxMTIuNTMtMjAzLjU2LDExMi41M1pNMTE3NS42NiwyMzEuNjloMTk4LjU5Yy03LjcyLTMxLjQzLTM3LjUxLTUwLjE5LTk5LjI5LTUwLjE5aC0uNTVjLTYxLjc4LDAtODkuMzcsMTguNzYtOTguNzUsNTAuMTlaIi8+CiAgICAgICAgPHBhdGggY2xhc3M9ImNscy0xIiBkPSJNMTY2Ni43Nyw0MjMuMTJoLTcuMTdjLTk5LjMsMC0xMzcuOTItNDYuMzMtMTM3LjkyLTk3LjF2LTMuODZjMC01NC42MSwzNS44Ni04MC41MywxMjQuNjctODguODFsMTM1LjcxLTEyLjY5YzEzLjc5LTEuMSwxOC43Ni02LjA3LDE4Ljc2LTE1LjQ0LDAtMTEuMDQtNS41Mi0yNC4yOC03Ny4yNC0yNC4yOGgtMi43NWMtNzMuMzcsMC03Ni42OCwyMy4xNy03Ny43OSwzMy4xaC0xMTQuMTl2LTEuMWMwLTM5LjE2LDExLjU5LTEwMC4zOSwxNzcuMDgtMTAwLjM5aDMwLjM0YzE3Mi4xMSwwLDE4My4xNCw1Mi45NiwxODMuMTQsOTUuOTl2MTEzLjYzYzAsOC44MywzLjMxLDE0LjksMTUuNDQsMTQuOWgxNnY4MC41M2gtOTkuODVjLTIzLjE3LDAtNDIuNDgtMTMuMjQtNDYuODktNDAuODEtMTMuNzksMTUuNDQtNDkuNjUsNDYuMzMtMTM3LjM2LDQ2LjMzWk0xODAwLjgyLDI3Ni4zOGwtMTE3LjUsMTguMjFjLTMxLjQ1LDQuOTYtNDQuNjgsMTEuMDMtNDQuNjgsMjcuNTh2LjU2YzAsMTUuOTksMTIuMTQsMzMuNjQsNTQuMDYsMzMuNjQsNjYuMTksMCwxMDguMTItMzUuMzEsMTA4LjEyLTcwLjYxdi05LjM4WiIvPgogICAgICAgIDxwYXRoIGNsYXNzPSJjbHMtMSIgZD0iTTIxMDkuMTEsNDE3LjZoLTEyMy4wMlY3LjE4aDEyMy4wMnY0MTAuNDFaIi8+CiAgICAgICAgPHBhdGggY2xhc3M9ImNscy0xIiBkPSJNMjE0Ny45OCwyNzguMDR2LTYuMDdoMTM0LjA1YzEuNjYsMjQuMjYsMTYsNjUuMDksMTIxLjkxLDY1LjA5aDcuNzJjMTA4LjEyLDAsMTIwLjI2LTIxLjUxLDEyMC4yNi00My41OCwwLTIzLjcyLTEyLjY4LTM5LjE2LTEwNy41Ni00MS4zN2wtNzAuNjEtMS42NmMtMTUzLjM2LTQuNDItMjAwLjI1LTU2LjI3LTIwMC4yNS0xMjAuMjZ2LTQuOTZjMC02MS4yMywzNi45Ni0xMjUuMjMsMjIzLjQyLTEyNS4yM2gzOC4wN2MxOTQuMTgsMCwyMzguMzEsNjcuODYsMjM4LjMxLDEyOS42NXY1LjUxaC0xMzMuNWMtMi4yMS0xNS45OS0xMS41OS00OS4wOS0xMTguNjEtNDkuMDloLTguODNjLTk5LjI5LDAtMTA2LjQ3LDE4LjItMTA2LjQ3LDM1LjMxczEwLjQ4LDM0LjIsOTQuODksMzUuMzFsNjguOTUsMS4wOWMxNTQuNDYsMy4zMSwyMTYuNzksNDAuMjgsMjE2Ljc5LDEyMS45MnY3LjczYzAsNjcuODQtMzQuMiwxMzcuMzUtMjQwLjUyLDEzNy4zNWgtMzguMDZjLTIxNS4xNCwwLTIzOS45Ny05Mi42Ny0yMzkuOTctMTQ2LjczWiIvPgogICAgICAgIDxwYXRoIGNsYXNzPSJjbHMtMSIgZD0iTTI3MDguOTIsMTIwLjgxaDEyMS45MXY1MC43NWMxNC45LTE0LjM0LDU4LjQ4LTU3LjM3LDE0Ny4yOS01Ny4zN2gzLjg2YzEwMy4xNiwwLDE0NC41Myw1OC40OCwxNDQuNTMsMTE1Ljg1djE4Ny41NWgtMTI0LjEydi0xNDYuNzNjMC00NS4yNC0yNS4zNy03My45Mi03OS40NC03My45MnMtOTEuMDIsMzEuOTktOTEuMDIsODAuNTN2MTQwLjEyaC0xMjMuMDJWMTIwLjgxWiIvPgogICAgICAgIDxwYXRoIGNsYXNzPSJjbHMtMSIgZD0iTTMzMDguMTQsNDIzLjEyaC03LjE3Yy05OS4zLDAtMTM3LjkyLTQ2LjMzLTEzNy45Mi05Ny4xdi0zLjg2YzAtNTQuNjEsMzUuODYtODAuNTMsMTI0LjY3LTg4LjgxbDEzNS43MS0xMi42OWMxMy43OS0xLjEsMTguNzYtNi4wNywxOC43Ni0xNS40NCwwLTExLjA0LTUuNTItMjQuMjgtNzcuMjQtMjQuMjhoLTIuNzVjLTczLjM3LDAtNzYuNjgsMjMuMTctNzcuNzksMzMuMWgtMTE0LjE5di0xLjFjMC0zOS4xNiwxMS41OS0xMDAuMzksMTc3LjA4LTEwMC4zOWgzMC4zNGMxNzIuMTEsMCwxODMuMTQsNTIuOTYsMTgzLjE0LDk1Ljk5djExMy42M2MwLDguODMsMy4zMSwxNC45LDE1LjQ0LDE0LjloMTZ2ODAuNTNoLTk5Ljg1Yy0yMy4xNywwLTQyLjQ4LTEzLjI0LTQ2Ljg5LTQwLjgxLTEzLjc5LDE1LjQ0LTQ5LjY1LDQ2LjMzLTEzNy4zNiw0Ni4zM1pNMzQ0Mi4xOSwyNzYuMzhsLTExNy41LDE4LjIxYy0zMS40NSw0Ljk2LTQ0LjY4LDExLjAzLTQ0LjY4LDI3LjU4di41NmMwLDE1Ljk5LDEyLjE0LDMzLjY0LDU0LjA2LDMzLjY0LDY2LjE5LDAsMTA4LjEyLTM1LjMxLDEwOC4xMi03MC42MXYtOS4zOFoiLz4KICAgICAgICA8cGF0aCBjbGFzcz0iY2xzLTEiIGQ9Ik0zNzM5LjY5LDEyMC44MXY0Mi40OGMxMi42OS0xMS41OSw2MC42OC00OS42NSwxNTAuNi00OS42NWg5LjkzYzEzNC42LDAsMTc5LjI5LDY3LjMsMTc5LjI5LDE0OC45NXYxMC40N2MwLDc3Ljc5LTQ2Ljg5LDE1MS43LTE4My4xNCwxNTEuN2gtOC44M2MtODguODEsMC0xMzcuMzYtMzguMDYtMTQ3Ljg1LTQ5LjA5djE0NS42MmgtMTIzLjAyVjEyMC44MWgxMjMuMDJaTTM3MzkuNjksMjY5LjIxYzAsMzYuOTcsMzQuMiw3Ny4yNCwxMDkuNzgsNzcuMjRoMi43NmM3OS45OCwwLDEwMS41LTQxLjM3LDEwMS41LTc3LjI0di0yLjIxYzAtMzguNjItMjEuNTItNzYuNjgtMTAxLjUtNzYuNjhoLTIuNzZjLTc2LjY4LDAtMTA5Ljc4LDM4LjA2LTEwOS43OCw3Ni42OHYyLjIxWiIvPgogICAgICA8L2c+CiAgICAgIDxjaXJjbGUgY2xhc3M9ImNscy0xIiBjeD0iMjE1LjU4IiBjeT0iMjE1LjYiIHI9IjIxNS41OCIvPgogICAgPC9nPgogIDwvZz4KPC9zdmc+" alt="Realsnap" class="nav-logo-img"></div>
+  <ul class="nav-links">
+    <!-- STUDIO dropdown -->
+    <li class="nl has-dropdown">Studio
+      <div class="dropdown">
+
+        <a class="dropdown-item" href="https://realsnap.ai/en/snap" target="_blank" style="text-decoration:none">
+          <div class="dropdown-item-text">
+            <div class="dropdown-item-label">Snap</div>
+            <div class="dropdown-item-desc">Model shots / Lookbook</div>
+          </div>
+        </a>
+        <a class="dropdown-item" href="https://realsnap.ai/en/drop" target="_blank" style="text-decoration:none">
+          <div class="dropdown-item-text">
+            <div class="dropdown-item-label">Drop</div>
+            <div class="dropdown-item-desc">Campaign videos / Reels</div>
+          </div>
+        </a>
+        <a class="dropdown-item" href="https://realsnap.ai/en/edit" target="_blank" style="text-decoration:none">
+          <div class="dropdown-item-text">
+            <div class="dropdown-item-label">Edit</div>
+            <div class="dropdown-item-desc">Bulk crop / Centering</div>
+          </div>
+        </a>
+        <div class="dropdown-divider"></div>
+        <div class="dropdown-item">
+          <div class="dropdown-item-text">
+            <div class="dropdown-item-label">Tutorials</div>
+            
+          </div>
+        </div>
+
+      </div>
+    </li>
+
+    <!-- GALLERY dropdown -->
+    <li class="nl active" onclick="window.location.href='magazine.html'" style="cursor:pointer">Magazine</li>
+
+    <!-- PRICING (no dropdown) -->
+    <li class="nl" onclick="window.location.href='pricing.html'" style="cursor:pointer">Pricing</li>
+
+  </ul>
+  <div class="nav-r">
+    <button class="btn-login" onclick="window.open('https://realsnap.ai/auth/signIn','_blank')">Log in</button>
+    
+    <button class="btn-start" onclick="window.open('https://realsnap.ai/auth/signIn','_blank')">Get started</button>
+    <button class="nav-hamburger" onclick="openDrawer()"><span></span><span></span><span></span></button>
+  </div>
+</nav>
+
+<!-- Scroll Pill Nav -->
+<div id="floatLogo" onclick="window.location.href='index.html'">Realsnap</div>
+<div style="position:fixed;top:20px;left:50%;transform:translateX(-50%);z-index:999;opacity:0;transition:opacity 0.4s ease;pointer-events:none" id="pillWrapper"><div class="pill-nav" id="pillNav" style="position:static;top:auto;left:auto;transform:none;opacity:1;pointer-events:auto;z-index:auto">
+  <ul class="pill-nav-links">
+    <li class="pill-studio-wrap">
+      <span class="pill-nl">STUDIO<span class="pill-nl-arrow">▾</span></span>
+      <div class="pill-studio-dd">
+        <a class="pill-dd-item" href="https://realsnap.ai/en/snap" target="_blank" style="text-decoration:none">
+          <div class="pill-dd-item-text">
+            <div class="pill-dd-item-label">Snap</div>
+            <div class="pill-dd-item-desc">Model shots / Lookbook</div>
+          </div>
+        </a>
+        <a class="pill-dd-item" href="https://realsnap.ai/en/drop" target="_blank" style="text-decoration:none">
+          <div class="pill-dd-item-text">
+            <div class="pill-dd-item-label">Drop</div>
+            <div class="pill-dd-item-desc">Campaign videos / Reels</div>
+          </div>
+        </a>
+        <a class="pill-dd-item" href="https://realsnap.ai/en/edit" target="_blank" style="text-decoration:none">
+          <div class="pill-dd-item-text">
+            <div class="pill-dd-item-label">Edit</div>
+            <div class="pill-dd-item-desc">Bulk crop / Centering</div>
+          </div>
+        </a>
+        <div style="height:0.5px;background:rgba(20,20,20,0.06);margin:4px 20px;"></div>
+        <a class="pill-dd-item" href="https://realsnap.ai/en/tutorials" target="_blank" style="text-decoration:none">
+          <div class="pill-dd-item-text">
+            <div class="pill-dd-item-label">Tutorials</div>
+          </div>
+        </a>
+      </div>
+    </li>
+    <li class="pill-nl" onclick="window.location.href='magazine.html'">Magazine</li>
+    <li class="pill-nl" onclick="window.location.href='pricing.html'">Pricing</li>
+  </ul>
+  <span class="pill-logo" onclick="window.location.href='index.html'"><img src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz4KPHN2ZyBpZD0iTGF5ZXJfMiIgZGF0YS1uYW1lPSJMYXllciAyIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA0MDc5LjUgNTIxLjMiPgogIDxkZWZzPgogICAgPHN0eWxlPgogICAgICAuY2xzLTEgewogICAgICAgIGZpbGw6ICMxYTE0MTI7CiAgICAgIH0KICAgIDwvc3R5bGU+CiAgPC9kZWZzPgogIDxnIGlkPSJMYXllcl8xLTIiIGRhdGEtbmFtZT0iTGF5ZXIgMSI+CiAgICA8Zz4KICAgICAgPGc+CiAgICAgICAgPHBhdGggY2xhc3M9ImNscy0xIiBkPSJNNjM5LjEsNDE3LjZoLTEyOC41M1Y3LjE4aDMzMC45OGMxMzYuODEsMCwxNzguMTgsNDcuNDQsMTc4LjE4LDEwNi40NnY2LjYyYzAsNTguNDYtNDkuMDksODEuNjQtNzYuMTIsODkuOTEsNDEuOTIsMTEuMDMsNzcuNzgsNDEuOTMsNzcuNzgsOTQuMzN2NjAuMTNjMCwzMy4xLDQuNDEsNDMuNTgsNy43Miw1MC4ydjIuNzVoLTEzMC43NGMtMy44Ni00Ljk2LTYuMDctMTEuNTktNi4wNy0yNS45M3YtNDcuNDRjMC01MC4yLTIyLjA2LTcyLjI2LTg1LjUtNzIuMjZoLTE2Ny43djE0NS42MlpNNjM5LjEsMTgwLjk0aDE5NC43M2MzNi40MSwwLDUxLjg1LTE3LjY1LDUxLjg1LTQwLjI3di0uNTZjMC0yMS41MS0xNC4zNC0zOS43MS01MS44NS0zOS43MWgtMTk0LjczdjgwLjUzWiIvPgogICAgICAgIDxwYXRoIGNsYXNzPSJjbHMtMSIgZD0iTTEyOTMuMTYsNDI1Ljg3aC0zMS40NWMtMTU4LjMyLDAtMjA5LjA3LTczLjkyLTIwOS4wNy0xNTEuN3YtMTIuMTNjMC03Ni4xMyw0NS4yNC0xNDkuNDksMjA1Ljc2LTE0OS40OWgzMy42NmMxNzMuNzcsMCwyMDYuMzEsODcuNzIsMjA2LjMxLDE1OS45OHYyMC40MWgtMzI0LjkyYzcuMTcsMzQuNzYsMzYuOTYsNTcuOTMsMTA0LjgxLDU3LjkzaC41NWM4MS42NCwwLDk0Ljg4LTMwLjM0LDk2LjU0LTM4LjA3aDEyMS4zN3YuNTZjMCw0MC4yNy0yNi40OSwxMTIuNTMtMjAzLjU2LDExMi41M1pNMTE3NS42NiwyMzEuNjloMTk4LjU5Yy03LjcyLTMxLjQzLTM3LjUxLTUwLjE5LTk5LjI5LTUwLjE5aC0uNTVjLTYxLjc4LDAtODkuMzcsMTguNzYtOTguNzUsNTAuMTlaIi8+CiAgICAgICAgPHBhdGggY2xhc3M9ImNscy0xIiBkPSJNMTY2Ni43Nyw0MjMuMTJoLTcuMTdjLTk5LjMsMC0xMzcuOTItNDYuMzMtMTM3LjkyLTk3LjF2LTMuODZjMC01NC42MSwzNS44Ni04MC41MywxMjQuNjctODguODFsMTM1LjcxLTEyLjY5YzEzLjc5LTEuMSwxOC43Ni02LjA3LDE4Ljc2LTE1LjQ0LDAtMTEuMDQtNS41Mi0yNC4yOC03Ny4yNC0yNC4yOGgtMi43NWMtNzMuMzcsMC03Ni42OCwyMy4xNy03Ny43OSwzMy4xaC0xMTQuMTl2LTEuMWMwLTM5LjE2LDExLjU5LTEwMC4zOSwxNzcuMDgtMTAwLjM5aDMwLjM0YzE3Mi4xMSwwLDE4My4xNCw1Mi45NiwxODMuMTQsOTUuOTl2MTEzLjYzYzAsOC44MywzLjMxLDE0LjksMTUuNDQsMTQuOWgxNnY4MC41M2gtOTkuODVjLTIzLjE3LDAtNDIuNDgtMTMuMjQtNDYuODktNDAuODEtMTMuNzksMTUuNDQtNDkuNjUsNDYuMzMtMTM3LjM2LDQ2LjMzWk0xODAwLjgyLDI3Ni4zOGwtMTE3LjUsMTguMjFjLTMxLjQ1LDQuOTYtNDQuNjgsMTEuMDMtNDQuNjgsMjcuNTh2LjU2YzAsMTUuOTksMTIuMTQsMzMuNjQsNTQuMDYsMzMuNjQsNjYuMTksMCwxMDguMTItMzUuMzEsMTA4LjEyLTcwLjYxdi05LjM4WiIvPgogICAgICAgIDxwYXRoIGNsYXNzPSJjbHMtMSIgZD0iTTIxMDkuMTEsNDE3LjZoLTEyMy4wMlY3LjE4aDEyMy4wMnY0MTAuNDFaIi8+CiAgICAgICAgPHBhdGggY2xhc3M9ImNscy0xIiBkPSJNMjE0Ny45OCwyNzguMDR2LTYuMDdoMTM0LjA1YzEuNjYsMjQuMjYsMTYsNjUuMDksMTIxLjkxLDY1LjA5aDcuNzJjMTA4LjEyLDAsMTIwLjI2LTIxLjUxLDEyMC4yNi00My41OCwwLTIzLjcyLTEyLjY4LTM5LjE2LTEwNy41Ni00MS4zN2wtNzAuNjEtMS42NmMtMTUzLjM2LTQuNDItMjAwLjI1LTU2LjI3LTIwMC4yNS0xMjAuMjZ2LTQuOTZjMC02MS4yMywzNi45Ni0xMjUuMjMsMjIzLjQyLTEyNS4yM2gzOC4wN2MxOTQuMTgsMCwyMzguMzEsNjcuODYsMjM4LjMxLDEyOS42NXY1LjUxaC0xMzMuNWMtMi4yMS0xNS45OS0xMS41OS00OS4wOS0xMTguNjEtNDkuMDloLTguODNjLTk5LjI5LDAtMTA2LjQ3LDE4LjItMTA2LjQ3LDM1LjMxczEwLjQ4LDM0LjIsOTQuODksMzUuMzFsNjguOTUsMS4wOWMxNTQuNDYsMy4zMSwyMTYuNzksNDAuMjgsMjE2Ljc5LDEyMS45MnY3LjczYzAsNjcuODQtMzQuMiwxMzcuMzUtMjQwLjUyLDEzNy4zNWgtMzguMDZjLTIxNS4xNCwwLTIzOS45Ny05Mi42Ny0yMzkuOTctMTQ2LjczWiIvPgogICAgICAgIDxwYXRoIGNsYXNzPSJjbHMtMSIgZD0iTTI3MDguOTIsMTIwLjgxaDEyMS45MXY1MC43NWMxNC45LTE0LjM0LDU4LjQ4LTU3LjM3LDE0Ny4yOS01Ny4zN2gzLjg2YzEwMy4xNiwwLDE0NC41Myw1OC40OCwxNDQuNTMsMTE1Ljg1djE4Ny41NWgtMTI0LjEydi0xNDYuNzNjMC00NS4yNC0yNS4zNy03My45Mi03OS40NC03My45MnMtOTEuMDIsMzEuOTktOTEuMDIsODAuNTN2MTQwLjEyaC0xMjMuMDJWMTIwLjgxWiIvPgogICAgICAgIDxwYXRoIGNsYXNzPSJjbHMtMSIgZD0iTTMzMDguMTQsNDIzLjEyaC03LjE3Yy05OS4zLDAtMTM3LjkyLTQ2LjMzLTEzNy45Mi05Ny4xdi0zLjg2YzAtNTQuNjEsMzUuODYtODAuNTMsMTI0LjY3LTg4LjgxbDEzNS43MS0xMi42OWMxMy43OS0xLjEsMTguNzYtNi4wNywxOC43Ni0xNS40NCwwLTExLjA0LTUuNTItMjQuMjgtNzcuMjQtMjQuMjhoLTIuNzVjLTczLjM3LDAtNzYuNjgsMjMuMTctNzcuNzksMzMuMWgtMTE0LjE5di0xLjFjMC0zOS4xNiwxMS41OS0xMDAuMzksMTc3LjA4LTEwMC4zOWgzMC4zNGMxNzIuMTEsMCwxODMuMTQsNTIuOTYsMTgzLjE0LDk1Ljk5djExMy42M2MwLDguODMsMy4zMSwxNC45LDE1LjQ0LDE0LjloMTZ2ODAuNTNoLTk5Ljg1Yy0yMy4xNywwLTQyLjQ4LTEzLjI0LTQ2Ljg5LTQwLjgxLTEzLjc5LDE1LjQ0LTQ5LjY1LDQ2LjMzLTEzNy4zNiw0Ni4zM1pNMzQ0Mi4xOSwyNzYuMzhsLTExNy41LDE4LjIxYy0zMS40NSw0Ljk2LTQ0LjY4LDExLjAzLTQ0LjY4LDI3LjU4di41NmMwLDE1Ljk5LDEyLjE0LDMzLjY0LDU0LjA2LDMzLjY0LDY2LjE5LDAsMTA4LjEyLTM1LjMxLDEwOC4xMi03MC42MXYtOS4zOFoiLz4KICAgICAgICA8cGF0aCBjbGFzcz0iY2xzLTEiIGQ9Ik0zNzM5LjY5LDEyMC44MXY0Mi40OGMxMi42OS0xMS41OSw2MC42OC00OS42NSwxNTAuNi00OS42NWg5LjkzYzEzNC42LDAsMTc5LjI5LDY3LjMsMTc5LjI5LDE0OC45NXYxMC40N2MwLDc3Ljc5LTQ2Ljg5LDE1MS43LTE4My4xNCwxNTEuN2gtOC44M2MtODguODEsMC0xMzcuMzYtMzguMDYtMTQ3Ljg1LTQ5LjA5djE0NS42MmgtMTIzLjAyVjEyMC44MWgxMjMuMDJaTTM3MzkuNjksMjY5LjIxYzAsMzYuOTcsMzQuMiw3Ny4yNCwxMDkuNzgsNzcuMjRoMi43NmM3OS45OCwwLDEwMS41LTQxLjM3LDEwMS41LTc3LjI0di0yLjIxYzAtMzguNjItMjEuNTItNzYuNjgtMTAxLjUtNzYuNjhoLTIuNzZjLTc2LjY4LDAtMTA5Ljc4LDM4LjA2LTEwOS43OCw3Ni42OHYyLjIxWiIvPgogICAgICA8L2c+CiAgICAgIDxjaXJjbGUgY2xhc3M9ImNscy0xIiBjeD0iMjE1LjU4IiBjeT0iMjE1LjYiIHI9IjIxNS41OCIvPgogICAgPC9nPgogIDwvZz4KPC9zdmc+" alt="Realsnap" class="pill-logo-img"></span>
+  <div class="pill-actions">
+    <button class="pill-login" onclick="window.open('https://realsnap.ai/auth/signIn','_blank')">Log in</button>
+    <button class="pill-btn" onclick="window.open('https://realsnap.ai/auth/signIn','_blank')">Get started</button>
+  </div>
+</div>
+</div>
+</div>
+<div class="mag-bottom-wrap">
+
+<section class="article-hero">
+  <img src="https://res.cloudinary.com/dnc5d6fvj/image/upload/v1785940127/Screenshot_2026-08-05_at_11.02.12_PM_o7j1xr.png" alt="Single Surv">
+  <div class="article-hero-overlay">
+    <div class="article-hero-inner">
+    <div class="article-eyebrow">Feature</div>
+    <h1 class="article-title">SINGLE SURV</h1>
+    <div class="article-dek">A backstage dispatch from Berlin Fashion Week — on candid photography, borrowed access, and the models who only exist behind the flash.</div>
+    <div class="article-meta"><span>Vol. 03</span><span>Editorial</span><span>9 min read</span></div>
+    <div class="article-byline"><span>Written by [Author Name]</span><span>Photography Generated with RealSnap</span></div>
+    </div>
+  </div>
+</section>
+
+<article class="article-body">
+  <p class="article-lede">"Who are you with?" "Single Surv." A short answer is a hard one to check. Outside a show venue during Berlin Fashion Week, that's the whole of what I'd prepared to say.</p>
+
+  <p class="article-p">No agency, no name, no host to point to — none of it was needed. Wear black, carry a camera, walk fast, and most people don't push the question further. Before a show starts, everyone is carrying a problem more urgent than mine. Still, just in case, I'd tucked a pass bought secondhand into my jacket. The service door at the back of the building was propped half open. I slipped in with a knot of crew returning from a smoke break.</p>
+
+  <p class="article-p">Black cable lay tangled across the floor. Unopened water and a rack of hangers were stacked along one side of the hallway. Old brick and peeling plaster, dust-caked curtains, temporary lighting rigged above them. The music came through the wall less as rhythm than as vibration. Instead of showing a pass, I held the camera up against my chest. A camera is sometimes more convincing than an ID.</p>
+
+  <p class="article-p">What is backstage, exactly? Literally, the space behind the stage — but at a fashion show it's neither fully private nor fully public. While models change, touch up makeup, and wait their turn, the house photographer and the brand's content team are recording all of it without pause. Backstage photography is one more image in the show's construction: arranged to look less arranged than the runway, chosen to look accidental.</p>
+
+  <p class="article-p">So what separates a photo taken secretly from a photo that only looks that way? Is it whether the subject knew the camera was there? Whether the photographer had permission? Or does a picture become private simply by the visual evidence of it — a focus slightly missed, a frame cropped wrong, a flash that overexposes skin?</p>
+
+  <p class="article-p">My camera rarely came up to eye level. I kept it near my waist and pressed the shutter, and a good part of every frame held something I hadn't meant to look at. A shoulder blocked the view; instead of a model's face, the shoes kicked off under a chair came in sharp. A hard flash lifted one person out of the dark and buried everyone behind them back into it. The more evidence there was of a shot gone wrong, the more, oddly, it read as something to believe.</p>
+
+  <p class="article-p">The German photographer Erich Salomon spent the late 1920s photographing politicians and public figures with a small Ermanox camera hidden in a hat or a bag. The people he caught weren't facing the lens the way they did in official portraits. They yawned mid-meeting, traded jokes with the person next to them, slumped in their chairs. In 1929, the phrase "candid camera" entered use to describe what he was doing. Salomon's photographs showed that an ordinary person still existed behind the images power had officially approved.</p>
+
+  <p class="article-p">Nearly a hundred years later, I hid a camera in Berlin too. But the models I photographed didn't have an ordinary person waiting behind the official face to be discovered. I wasn't finding a private moment — I was manufacturing a human being by photographing one.</p>
+
+  <p class="article-p">One model in a black leather jacket leaned against the wall waiting for her cue. Weight on one leg, looking past the frame with a face that seemed to care about nothing in it. Reviewing the photo, I decided she was tired from the day. Maybe she hadn't slept well the night before, maybe she was faintly annoyed that a model who'd arrived after her had been called first. I never spoke to her. She never had a last night, or a this morning. But once a single tired posture existed, a whole day that would have produced it followed naturally behind it.</p>
+</article>
+
+<div class="article-pullquote">
+  <div class="article-pullquote-text">"I wasn't finding a private moment. I was manufacturing one."</div>
+</div>
+
+<div class="article-image-break">
+  <img src="https://res.cloudinary.com/dnc5d6fvj/image/upload/v1785939180/Frame_7_vfh4ty.png" alt="Grace R backstage">
+</div>
+<div class="article-image-caption">
+  <div class="row"><span class="k">Look</span><span class="v">ArdAzAei FW26 Couture</span></div>
+  <div class="row"><span class="k">Model</span><span class="v">Grace R</span></div>
+  <div class="row"><span class="k">Mood</span><span class="v">Sand-toned, backstage flash</span></div>
+</div>
+
+<article class="article-body">
+  <p class="article-p">Grace R backstage before the (fictional) ArdAzAei Fall 2026 Couture show. A sculptural sand-toned gown meets the hard immediacy of direct flash.</p>
+
+  <p class="article-p">The fashion we remember always lives on the runway. But the time fashion is actually alive in runs behind that — after the show ends, still moving, still breathing, preparing the next story. We went backstage to meet RealSnap's model, Grace R. By the time the camera found her, she was already ready.</p>
+
+  <p class="article-p">Between a pale sage wall and a dark doorway, she stood still in a sand-colored gown. The look Grace wears is built around a pale, sand-beige palette — warm, dry tones that recall dried leaves, folded paper, aged ivory carving, while radiating pleats repeat both the surface of a natural material and the trace of exacting craft.</p>
+
+  <p class="article-p">The bodice is a strapless corset shape fitted to the body; folds that follow the curve of the chest gather sharply toward the center of the waist. Structured panels around the hip extend like a peplum, redesigning the body's real proportions into exaggerated form. Below, a midi-length skirt carries dense pleating and soft volume. Pointed-toe neutral pumps stay out of the dress's way, closing the silhouette long and quiet.</p>
+</article>
+
+<div class="article-image-break">
+  <img src="https://res.cloudinary.com/dnc5d6fvj/image/upload/v1785939180/Frame_7_vfh4ty.png" alt="Hana Lane backstage">
+</div>
+<div class="article-image-caption">
+  <div class="row"><span class="k">Look</span><span class="v">Prada SS26 Womenswear</span></div>
+  <div class="row"><span class="k">Model</span><span class="v">Hana Lane</span></div>
+  <div class="row"><span class="k">Mood</span><span class="v">Velvet sofa, direct flash</span></div>
+</div>
+
+<article class="article-body">
+  <p class="article-qa"><div class="article-qa-q">How would you describe the look you're wearing today?</div><div class="article-qa-a">It's a look built from a lot of classic pieces. The white collar and trim feel familiar, but the color and silhouette keep it from ever reading as dated. I liked wearing something where a tidy mood and a showier detail sit together without fighting.</div></p>
+
+  <p class="article-qa"><div class="article-qa-q">What detail do you like most?</div><div class="article-qa-a">The color combination. Turquoise blue, burgundy, white, pink — they're all different, but they balance. Up close, the beading and finishing are done with a lot of care too.</div></p>
+
+  <p class="article-p">Hana Lane, photographed backstage between runway calls. Direct flash catches a rare pause — where couture meets the quiet rhythm of ordinary life.</p>
+
+  <p class="article-p">Stretched out along a deep-burgundy velvet sofa, phone in one hand, gaze drifting somewhere off camera. A hard flash from the front picks out her skin and silhouette clearly, but her attention isn't on the lens — it's on whatever's on the other end of the call. Her Prada Spring/Summer 2026 look reinterprets a classic preppy code in a modern register: a structured charcoal top with a crisp white collar and jeweled trim carries a restrained elegance, while the bright turquoise skirt brings the whole space to life.</p>
+</article>
+
+<div class="article-image-break">
+  <img src="https://res.cloudinary.com/dnc5d6fvj/image/upload/v1785939180/Frame_7_vfh4ty.png" alt="Yuto H backstage">
+</div>
+<div class="article-image-caption">
+  <div class="row"><span class="k">Look</span><span class="v">Prada SS26 Womenswear</span></div>
+  <div class="row"><span class="k">Model</span><span class="v">Yuto H</span></div>
+  <div class="row"><span class="k">Mood</span><span class="v">Quiet pause, backstage</span></div>
+</div>
+
+<article class="article-body">
+  <p class="article-p">Backstage, moments before the runway. Between garment bags, casting boards and passing crew, a quiet pause becomes the strongest image of the night.</p>
+</article>
+
+<div class="article-image-break">
+  <img src="https://res.cloudinary.com/dnc5d6fvj/image/upload/v1785939180/Frame_7_vfh4ty.png" alt="Zoe N backstage">
+</div>
+<div class="article-image-caption">
+  <div class="row"><span class="k">Look</span><span class="v">ArdAzAei FW26 Couture</span></div>
+  <div class="row"><span class="k">Model</span><span class="v">Zoe N</span></div>
+  <div class="row"><span class="k">Mood</span><span class="v">Black tulle, blue floral</span></div>
+</div>
+
+<article class="article-body">
+  <p class="article-qa"><div class="article-qa-q">What kind of moment was this?</div><div class="article-qa-a">It was right before the show started. I was sitting down when a staff member handed me a card. Nothing special was happening, but looking at the photo, that brief moment ended up staying with me.</div></p>
+
+  <p class="article-qa"><div class="article-qa-q">How would you describe the look you're wearing today?</div><div class="article-qa-a">It's a look with dimensional floral detail layered over light, sheer fabric. Up close it's intricate; from a distance, color comes through first. I liked that both impressions exist at once.</div></p>
+
+  <p class="article-qa"><div class="article-qa-q">What's your favorite part of it?</div><div class="article-qa-a">The blue flowers set against black tulle. The shape of the flowers shifts slightly with every movement, so even in a photo it keeps its sense of depth.</div></p>
+
+  <p class="article-p">Zoe N, moments before the lights dim. One outstretched hand, one flash, and a quiet pause before the show begins.</p>
+</article>
+
+<div class="article-image-duo">
+  <img src="https://res.cloudinary.com/dnc5d6fvj/image/upload/v1785939180/Frame_7_vfh4ty.png" alt="Backstage, dirt mound">
+  <img src="https://res.cloudinary.com/dnc5d6fvj/image/upload/v1785939180/Frame_7_vfh4ty.png" alt="Backstage, dirt mound close">
+</div>
+
+<article class="article-body">
+  <p class="article-p"><strong>Emma, who spoke to me first</strong></p>
+
+  <p class="article-p">"That's last season's pass, isn't it."</p>
+</article>
+
+<div class="article-image-break">
+  <img src="https://res.cloudinary.com/dnc5d6fvj/image/upload/v1785939180/Frame_7_vfh4ty.png" alt="Emma T backstage">
+</div>
+<div class="article-image-caption">
+  <div class="row"><span class="k">Look</span><span class="v">Prada SS26 Womenswear</span></div>
+  <div class="row"><span class="k">Model</span><span class="v">Emma T</span></div>
+  <div class="row"><span class="k">Mood</span><span class="v">Candid, backstage exchange</span></div>
+</div>
+
+<article class="article-body">
+
+  <p class="article-p">The first person to spot my fake credential wasn't security — it was the model wearing Look 28 from Prada Spring/Summer 2026. When I turned my pass face-down, she offered something of her own in return: she wasn't part of the official cast, but a standby, brought in in case someone dropped out. She'd been waiting since before dawn and had already been through fitting, but the original model showed up right before the show. In a few minutes she'd have to change back out of the clothes and leave, and a model who never actually walks the runway doesn't stay on the casting list.</p>
+
+  <p class="article-p">Before I could answer, she tried to cover the lens with her palm and the flash went off anyway. Looking at the screen, she first told me to delete it, then changed her mind. She studied the half-obscured photo for a while and said, "Just send it to me. Today's the only proof I ever wore this." In exchange, she said she'd forget she'd ever clocked my pass. What was left was one awkward photograph, caught between an uninvited guest and an unofficial model.</p>
+
+  <p class="article-p">Prada described this collection as built on the idea that clothing's meaning isn't fixed — it shifts depending on what it's placed next to. A red shirt and a black leather jacket read like a uniform; short bottoms and pointed shoes read like a sharp going-out look. The same woman who wore them was a model on the stairs and a guard in front of me, and once she let my fake pass slide, an accomplice after that. Maybe it's because she wore several roles at once in one night. She never made it onto the stage, yet of everyone I met that night, she was the one who understood the show's rules most precisely.</p>
+</article>
+
+<div class="article-image-break">
+  <img src="https://res.cloudinary.com/dnc5d6fvj/image/upload/v1785939180/Frame_7_vfh4ty.png" alt="Mia Hayes backstage">
+</div>
+<div class="article-image-caption">
+  <div class="row"><span class="k">Look</span><span class="v">ArdAzAei FW26 Couture</span></div>
+  <div class="row"><span class="k">Model</span><span class="v">Mia Hayes</span></div>
+  <div class="row"><span class="k">Mood</span><span class="v">Between runway calls</span></div>
+</div>
+
+<article class="article-body">
+  <p class="article-p">Between runway calls, heels come off before the next look goes on. Under the harsh flash, backstage reveals fashion at its most human.</p>
+
+  <p class="article-p">Knees pulled in, sitting on the floor, a model looks down. The black pumps she's stepped out of sit lined up just in front of her feet, while the legs and bare feet of crew passing by cut endlessly across the frame. A direct flash from the front records the moment without softening it. Unlike the fully composed image of the runway, what's left here is fatigue, waiting, and the stretch of time spent listening for the next call.</p>
+</article>
+
+<div class="article-pullquote">
+  <div class="article-pullquote-text">"The paparazzo came first for the already famous. This time, the order flipped."</div>
+</div>
+
+<article class="article-body">
+  <p class="article-p"><strong>Mia Y</strong></p>
+
+  <p class="article-p">In Federico Fellini's 1960 film La Dolce Vita, a photographer named Paparazzo appears, relentlessly trailing celebrities. That fictional figure is where today's actual job title — "paparazzi" — comes from. A name invented for someone who didn't exist came to describe a real way of shooting.</p>
+
+  <p class="article-p">A paparazzo, strictly, chases someone already famous. But the order can run the other way too. Someone is photographed leaving a hotel unannounced, a tired expression or a mid-call moment ends up in a story, and we start to assume there's a life off-camera — a schedule, relationships, a day they'd rather not have shown. A paparazzi photograph proves a public figure has a private life, while simultaneously manufacturing the idea that this is a person whose private life is worth wanting to know.</p>
+
+  <p class="article-p">The models who appear in this magazine had no morning before the camera arrived, no one on the other end of a call, no hotel to return to once the show ended. There was no privacy here that was actually violated. And yet one of them explained her own clothes, another waited to be called, someone handed over a business card, someone else covered the lens with her hand. The sense that something more exists behind a hidden face started, ironically, from that very palm held up to block it. The photographs didn't show us a private life — but they left the impression that one exists somewhere out of frame.</p>
+
+  <p class="article-p">If Erich Salomon's candid camera found the ordinary human that already existed behind an official portrait, these photographs move in the opposite direction. The face comes first; the hours of waiting, refusing, and growing tired get attached afterward. Search any of these names now and the show they were backstage at, the look they wore, a short interview and a few sightings all come up together. The photographs can't prove these people existed. They just make it steadily harder to say they didn't.</p>
+
+  <p class="article-p">A paparazzo, by definition, chases someone already famous. Tonight, the order was reversed. The photograph that could be chased came first — and only afterward did someone worth chasing appear behind it.</p>
+</article>
+
+<div class="article-cta">
+  <div class="article-cta-divider">
+    <span class="line"></span>
+    <span class="label">Try it yourself</span>
+    <span class="line"></span>
+  </div>
+  <div class="article-cta-text">Every backstage moment in this issue started from a single frame. Generate your own cast, your own story, in RealSnap.</div>
+  <button class="article-cta-btn" onclick="window.open('https://realsnap.ai/en/snap','_blank')">Open RealSnap</button>
+</div>
+
+<section class="related-section">
+  <div class="related-heading">More from Editorial</div>
+  <div class="related-grid">
+    <a class="related-item" href="magazine_128.html">
+      <div class="related-frame"><img src="https://res.cloudinary.com/dnc5d6fvj/image/upload/v1785939180/Frame_7_vfh4ty.png" alt="Look 01"></div>
+      <div class="related-caption">
+        <div class="row"><span class="k">Look</span><span class="v">01</span></div>
+        <div class="row"><span class="k">Model</span><span class="v">Ava</span></div>
+        <div class="row"><span class="k">Mood</span><span class="v">Sunlit street style</span></div>
+      </div>
+    </a>
+    <a class="related-item" href="magazine_128.html">
+      <div class="related-frame"><img src="https://res.cloudinary.com/dnc5d6fvj/image/upload/v1785939180/Frame_7_vfh4ty.png" alt="Look 02"></div>
+      <div class="related-caption">
+        <div class="row"><span class="k">Look</span><span class="v">02</span></div>
+        <div class="row"><span class="k">Model</span><span class="v">Mira</span></div>
+        <div class="row"><span class="k">Mood</span><span class="v">Subway platform, seated</span></div>
+      </div>
+    </a>
+  </div>
+</section>
+
+</div>
+
+<footer class="footer">
+  <div class="footer-copy">© 2026 RealSnap Inc. All rights reserved.</div>
+  <div class="footer-links">
+    <a class="footer-link" href="https://realsnap.ai/terms">Terms of Service</a>
+    <a class="footer-link" href="https://realsnap.ai/privacy">Privacy Policy</a>
+    <a class="footer-link" href="https://realsnap.ai/cookie-policy">Cookie Policy</a>
+  </div>
+</footer>
+
+<script>
+function openDrawer(){document.getElementById('drawer').classList.add('open');document.body.style.overflow='hidden';}
+function closeDrawer(){document.getElementById('drawer').classList.remove('open');document.body.style.overflow='';}
+
+/* SCROLL PILL NAV — past a small scroll threshold, the full nav hides and the
+   centered pill nav takes over; scrolling back near the top restores the full nav. */
+(function(){
+  const mainNav = document.querySelector('.nav');
+  const pillWrapper = document.getElementById('pillWrapper');
+  if(!mainNav || !pillWrapper) return;
+  const THRESHOLD = 80;
+  let ticking = false;
+  function update(){
+    ticking = false;
+    if(window.scrollY > THRESHOLD){
+      mainNav.classList.add('nav-hidden');
+      pillWrapper.style.opacity = '1';
+      pillWrapper.style.pointerEvents = 'auto';
+    } else {
+      mainNav.classList.remove('nav-hidden');
+      pillWrapper.style.opacity = '0';
+      pillWrapper.style.pointerEvents = 'none';
+    }
+  }
+  window.addEventListener('scroll', () => {
+    if(!ticking){ requestAnimationFrame(update); ticking = true; }
+  }, {passive:true});
+  window.addEventListener('resize', update);
+  update();
+})();
+</script>
+</body>
+</html>
