@@ -175,29 +175,35 @@ html{height:100%}body{background:#FFFFFF;color:var(--w);font-family:var(--T);min
   margin:0 auto;
   padding:72px 24px 40px;
 }
-.article-lede{font-family:var(--T);font-size:19px;line-height:1.3;font-weight:400;color:var(--w);margin-bottom:32px;}
+.article-lede{font-family:var(--T);font-size:18px;line-height:1.3;font-weight:800;color:var(--w);margin-bottom:32px;}
 .article-p{font-family:var(--T);font-size:14px;line-height:1.8;font-weight:400;color:#3a3a37;margin-bottom:24px;}
 .article-p:last-child{margin-bottom:0;}
 
 .article-pullquote{
   max-width:660px;
-  margin:12px auto 48px;
-  padding:4px 24px;
+  margin:32px auto 32px;
+  padding:0 24px;
   box-sizing:border-box;
 }
-.article-pullquote-text{font-family:var(--T);font-weight:400;font-size:17px;line-height:1.07;letter-spacing:normal;color:var(--w);}
+.article-pullquote-text{font-family:var(--T);font-weight:800;font-size:18px;line-height:1.3;letter-spacing:normal;color:var(--w);}
 
-.article-image-break{width:100%;background:#EFEFEC;margin:56px 0;}
+.article-image-break{width:100%;background:#EFEFEC;margin:56px 0 0;}
 .article-image-duo{display:grid;grid-template-columns:1fr 1fr;gap:16px;max-width:1800px;margin:56px auto;padding:0 24px;box-sizing:border-box;}
+.article-image-duo-col{display:flex;flex-direction:column;}
+.article-image-duo-col .article-image-caption{max-width:none;margin:14px 0 0;padding:0;}
 .article-image-duo img{width:100%;height:auto;display:block;filter:grayscale(.1);}
 .article-image-break img{width:100%;height:auto;display:block;filter:grayscale(.1);}
 .article-image-caption{
-  max-width:660px;margin:0 auto;padding:14px 24px 0;
+  max-width:660px;margin:14px auto 0;padding:0 24px;
   display:flex;flex-direction:column;gap:1px;
 }
 .article-image-caption .row{display:flex;justify-content:space-between;gap:10px;font-size:12px;line-height:1.05;font-family:var(--T);}
 .article-image-caption .k{color:rgba(20,20,20,.4);}
 .article-image-caption .v{color:var(--w);font-weight:400;text-align:right;}
+.article-image-caption-text{
+  max-width:660px;margin:14px auto 0;padding:0 24px;
+  font-family:var(--T);font-size:12.5px;line-height:1.5;color:rgba(20,20,20,.5);
+}
 
 .article-qa{margin:0 0 24px;}
 .article-qa-q{display:block;font-family:var(--T);font-size:14px;font-weight:700;color:var(--w);margin-bottom:10px;}
@@ -214,8 +220,8 @@ html{height:100%}body{background:#FFFFFF;color:var(--w);font-family:var(--T);min
 .article-cta-divider .line{flex:1;height:1px;background:rgba(20,20,20,.15);}
 .article-cta-divider .label{font-family:var(--T);font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;color:rgba(20,20,20,.45);white-space:nowrap;}
 .article-cta-text{font-family:var(--T);font-size:14px;color:var(--body);max-width:420px;}
-.article-cta-btn{padding:11px 24px;background:none;color:var(--w);border:1px solid rgba(20,20,20,.25);font-size:13px;font-family:var(--T);font-weight:400;cursor:pointer;border-radius:32px;white-space:nowrap;transition:border-color .15s,color .15s;}
-.article-cta-btn:hover{border-color:var(--w);}
+.article-cta-btn{padding:11px 24px;background:#141414;color:#fff;border:1px solid #141414;font-size:13px;font-family:var(--T);font-weight:400;cursor:pointer;border-radius:32px;white-space:nowrap;transition:opacity .15s;}
+.article-cta-btn:hover{opacity:.85;}
 
 .related-section{max-width:1400px;margin:0 auto;padding:88px 48px 64px;border-top:1px solid rgba(20,20,20,.1);margin-top:64px;}
 .related-heading{font-family:var(--T);font-weight:700;font-size:22px;letter-spacing:-0.01em;color:var(--w);margin-bottom:32px;}
@@ -224,19 +230,18 @@ html{height:100%}body{background:#FFFFFF;color:var(--w);font-family:var(--T);min
 .related-frame{overflow:hidden;position:relative;background:#EFEFEC;}
 .related-frame img{width:100%;height:auto;display:block;filter:grayscale(.15);transition:transform .5s cubic-bezier(.2,.7,.2,1),filter .4s;}
 .related-item:hover .related-frame img{transform:scale(1.03);filter:grayscale(0) brightness(.9);}
-.related-caption{padding:10px 2px;display:flex;flex-direction:column;gap:1px;}
-.related-caption .row{display:flex;justify-content:space-between;gap:10px;font-size:11px;line-height:1.05;font-family:var(--T);}
-.related-caption .k{color:rgba(0,0,0,.4);flex-shrink:0;}
-.related-caption .v{color:#1a1412;font-weight:400;text-align:right;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+.related-caption{padding:10px 2px;display:flex;flex-direction:column;gap:2px;}
+.related-caption .title{font-family:var(--T);font-weight:700;font-size:13px;line-height:1.1;color:#1a1412;}
+.related-caption .category{font-family:var(--T);font-size:13px;font-weight:400;line-height:1.1;color:rgba(0,0,0,.5);}
 
 @media(max-width:767px){
   .article-hero{height:64vh;min-height:420px;}
   .article-hero-overlay{padding:28px 20px;}
   .article-meta{flex-wrap:wrap;}
   .article-body{padding:48px 20px 8px;}
-  .article-lede{font-size:17px;}
-  .article-pullquote{margin:8px 20px 40px;}
+  .article-pullquote{margin:24px auto 32px;padding:0 20px;}
   .article-image-caption{padding:14px 20px 0;}
+  .article-image-caption-text{padding:14px 20px 0;}
   .article-image-duo{grid-template-columns:1fr;gap:12px;margin:40px auto;padding:0 20px;}
   .article-cta{padding:0 20px;}
   .related-section{padding:56px 20px 48px;}
@@ -452,11 +457,7 @@ html{height:100%}body{background:#FFFFFF;color:var(--w);font-family:var(--T);min
 <div class="article-image-break">
   <img src="https://res.cloudinary.com/dnc5d6fvj/image/upload/v1785940127/Screenshot_2026-08-05_at_11.02.12_PM_o7j1xr.png" alt="Yuto H backstage">
 </div>
-<div class="article-image-caption">
-  <div class="row"><span class="k">Look</span><span class="v">Prada SS26 Womenswear</span></div>
-  <div class="row"><span class="k">Model</span><span class="v">Yuto H</span></div>
-  <div class="row"><span class="k">Mood</span><span class="v">Quiet pause, backstage</span></div>
-</div>
+<div class="article-image-caption-text">Yuto H backstage between runway calls, Prada Spring/Summer 2026 — a quiet pause caught mid-motion.</div>
 
 <article class="article-body">
   <p class="article-p">Backstage, moments before the runway. Between garment bags, casting boards and passing crew, a quiet pause becomes the strongest image of the night.</p>
@@ -482,8 +483,22 @@ html{height:100%}body{background:#FFFFFF;color:var(--w);font-family:var(--T);min
 </article>
 
 <div class="article-image-duo">
-  <img src="https://res.cloudinary.com/dnc5d6fvj/image/upload/v1785939180/Frame_7_vfh4ty.png" alt="Backstage, dirt mound">
-  <img src="https://res.cloudinary.com/dnc5d6fvj/image/upload/v1785939180/Frame_7_vfh4ty.png" alt="Backstage, dirt mound close">
+  <div class="article-image-duo-col">
+    <img src="https://res.cloudinary.com/dnc5d6fvj/image/upload/v1785939180/Frame_7_vfh4ty.png" alt="Backstage, dirt mound">
+    <div class="article-image-caption">
+      <div class="row"><span class="k">Look</span><span class="v">ArdAzAei FW26 Couture</span></div>
+      <div class="row"><span class="k">Model</span><span class="v">Backstage</span></div>
+      <div class="row"><span class="k">Mood</span><span class="v">Dirt mound, wide</span></div>
+    </div>
+  </div>
+  <div class="article-image-duo-col">
+    <img src="https://res.cloudinary.com/dnc5d6fvj/image/upload/v1785939180/Frame_7_vfh4ty.png" alt="Backstage, dirt mound close">
+    <div class="article-image-caption">
+      <div class="row"><span class="k">Look</span><span class="v">ArdAzAei FW26 Couture</span></div>
+      <div class="row"><span class="k">Model</span><span class="v">Backstage</span></div>
+      <div class="row"><span class="k">Mood</span><span class="v">Dirt mound, close</span></div>
+    </div>
+  </div>
 </div>
 
 <article class="article-body">
@@ -546,8 +561,6 @@ html{height:100%}body{background:#FFFFFF;color:var(--w);font-family:var(--T);min
 <div class="article-cta">
   <div class="article-cta-divider">
     <span class="line"></span>
-    <span class="label">Try it yourself</span>
-    <span class="line"></span>
   </div>
   <div class="article-cta-text">Every backstage moment in this issue started from a single frame. Generate your own cast, your own story, in RealSnap.</div>
   <button class="article-cta-btn" onclick="window.open('https://realsnap.ai/en/snap','_blank')">Open RealSnap</button>
@@ -559,17 +572,15 @@ html{height:100%}body{background:#FFFFFF;color:var(--w);font-family:var(--T);min
     <a class="related-item" href="magazine_128.html">
       <div class="related-frame"><img src="https://res.cloudinary.com/dnc5d6fvj/image/upload/v1785940127/Screenshot_2026-08-05_at_11.02.12_PM_o7j1xr.png" alt="Look 01"></div>
       <div class="related-caption">
-        <div class="row"><span class="k">Look</span><span class="v">01</span></div>
-        <div class="row"><span class="k">Model</span><span class="v">Ava</span></div>
-        <div class="row"><span class="k">Mood</span><span class="v">Sunlit street style</span></div>
+        <div class="title">Sunlit Street Style</div>
+        <div class="category">Magazine</div>
       </div>
     </a>
     <a class="related-item" href="magazine_128.html">
       <div class="related-frame"><img src="https://res.cloudinary.com/dnc5d6fvj/image/upload/v1785940127/Screenshot_2026-08-05_at_11.02.12_PM_o7j1xr.png" alt="Look 02"></div>
       <div class="related-caption">
-        <div class="row"><span class="k">Look</span><span class="v">02</span></div>
-        <div class="row"><span class="k">Model</span><span class="v">Mira</span></div>
-        <div class="row"><span class="k">Mood</span><span class="v">Subway platform, seated</span></div>
+        <div class="title">Subway Platform, Seated</div>
+        <div class="category">Magazine</div>
       </div>
     </a>
   </div>
