@@ -191,6 +191,8 @@ html{height:100%}body{background:#FFFFFF;color:var(--w);font-family:var(--T);min
 .article-image-duo{display:grid;grid-template-columns:1fr 1fr;gap:16px;max-width:1800px;margin:56px auto;padding:0 24px;box-sizing:border-box;}
 .article-image-duo-col{display:flex;flex-direction:column;}
 .article-image-duo-col .article-image-caption{max-width:none;margin:14px 0 0;padding:0;}
+.article-image-duo-col .article-ref-row{max-width:none;margin:28px 0 0;padding:0 0 0 24px;}
+.article-image-duo-col .article-ref-row::before{left:0;}
 .article-image-duo img{width:100%;height:auto;display:block;filter:grayscale(.1);}
 .article-image-break img{width:100%;height:auto;display:block;filter:grayscale(.1);}
 .article-image-caption{
@@ -200,6 +202,14 @@ html{height:100%}body{background:#FFFFFF;color:var(--w);font-family:var(--T);min
 .article-image-caption .row{display:flex;justify-content:space-between;gap:10px;font-size:12px;line-height:1.05;font-family:var(--T);}
 .article-image-caption .k{color:rgba(20,20,20,.4);}
 .article-image-caption .v{color:var(--w);font-weight:400;text-align:right;}
+.article-ref-row{position:relative;display:flex;flex-direction:column;gap:12px;max-width:660px;margin:28px auto 0;padding:0 24px 0 48px;box-sizing:border-box;}
+.article-ref-row::before{content:"";position:absolute;left:24px;top:0;bottom:0;width:1px;background:rgba(20,20,20,.12);}
+.article-ref{flex:0 0 auto;display:flex;flex-direction:row;align-items:flex-end;gap:12px;}
+.article-ref-frame{width:64px;flex:0 0 auto;aspect-ratio:3/4;overflow:hidden;background:#EFEFEC;}
+.article-ref-frame img{width:100%;height:100%;object-fit:cover;display:block;filter:grayscale(.1);}
+.article-ref-label{margin-top:0;font-family:var(--T);}
+.article-ref-label .k{display:block;font-size:12px;letter-spacing:.02em;color:rgba(20,20,20,.45);margin-bottom:1.3px;}
+.article-ref-label .v{display:block;font-size:12px;font-weight:500;color:var(--w);line-height:1.3;}
 .article-image-caption-text{
   max-width:660px;margin:14px auto 0;padding:0 24px;
   font-family:var(--T);font-size:12.5px;line-height:1.5;color:rgba(20,20,20,.5);
@@ -242,6 +252,7 @@ html{height:100%}body{background:#FFFFFF;color:var(--w);font-family:var(--T);min
   .article-pullquote{margin:24px auto 32px;padding:0 20px;}
   .article-image-caption{padding:14px 20px 0;}
   .article-image-caption-text{padding:14px 20px 0;}
+  .article-ref-row{padding:0 20px 0 32px;gap:8px;}
   .article-image-duo{grid-template-columns:1fr;gap:12px;margin:40px auto;padding:0 20px;}
   .article-cta{padding:0 20px;}
   .related-section{padding:56px 20px 48px;}
@@ -419,10 +430,19 @@ html{height:100%}body{background:#FFFFFF;color:var(--w);font-family:var(--T);min
 <div class="article-image-break">
   <img src="https://res.cloudinary.com/dnc5d6fvj/image/upload/v1785940127/Screenshot_2026-08-05_at_11.02.12_PM_o7j1xr.png" alt="Grace R backstage">
 </div>
-<div class="article-image-caption">
-  <div class="row"><span class="k">Look</span><span class="v">ArdAzAei FW26 Couture</span></div>
-  <div class="row"><span class="k">Model</span><span class="v">Grace R</span></div>
-  <div class="row"><span class="k">Mood</span><span class="v">Sand-toned, backstage flash</span></div>
+<div class="article-ref-row">
+  <div class="article-ref">
+    <div class="article-ref-frame"><img src="https://res.cloudinary.com/dnc5d6fvj/image/upload/v1785940127/Screenshot_2026-08-05_at_11.02.12_PM_o7j1xr.png" alt="Model"></div>
+    <div class="article-ref-label"><span class="k">Model</span><span class="v">Grace R</span></div>
+  </div>
+  <div class="article-ref">
+    <div class="article-ref-frame"><img src="https://res.cloudinary.com/dnc5d6fvj/image/upload/v1785940127/Screenshot_2026-08-05_at_11.02.12_PM_o7j1xr.png" alt="Look"></div>
+    <div class="article-ref-label"><span class="k">Look</span><span class="v">ArdAzAei FW26 Couture</span></div>
+  </div>
+  <div class="article-ref">
+    <div class="article-ref-frame"><img src="https://res.cloudinary.com/dnc5d6fvj/image/upload/v1785940127/Screenshot_2026-08-05_at_11.02.12_PM_o7j1xr.png" alt="Mood"></div>
+    <div class="article-ref-label"><span class="k">Mood</span><span class="v">Sand-toned, backstage flash</span></div>
+  </div>
 </div>
 
 <article class="article-body">
@@ -438,10 +458,19 @@ html{height:100%}body{background:#FFFFFF;color:var(--w);font-family:var(--T);min
 <div class="article-image-break">
   <img src="https://res.cloudinary.com/dnc5d6fvj/image/upload/v1785940127/Screenshot_2026-08-05_at_11.02.12_PM_o7j1xr.png" alt="Hana Lane backstage">
 </div>
-<div class="article-image-caption">
-  <div class="row"><span class="k">Look</span><span class="v">Prada SS26 Womenswear</span></div>
-  <div class="row"><span class="k">Model</span><span class="v">Hana Lane</span></div>
-  <div class="row"><span class="k">Mood</span><span class="v">Velvet sofa, direct flash</span></div>
+<div class="article-ref-row">
+  <div class="article-ref">
+    <div class="article-ref-frame"><img src="https://res.cloudinary.com/dnc5d6fvj/image/upload/v1785940127/Screenshot_2026-08-05_at_11.02.12_PM_o7j1xr.png" alt="Model"></div>
+    <div class="article-ref-label"><span class="k">Model</span><span class="v">Hana Lane</span></div>
+  </div>
+  <div class="article-ref">
+    <div class="article-ref-frame"><img src="https://res.cloudinary.com/dnc5d6fvj/image/upload/v1785940127/Screenshot_2026-08-05_at_11.02.12_PM_o7j1xr.png" alt="Look"></div>
+    <div class="article-ref-label"><span class="k">Look</span><span class="v">Prada SS26 Womenswear</span></div>
+  </div>
+  <div class="article-ref">
+    <div class="article-ref-frame"><img src="https://res.cloudinary.com/dnc5d6fvj/image/upload/v1785940127/Screenshot_2026-08-05_at_11.02.12_PM_o7j1xr.png" alt="Mood"></div>
+    <div class="article-ref-label"><span class="k">Mood</span><span class="v">Velvet sofa, direct flash</span></div>
+  </div>
 </div>
 
 <article class="article-body">
@@ -466,10 +495,19 @@ html{height:100%}body{background:#FFFFFF;color:var(--w);font-family:var(--T);min
 <div class="article-image-break">
   <img src="https://res.cloudinary.com/dnc5d6fvj/image/upload/v1785940127/Screenshot_2026-08-05_at_11.02.12_PM_o7j1xr.png" alt="Zoe N backstage">
 </div>
-<div class="article-image-caption">
-  <div class="row"><span class="k">Look</span><span class="v">ArdAzAei FW26 Couture</span></div>
-  <div class="row"><span class="k">Model</span><span class="v">Zoe N</span></div>
-  <div class="row"><span class="k">Mood</span><span class="v">Black tulle, blue floral</span></div>
+<div class="article-ref-row">
+  <div class="article-ref">
+    <div class="article-ref-frame"><img src="https://res.cloudinary.com/dnc5d6fvj/image/upload/v1785940127/Screenshot_2026-08-05_at_11.02.12_PM_o7j1xr.png" alt="Model"></div>
+    <div class="article-ref-label"><span class="k">Model</span><span class="v">Zoe N</span></div>
+  </div>
+  <div class="article-ref">
+    <div class="article-ref-frame"><img src="https://res.cloudinary.com/dnc5d6fvj/image/upload/v1785940127/Screenshot_2026-08-05_at_11.02.12_PM_o7j1xr.png" alt="Look"></div>
+    <div class="article-ref-label"><span class="k">Look</span><span class="v">ArdAzAei FW26 Couture</span></div>
+  </div>
+  <div class="article-ref">
+    <div class="article-ref-frame"><img src="https://res.cloudinary.com/dnc5d6fvj/image/upload/v1785940127/Screenshot_2026-08-05_at_11.02.12_PM_o7j1xr.png" alt="Mood"></div>
+    <div class="article-ref-label"><span class="k">Mood</span><span class="v">Black tulle, blue floral</span></div>
+  </div>
 </div>
 
 <article class="article-body">
@@ -484,20 +522,10 @@ html{height:100%}body{background:#FFFFFF;color:var(--w);font-family:var(--T);min
 
 <div class="article-image-duo">
   <div class="article-image-duo-col">
-    <img src="https://res.cloudinary.com/dnc5d6fvj/image/upload/v1785939180/Frame_7_vfh4ty.png" alt="Backstage, dirt mound">
-    <div class="article-image-caption">
-      <div class="row"><span class="k">Look</span><span class="v">ArdAzAei FW26 Couture</span></div>
-      <div class="row"><span class="k">Model</span><span class="v">Backstage</span></div>
-      <div class="row"><span class="k">Mood</span><span class="v">Dirt mound, wide</span></div>
-    </div>
+    <img src="https://res.cloudinary.com/dnc5d6fvj/image/upload/v1785940127/Screenshot_2026-08-05_at_11.02.12_PM_o7j1xr.png" alt="Backstage, dirt mound">
   </div>
   <div class="article-image-duo-col">
-    <img src="https://res.cloudinary.com/dnc5d6fvj/image/upload/v1785939180/Frame_7_vfh4ty.png" alt="Backstage, dirt mound close">
-    <div class="article-image-caption">
-      <div class="row"><span class="k">Look</span><span class="v">ArdAzAei FW26 Couture</span></div>
-      <div class="row"><span class="k">Model</span><span class="v">Backstage</span></div>
-      <div class="row"><span class="k">Mood</span><span class="v">Dirt mound, close</span></div>
-    </div>
+    <img src="https://res.cloudinary.com/dnc5d6fvj/image/upload/v1785940127/Screenshot_2026-08-05_at_11.02.12_PM_o7j1xr.png" alt="Backstage, dirt mound close">
   </div>
 </div>
 
@@ -510,10 +538,19 @@ html{height:100%}body{background:#FFFFFF;color:var(--w);font-family:var(--T);min
 <div class="article-image-break">
   <img src="https://res.cloudinary.com/dnc5d6fvj/image/upload/v1785940127/Screenshot_2026-08-05_at_11.02.12_PM_o7j1xr.png" alt="Emma T backstage">
 </div>
-<div class="article-image-caption">
-  <div class="row"><span class="k">Look</span><span class="v">Prada SS26 Womenswear</span></div>
-  <div class="row"><span class="k">Model</span><span class="v">Emma T</span></div>
-  <div class="row"><span class="k">Mood</span><span class="v">Candid, backstage exchange</span></div>
+<div class="article-ref-row">
+  <div class="article-ref">
+    <div class="article-ref-frame"><img src="https://res.cloudinary.com/dnc5d6fvj/image/upload/v1785940127/Screenshot_2026-08-05_at_11.02.12_PM_o7j1xr.png" alt="Model"></div>
+    <div class="article-ref-label"><span class="k">Model</span><span class="v">Emma T</span></div>
+  </div>
+  <div class="article-ref">
+    <div class="article-ref-frame"><img src="https://res.cloudinary.com/dnc5d6fvj/image/upload/v1785940127/Screenshot_2026-08-05_at_11.02.12_PM_o7j1xr.png" alt="Look"></div>
+    <div class="article-ref-label"><span class="k">Look</span><span class="v">Prada SS26 Womenswear</span></div>
+  </div>
+  <div class="article-ref">
+    <div class="article-ref-frame"><img src="https://res.cloudinary.com/dnc5d6fvj/image/upload/v1785940127/Screenshot_2026-08-05_at_11.02.12_PM_o7j1xr.png" alt="Mood"></div>
+    <div class="article-ref-label"><span class="k">Mood</span><span class="v">Candid, backstage exchange</span></div>
+  </div>
 </div>
 
 <article class="article-body">
@@ -528,10 +565,19 @@ html{height:100%}body{background:#FFFFFF;color:var(--w);font-family:var(--T);min
 <div class="article-image-break">
   <img src="https://res.cloudinary.com/dnc5d6fvj/image/upload/v1785940127/Screenshot_2026-08-05_at_11.02.12_PM_o7j1xr.png" alt="Mia Hayes backstage">
 </div>
-<div class="article-image-caption">
-  <div class="row"><span class="k">Look</span><span class="v">ArdAzAei FW26 Couture</span></div>
-  <div class="row"><span class="k">Model</span><span class="v">Mia Hayes</span></div>
-  <div class="row"><span class="k">Mood</span><span class="v">Between runway calls</span></div>
+<div class="article-ref-row">
+  <div class="article-ref">
+    <div class="article-ref-frame"><img src="https://res.cloudinary.com/dnc5d6fvj/image/upload/v1785940127/Screenshot_2026-08-05_at_11.02.12_PM_o7j1xr.png" alt="Model"></div>
+    <div class="article-ref-label"><span class="k">Model</span><span class="v">Mia Hayes</span></div>
+  </div>
+  <div class="article-ref">
+    <div class="article-ref-frame"><img src="https://res.cloudinary.com/dnc5d6fvj/image/upload/v1785940127/Screenshot_2026-08-05_at_11.02.12_PM_o7j1xr.png" alt="Look"></div>
+    <div class="article-ref-label"><span class="k">Look</span><span class="v">ArdAzAei FW26 Couture</span></div>
+  </div>
+  <div class="article-ref">
+    <div class="article-ref-frame"><img src="https://res.cloudinary.com/dnc5d6fvj/image/upload/v1785940127/Screenshot_2026-08-05_at_11.02.12_PM_o7j1xr.png" alt="Mood"></div>
+    <div class="article-ref-label"><span class="k">Mood</span><span class="v">Between runway calls</span></div>
+  </div>
 </div>
 
 <article class="article-body">
